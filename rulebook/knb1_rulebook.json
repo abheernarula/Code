@@ -1,0 +1,84 @@
+{
+    "rules": [
+        {
+            "column": "Customer",
+            "rule": "not_null",
+            "message": "'Customer Id' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Customer",
+            "rule": "numeric",
+            "message": "'Customer Id' should only contain numeric values",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Company Code",
+            "rule": "numeric",
+            "message": "'Company Code' should only contain numeric values",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Company Code",
+            "rule": "validation-company-code",
+            "message": "'Company Code' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Reconciliation acct",
+            "rule": "not_null",
+            "message": "'Reconciliation acct' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Reconciliation acct",
+            "rule": "numeric",
+            "message": "'Reconciliation acct' should only contain numeric values",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Reconciliation acct",
+            "rule": "validation-gl-code",
+            "ref": "Company Code",
+            "message": "'Reconciliation acct' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Terms of Payment",
+            "rule": "not_null",
+            "message": "'Terms of Payment' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Terms of Payment",
+            "rule": "alpha-numeric",
+            "message": "'Terms of Payment' should only contain alpha-numeric values",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Terms of Payment",
+            "rule": "regex",
+            "expression": "^[A-Za-z]{2}\\d{2}$",
+            "message": "'Terms of Payment' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Created by",
+            "rule": "not_null",
+            "message": "'Created by' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Created on",
+            "rule": "not_null",
+            "message": "'Created on' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Created on",
+            "rule": "validation-date",
+            "message": "'Created on' should be in a standard format",
+            "rule_category": "Validation"
+        }
+    ]
+}

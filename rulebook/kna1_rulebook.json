@@ -1,0 +1,281 @@
+{
+    "rules": [
+        {
+            "column": "Customer",
+            "rule": "not_null",
+            "message": "'Customer Id' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Customer",
+            "rule": "unique",
+            "message": "'Customer Id' should be unique",
+            "rule_category": "Uniqueness"
+        },
+        {
+            "column": "Customer",
+            "rule": "numeric",
+            "message": "'Customer Id' should only contain numeric data",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Country",
+            "rule": "not_null",
+            "message": "'Country' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Country",
+            "rule": "regex",
+            "expression": "^[A-Z]{2}$",
+            "message": "'Country' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Name 1",
+            "rule": "not_null",
+            "message": "'Name 1' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Name 1",
+            "rule": "capitalization",
+            "message": "'Name 1' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Name 2",
+            "rule": "not_null",
+            "message": "'Name 2' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Name 2",
+            "rule": "capitalization",
+            "message": "'Name 2' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Telephone 1",
+            "rule": "not_null",
+            "message": "'Telephone 1' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Telephone 1",
+            "rule": "unique",
+            "message": "'Telephone 1' should be unique",
+            "rule_category": "Uniqueness"
+        },
+        {
+            "column": "Telephone 1",
+            "rule": "phone-regex",
+            "expression": "^\\+\\d+$",
+            "message": "'Telephone 1' should be in a standard format",
+            "ref": "Country",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Telephone 2",
+            "rule": "not_null",
+            "message": "'Telephone 2' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Telephone 2",
+            "rule": "unique",
+            "message": "'Telephone 2' should be unique",
+            "rule_category": "Uniqueness"
+        },
+        {
+            "column": "Telephone 2",
+            "rule": "phone-regex",
+            "expression": "^\\+\\d+$",
+            "message": "'Telephone 2' should be in a standard format",
+            "ref": "Country",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "City",
+            "rule": "not_null",
+            "message": "'City' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "City",
+            "rule": "capitalization",
+            "message": "'City' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Street",
+            "rule": "not_null",
+            "message": "'Street' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Street",
+            "rule": "capitalization",
+            "message": "'Street' should be in standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Address",
+            "rule": "not_null",
+            "message": "'Address' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Address",
+            "rule": "capitalization",
+            "message": "'Address' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Postal Code",
+            "rule": "not_null",
+            "message": "'Postal Code' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Postal Code",
+            "rule": "validation-postal-code",
+            "ref": "Country",
+            "message": "'Postal Code' should be valid as per Country",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "PO Box",
+            "rule": "not_null",
+            "message": "'PO Box' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "PO Box",
+            "rule": "validation-postal-code",
+            "ref": "Country",
+            "message": "'PO Box' should be valid as per Country",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "P.O. Box Postal Code",
+            "rule": "not_null",
+            "message": "'P.O. Box Postal Code' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "P.O. Box Postal Code",
+            "rule": "validation-postal-code",
+            "ref": "Country",
+            "message": "'P.O. Box Postal Code' should be valid as per Country",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Account group",
+            "rule": "not_null",
+            "message": "'Account group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Account group",
+            "rule": "validation-acc-group",
+            "message": "'Account group' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Tax Number 3",
+            "rule": "gst-pan-not-null",
+            "ref": "Country",
+            "message": "'Tax Number 3' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Tax Number 3",
+            "rule": "gst-pan-valid",
+            "ref": "Country",
+            "message": "'Tax Number 3' should be in valid format",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Tax Number 3",
+            "rule": "unique",
+            "message": "'Tax Number 3' should be unique",
+            "rule_category": "Uniqueness"
+        },
+        {
+            "column": "Tax Number 1",
+            "rule": "gst-pan-not-null",
+            "ref": "Country",
+            "message": "'Tax Number 1' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Tax Number 1",
+            "rule": "gst-pan-valid",
+            "ref": "Country",
+            "message": "'Tax Number 1' should be in valid format",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Tax Number 1",
+            "rule": "unique",
+            "message": "'Tax Number 1' should be unique",
+            "rule_category": "Uniqueness"
+        },
+        {
+            "column": "VAT Registration No.",
+            "rule": "not_null",
+            "message": "'VAT Registration No.' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "VAT Registration No.",
+            "rule": "unique",
+            "message": "'VAT Registration No.' should be unique",
+            "rule_category": "Uniqueness"
+        },
+        {
+            "column": "Industry",
+            "rule": "not_null",
+            "message": "'Industry' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Industry",
+            "rule": "validation-industry-type",
+            "message": "'Industry' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Created by",
+            "rule": "not_null",
+            "message": "'Created by' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Created on",
+            "rule": "not_null",
+            "message": "'Created on' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Created on",
+            "rule": "validation-date",
+            "message": "'Created on' should be in a standard format",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Attribute 2",
+            "rule": "not_null",
+            "message": "'Attribute 2' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Attribute 2",
+            "rule": "validation-customer-segment",
+            "message": "'Attribute 2' should be valid",
+            "rule_category": "Advanced rule"
+        }
+
+    ]
+}

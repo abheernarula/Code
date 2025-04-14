@@ -1,0 +1,46 @@
+{
+    "rules": [
+        {
+            "column": "Customer",
+            "rule": "not_null",
+            "message": "'Customer Id' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Customer",
+            "rule": "numeric",
+            "message": "'Customer Id' should only contain numeric values",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Credit limit",
+            "rule": "not_null",
+            "message": "'Credit Limit' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Credit limit",
+            "rule": "numeric",
+            "message": "'Credit Limit' should only contain numeric values",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Created by",
+            "rule": "not_null",
+            "message": "'Created by' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Created on",
+            "rule": "not_null",
+            "message": "'Created on' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Created on",
+            "rule": "validation-date",
+            "message": "'Created on' should be in a standard format",
+            "rule_category": "Validation"
+        }
+    ]
+}

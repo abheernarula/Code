@@ -1,0 +1,43 @@
+{
+    "rules": [
+        {
+            "column": "Bank Country",
+            "rule": "not_null",
+            "message": "'Bank Country' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Bank Country",
+            "rule": "regex",
+            "expression": "^[A-Z]{2}$",
+            "message": "'Bank Country' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Bank Key",
+            "rule": "not_null",
+            "message": "'Bank Key' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Bank Key",
+            "rule": "regex",
+            "expression": "^[A-Z]{4}0[A-Z0-9]{6}$",
+            "message": "'Bank Key' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Bank Account",
+            "rule": "not_null",
+            "message": "'Bank Account' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Bank Account",
+            "rule": "regex",
+            "expression": "^\\d{9,18}$",
+            "message": "'Bank Account' should be in a standard format",
+            "rule_category": "Standardization"
+        }
+    ]
+}

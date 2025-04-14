@@ -1,0 +1,142 @@
+{
+    "rules": [
+        {
+            "column": "Customer",
+            "rule": "not_null",
+            "message": "'Customer Id' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Customer",
+            "rule": "numeric",
+            "message": "'Customer Id' should only contain numeric values",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Created By",
+            "rule": "not_null",
+            "message": "'Created by' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Created On",
+            "rule": "not_null",
+            "message": "'Created on' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Created On",
+            "rule": "validation-date",
+            "message": "'Created on' should be in a standard format",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Cust.Acct.Assg.Group",
+            "rule": "not_null",
+            "message": "'Cust.Acct.Assg.Group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Cust.Acct.Assg.Group",
+            "rule": "validation-acc-assignment",
+            "message": "'Cust.Acct.Assg.Group' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Order block for sales area",
+            "rule": "not_null",
+            "message": "'Order block for sales area' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Order block for sales area",
+            "rule": "validation-sales-order-blocking",
+            "message": "'Order block for sales area' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Sales Organization",
+            "rule": "not_null",
+            "message": "'Sales Organization' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Sales Organization",
+            "rule": "validation-sales-org",
+            "message": "'Sales Organization' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Distribution Channel",
+            "rule": "not_null",
+            "message": "'Distribution Channel' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Distribution Channel",
+            "rule": "validation-dist-channel",
+            "message": "'Distribution Channel' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Division",
+            "rule": "not_null",
+            "message": "'Division' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Division",
+            "rule": "validation-division",
+            "message": "'Division' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Cust.pric.procedure",
+            "rule": "not_null",
+            "message": "'Cust.pric.procedure' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Cust.pric.procedure",
+            "rule": "validation-price-procedure",
+            "message": "'Cust.pric.procedure' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Incoterms",
+            "rule": "not_null",
+            "message": "'Incoterms' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Incoterms",
+            "rule": "validation-incoterms",
+            "message": "'Incoterms' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Incoterms (Part 2)",
+            "rule": "not_null",
+            "message": "'Incoterms (part 2)' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Incoterms (Part 2)",
+            "rule": "validation-incoterms",
+            "message": "'Incoterms (part 2)' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Shipping Conditions",
+            "rule": "not_null",
+            "message": "'Shipping Conditions' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Shipping Conditions",
+            "rule": "validation-shipping-conditions",
+            "message": "'Shipping Conditions' should be valid",
+            "rule_category": "Advanced rule"
+        }
+    ]
+}

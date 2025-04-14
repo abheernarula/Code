@@ -1,0 +1,53 @@
+{
+    "rules": [
+        {
+            "column": "Customer",
+            "rule": "not_null",
+            "message": "'Customer Id' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Name 1",
+            "rule": "capitalization",
+            "message": "'Name 1' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Name 2",
+            "rule": "capitalization",
+            "message": "'Name 2' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Name",
+            "rule": "capitalization",
+            "message": "'Name' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Telephone 1",
+            "rule": "phone-regex",
+            "expression": "^\\+\\d+$",
+            "message": "'Telephone 1' should be in a standard format",
+            "ref": "Country",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Telephone 2",
+            "rule": "phone-regex",
+            "expression": "^\\+\\d+$",
+            "message": "'Telephone 2' should be in a standard format",
+            "ref": "Country",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Phone",
+            "rule": "phone-regex",
+            "expression": "^\\+\\d+$",
+            "message": "'Phone' should be in a standard format",
+            "ref": "Country",
+            "rule_category": "Standardization"
+        }
+
+    ]
+}

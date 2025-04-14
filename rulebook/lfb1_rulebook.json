@@ -1,0 +1,70 @@
+{
+    "rules": [
+        {
+            "column": "Company Code",
+            "rule": "not_null",
+            "message": "'Company Code' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Company Code",
+            "rule": "validation-company-code-vendor",
+            "message": "'Company Code' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Terms of Payment",
+            "rule": "not_null",
+            "message": "'Terms of Payment' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Terms of Payment",
+            "rule": "alpha-numeric",
+            "message": "'Terms of Payment' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Reconciliation acct",
+            "rule": "not_null",
+            "message": "'Reconciliation acct' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Reconciliation acct",
+            "rule": "validation-glCode-vendor",
+            "message": "'Reconciliation acct' should not be null",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Planning group",
+            "rule": "not_null",
+            "message": "'Planning group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Planning group",
+            "rule": "validation-planning-group",
+            "message": "'Planning group' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Tolerance group",
+            "rule": "not_null",
+            "message": "'Tolerance group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Tolerance group",
+            "rule": "validation-tolerance-group",
+            "message": "'Tolerance group' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Payment methods",
+            "rule": "not_null",
+            "message": "'Payment methods' should not be null",
+            "rule_category": "Completeness"
+        }
+    ]
+}

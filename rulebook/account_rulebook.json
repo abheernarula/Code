@@ -1,0 +1,483 @@
+{
+    "rules":[
+        {
+            "column": "VAT_Number__c",
+            "rule": "not_null",
+            "message": "'VAT_Number__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "VAT_Number__c",
+            "rule": "unique",
+            "message": "'VAT_Number__c' should be unique",
+            "rule_category": "Uniqueness"
+        },
+        {
+            "column": "Phone",
+            "rule": "not_null",
+            "message": "'Phone' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Phone",
+            "rule": "unique",
+            "message": "'Phone' should be unique",
+            "rule_category": "Uniqueness"
+        },
+        {
+            "column": "Phone",
+            "rule": "phone-regex",
+            "expression": "^\\+\\d+$",
+            "message": "'Phone' should be in a standard format",
+            "ref": "BillingCountryCode",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "GST_Number__c",
+            "rule": "gst-pan-not-null",
+            "ref": "BillingCountryCode",
+            "message": "'GST_Number__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "GST_Number__c",
+            "rule": "unique",
+            "message": "'GST_Number__c' should be unique",
+            "rule_category": "Uniqueness"
+        },
+        {
+            "column": "GST_Number__c",
+            "rule": "gst-pan-valid",
+            "ref": "BillingCountryCode",
+            "message": "'GST_Number__c' should be in valid format",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "PAN_Number__c",
+            "rule": "gst-pan-not-null",
+            "ref": "BillingCountryCode",
+            "message": "'PAN_Number__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "PAN_Number__c",
+            "rule": "unique",
+            "message": "'PAN_Number__c' should be unique",
+            "rule_category": "Uniqueness"
+        },
+        {
+            "column": "PAN_Number__c",
+            "rule": "gst-pan-valid",
+            "ref": "BillingCountryCode",
+            "message": "'PAN_Number__c' should be in valid format",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "BillingStreet",
+            "rule": "not_null",
+            "message": "'BillingStreet' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "BillingStreet",
+            "rule": "capitalization",
+            "message": "'BillingStreet' should be in standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "BillingAddress.street",
+            "rule": "not_null",
+            "message": "'BillingAddress.street' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "BillingAddress.street",
+            "rule": "capitalization",
+            "message": "'BillingAddress.street' should be in standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "BillingStateCode",
+            "rule": "not_null",
+            "message": "'BillingStateCode' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "BillingStateCode",
+            "rule": "alpha-numeric",
+            "message": "'BillingStateCode' should be in standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "BillingStateCode",
+            "rule": "validation-billing-state-code",
+            "ref": "BillingCountryCode",
+            "message": "'BillingStateCode' should be in standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "BillingPostalCode",
+            "rule": "not_null",
+            "message": "'BillingPostalCode' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "BillingPostalCode",
+            "rule": "validation-postal-code",
+            "ref": "BillingCountryCode",
+            "message": "'BillingPostalCode' should be valid as per Country",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Name",
+            "rule": "not_null",
+            "message": "'Name' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Name",
+            "rule": "capitalization",
+            "message": "'Name' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Industry_Sector__c",
+            "rule": "not_null",
+            "message": "'Industry_Sector__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Industry_Sector__c",
+            "rule": "validation-industry-code-type",
+            "message": "'Industry_Sector__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Industry",
+            "rule": "not_null",
+            "message": "'Industry' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Industry",
+            "rule": "validation-industry-type",
+            "message": "'Industry' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "SAP_Account_Number__c",
+            "rule": "not_null",
+            "message": "'SAP_Account_Number__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "SAP_Account_Number__c",
+            "rule": "unique",
+            "message": "'SAP_Account_Number__c' should be unique",
+            "rule_category": "Uniqueness"
+        },
+        {
+            "column": "SAP_Account_Number__c",
+            "rule": "numeric",
+            "message": "'SAP_Account_Number__c' should only contain numeric data",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "BillingCountryCode",
+            "rule": "not_null",
+            "message": "'BillingCountryCode' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "BillingCountryCode",
+            "rule": "regex",
+            "expression": "^[A-Z]{2}$",
+            "message": "'BillingCountryCode' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "BillingAddress.countryCode",
+            "rule": "not_null",
+            "message": "'BillingAddress.countryCode' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "BillingAddress.countryCode",
+            "rule": "regex",
+            "expression": "^[A-Z]{2}$",
+            "message": "'BillingAddress.countryCode' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "BillingCity",
+            "rule": "not_null",
+            "message": "'BillingCity' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "BillingCity",
+            "rule": "capitalization",
+            "message": "'BillingCity' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "KTOKD__c",
+            "rule": "not_null",
+            "message": "'KTOKD__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "KTOKD__c",
+            "rule": "validation-acc-group",
+            "message": "'KTOKD__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "SAP_Customer_Creation_Date__c",
+            "rule": "not_null",
+            "message": "'SAP_Customer_Creation_Date__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "SAP_Customer_Creation_Date__c",
+            "rule": "validation-date",
+            "message": "'SAP_Customer_Creation_Date__c' should be in a standard format",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "CreatedById",
+            "rule": "not_null",
+            "message": "'CreatedById' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "CreatedDate",
+            "rule": "not_null",
+            "message": "'CreatedDate' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "CreatedDate",
+            "rule": "validation-date",
+            "message": "'CreatedDate' should be in a standard format",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "ZTERM__c",
+            "rule": "not_null",
+            "message": "'ZTERM__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "ZTERM__c",
+            "rule": "alpha-numeric",
+            "message": "'ZTERM__c' should only contain alpha-numeric values",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "ZTERM__c",
+            "rule": "regex",
+            "expression": "^[A-Za-z]{2}\\d{2}$",
+            "message": "'ZTERM__c' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "AKONT_c",
+            "rule": "not_null",
+            "message": "'AKONT_c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "AKONT_c",
+            "rule": "numeric",
+            "message": "'AKONT_c' should only contain numeric values",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "MAHNA__c",
+            "rule": "not_null",
+            "message": "'MAHNA__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "MAHNA__c",
+            "rule": "alpha-numeric",
+            "message": "'MAHNA__c' should be valid",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "MAHNA__c",
+            "rule": "validation-dunning",
+            "message": "'MAHNA__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Total_Credit_Limit__c",
+            "rule": "not_null",
+            "message": "'Total_Credit_Limit__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Total_Credit_Limit__c",
+            "rule": "numeric",
+            "message": "'Total_Credit_Limit__c' should only contain numeric values",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Credit_Limit__c",
+            "rule": "not_null",
+            "message": "'Credit_Limit__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Credit_Limit__c",
+            "rule": "numeric",
+            "message": "'Credit_Limit__c' should only contain numeric values",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "VSBED__c",
+            "rule": "not_null",
+            "message": "'VSBED__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "VSBED__c",
+            "rule": "validation-shipping-conditions",
+            "message": "'VSBED__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Sales_Organization__c",
+            "rule": "not_null",
+            "message": "'Sales_Organization__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Sales_Organization__c",
+            "rule": "validation-sales-org",
+            "message": "'Sales_Organization__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "INCO1__c",
+            "rule": "not_null",
+            "message": "'INCO1__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "INCO1__c",
+            "rule": "validation-incoterms",
+            "message": "'INCO1__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "INCO2__c",
+            "rule": "not_null",
+            "message": "'INCO2__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "INCO2__c",
+            "rule": "validation-incoterms",
+            "message": "'INCO2__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "SPART__c",
+            "rule": "not_null",
+            "message": "'SPART__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "SPART__c",
+            "rule": "validation-division",
+            "message": "'SPART__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "VTWEG__c",
+            "rule": "not_null",
+            "message": "'VTWEG__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "VTWEG__c",
+            "rule": "validation-dist-channel",
+            "message": "'VTWEG__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "KALKS__c",
+            "rule": "not_null",
+            "message": "'KALKS__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "KALKS__c",
+            "rule": "validation-price-procedure",
+            "message": "'KALKS__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "KTGRD__c",
+            "rule": "not_null",
+            "message": "'KTGRD__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "KTGRD__c",
+            "rule": "validation-acc-assignment",
+            "message": "'KTGRD__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Company_Size__c",
+            "rule": "not_null",
+            "message": "'Company_Size__c' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Company_Size__c",
+            "rule": "validation-customer-segment",
+            "message": "'Company_Size__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Business_Unit__c",
+            "rule": "not_null",
+            "message": "'Business_Unit__c' should not be null",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Business_Unit__c",
+            "rule": "validation-BU",
+            "message": "'Business_Unit__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Portfolio__c",
+            "rule": "not_null",
+            "message": "'Portfolio__c' should not be null",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Portfolio__c",
+            "rule": "validation-portfolio",
+            "message": "'Portfolio__c' should be valid",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Customer_Category__c",
+            "rule": "not_null",
+            "message": "'Customer_Category__c' should not be null",
+            "rule_category": "Advanced rule"
+        },
+        {
+            "column": "Customer_Category__c",
+            "rule": "validation-customer-category",
+            "message": "'Customer_Category__c' should be valid",
+            "rule_category": "Advanced rule"
+        }
+    ]
+}

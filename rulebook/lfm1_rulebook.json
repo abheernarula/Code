@@ -1,0 +1,166 @@
+{
+    "rules": [
+        {
+            "column": "Purch. Organization",
+            "rule": "not_null",
+            "message": "'Purch. Organization' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Purch. Organization",
+            "rule": "validation-purchase-organization",
+            "message": "'Purch. Organization' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Purchasing Group",
+            "rule": "not_null",
+            "message": "'Purchasing Group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Purchasing Group",
+            "rule": "validation-purchase-group",
+            "message": "'Purchasing Group' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Purch. block for purchasing organization",
+            "rule": "validation-x",
+            "message": "'Purch. block for purchasing organization' should be valid",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Order currency",
+            "rule": "not_null",
+            "message": "'Order currency' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Order currency",
+            "rule": "regex",
+            "expression": "^[A-Z]{3}$",
+            "message": "'Order currency' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Confirmation Control",
+            "rule": "not_null",
+            "message": "'Confirmation Control' should not be null",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Confirmation Control",
+            "rule": "validation-confirmation-control",
+            "message": "'Confirmation Control' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Incoterms",
+            "rule": "not_null",
+            "message": "'Incoterms' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Incoterms",
+            "rule": "validation-incoterms-vendor",
+            "message": "'Incoterms' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Incoterms (Part 2)",
+            "rule": "not_null",
+            "message": "'Incoterms (Part 2)' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "MSME Status",
+            "rule": "not_null",
+            "message": "'MSME Status' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "MSME Status",
+            "rule": "regex",
+            "expression": "^\\d{1,2}$",
+            "message": "'MSME Status' should be in standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "MSME Status",
+            "rule": "validation-msme-status",
+            "message": "'MSME Status' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "MSME Number",
+            "ref": "MSME Status",
+            "rule": "msme_not_null",
+            "message": "'MSME Number' should not be null if MSME status is not '00'",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "MSME Number",
+            "ref": "MSME Status",
+            "rule": "standard-msme-number",
+            "expression": "^[A-Z]{2}\\d{9,10}$",
+            "message": "'MSME Number' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "MSME Issue Date",
+            "ref": "MSME Status",
+            "rule": "msme_not_null",
+            "message": "'MSME Issue Date' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "MSME Issue Date",
+            "rule": "validation-date",
+            "message": "'MSME Issue Date' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "ABAC Status",
+            "rule": "not_null",
+            "message": "'ABAC Status' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "ABAC Status",
+            "rule": "validation-abac",
+            "message": "'ABAC Status' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "ABAC Status",
+            "rule": "capitalization",
+            "message": "'ABAC Status' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "ABAC Reason",
+            "rule": "not_null",
+            "message": "'ABAC Reason' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "GR-Based Inv. Verif.",
+            "rule": "not_null",
+            "message": "'GR-Based Inv. Verif.' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "GR-Based Inv. Verif.",
+            "rule": "validation-x",
+            "message": "'GR-Based Inv. Verif.' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Service-Based Invoice Verification",
+            "rule": "validation-x",
+            "message": "'Service-Based Invoice Verification' should be in a standard format",
+            "rule_category": "Standardization"
+        }
+    ]
+}

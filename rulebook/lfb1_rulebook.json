@@ -33,7 +33,7 @@
         {
             "column": "Reconciliation acct",
             "rule": "validation-glCode-vendor",
-            "message": "'Reconciliation acct' should not be null",
+            "message": "'Reconciliation acct' should be valid",
             "rule_category": "Advanced"
         },
         {

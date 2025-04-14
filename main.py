@@ -115,9 +115,10 @@ for sheet in sheets:
     # print('\n[SAVING RESULTS]...')
     output_path = os.path.join(output_dir, f'{sheet.lower()}.xlsx')
     print('\n[PROCESSING RESULTS]...')
+    
     final = preprocessOutput(results, output_path)
-
     print(f"\n[OUTPUT SAVED TO - {final}]")
+    
 end = time.time()
 mins = (end-start)//60
 sec = abs((end-start) - mins*60)

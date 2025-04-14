@@ -7,4 +7,4 @@ valid_gl_codes = pd.read_csv('methods/glCodes.csv')
 # )
 
 def validate_gl_codes(companyCode, value):
-    return int(float(value)) in valid_gl_codes[valid_gl_codes['Company Code'] == companyCode]['G/L Account'].to_list()
+    return str(int(float(value))) in valid_gl_codes[valid_gl_codes['Company Code'] == companyCode]['G/L Account'].astype(str).to_list()

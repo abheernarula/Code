@@ -48,25 +48,23 @@ def preprocessVendorData(vendorMaster):
     lfm1['Inactive'] = lfm1.progress_apply(lambda row: classifyInactive(lfm1, row, inactiveVendors), axis=1)
     lfbk['Inactive'] = lfbk.progress_apply(lambda row: classifyInactive(lfbk, row, inactiveVendors), axis=1)
     
-    # Comment [line 52 - 55] for Inctive Vendor output
+    # Comment [line 52 - 60] for Inctive Vendor output
     lfa1_active = lfa1[lfa1['Inactive']==False]
     lfb1_active = lfb1[lfb1['Inactive']==False]
     lfm1_active = lfm1[lfm1['Inactive']==False]
     lfbk_active = lfbk[lfbk['Inactive']==False]
     
-    # Comment [line 58 - 61] for Active Vendor output
-    # lfa1_inactive = lfa1[lfa1['Inactive']==True]
-    # lfb1_inactive = lfb1[lfb1['Inactive']==True]
-    # lfm1_inactive = lfm1[lfm1['Inactive']==True]
-    # lfbk_inactive = lfbk[lfbk['Inactive']==True]
-    
-    # Comment [line 62 - 65] for Inctive Vendor output
     output_dir = "/".join(vendorMaster.split('/')[:-1])
     output_path = os.path.join(output_dir, 'activeVendorMaster.xlsx')
     tables = [lfa1_active, lfb1_active, lfm1_active, lfbk_active]
     sheets = ['LFA1', 'LFB1', 'LFM1', 'LFBK']
     
-    # Comment [line 67 - 70] for Active Vendor output
+    # Comment [line 64 - 72] for Active Vendor output
+    # lfa1_inactive = lfa1[lfa1['Inactive']==True]
+    # lfb1_inactive = lfb1[lfb1['Inactive']==True]
+    # lfm1_inactive = lfm1[lfm1['Inactive']==True]
+    # lfbk_inactive = lfbk[lfbk['Inactive']==True]
+    
     # output_dir = "/".join(vendorMaster.split('/')[:-1])
     # output_path = os.path.join(output_dir, 'inactiveVendorMaster.xlsx')
     # tables = [lfa1_inactive, lfb1_inactive, lfm1_inactive, lfbk_inactive]

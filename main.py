@@ -21,13 +21,13 @@ parser = argparse.ArgumentParser(
     description="Apply data quality rules on consolidated customer master data"
 )
 
-parser.add_argument("--data", "-D", required=True, help="Path to excel data")
-parser.add_argument("--isVendor", "-V", help="Check if the input file is Vendor Master", default=False)
-parser.add_argument("--isCustomer", "-C", help="Check if the input file is Vendor Master", default=False)
-parser.add_argument("--tables", "-T", help="Tables to apply rules", default="")
-parser.add_argument("--rules", "-R", required=True, help="Path to folder containing rulebooks")
+parser.add_argument("--data", "-d", required=True, help="Path to excel data")
+parser.add_argument("--isVendor", "-v", help="Check if the input file is Vendor Master", default=False)
+parser.add_argument("--isCustomer", "-c", help="Check if the input file is Vendor Master", default=False)
+parser.add_argument("--tables", "-t", help="Tables to apply rules", default="")
+parser.add_argument("--rules", "-r", required=True, help="Path to folder containing rulebooks")
 
-parser.add_argument("--output", "-O", help="Path to folder for output files")
+parser.add_argument("--output", "-o", help="Path to folder for output files")
 
 args = parser.parse_args()
 # rules = load_rules(args.rules)
@@ -122,5 +122,5 @@ end = time.time()
 mins = (end-start)//60
 sec = abs((end-start) - mins*60)
 
-print(f'\n[TIME TAKEN - {mins:.0f} MINS {sec:.2f} SECONDS]')
+print(f'\n[TIME TAKEN - {mins:.0f} MINS {sec:.0f} SECONDS]')
 # print(results[['MSME Status','Issues']])

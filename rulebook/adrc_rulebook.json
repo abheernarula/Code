@@ -1,3 +1,91 @@
 {
-    "rules": []
+    "rules": [
+        {
+            "column": "Supplier",
+            "ref": "Account Group",
+            "rule": "supplier-regex",
+            "domestic_exp": "^1[0-9]{6}$",
+            "import_exp": "^3[0-9]{6}$",
+            "bonded_exp": "^8[0-9]{6}$",
+            "message": "'Supplier' should follow the defined supplier series",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Street",
+            "combined": ["Street", "Street 2", "Street 3", "Street 4", "Street 5"],
+            "rule": "combined-not-null",
+            "message": "'Street' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Street",
+            "rule": "capitalization",
+            "message": "'Street' should be in standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Street 2",
+            "rule": "capitalization",
+            "message": "'Street 2' should be in standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Street 3",
+            "rule": "capitalization",
+            "message": "'Street 3' should be in standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Street 4",
+            "rule": "capitalization",
+            "message": "'Street 4' should be in standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Street 5",
+            "rule": "capitalization",
+            "message": "'Street 5' should be in standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "PO Box",
+            "combined": ["PO Box", "Postal Code", "PO Box Postal Code"],
+            "rule": "combined-not-null",
+            "message": "Postal code should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "PO Box",
+            "rule": "validation-postal-code",
+            "ref": "Country",
+            "message": "'PO Box' should be valid as per Country",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "P.O. Box Postal Code",
+            "rule": "validation-postal-code",
+            "ref": "Country",
+            "message": "'P.O. Box Postal Code' should be valid as per Country",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Postal Code",
+            "rule": "validation-postal-code",
+            "ref": "Country",
+            "message": "'Postal Code' should be valid as per Country",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Address Number",
+            "rule": "not_null",
+            "message": "'Address Number' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Address Number",
+            "rule": "numeric",
+            "message": "'Address Number' should be numeric",
+            "rule_category": "Standardization"
+        }
+    ]
 }

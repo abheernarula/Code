@@ -64,7 +64,7 @@ def load_rules(path):
         rules_json = json.load(rules)      
     return rules_json.get("rules", [])
 
-def check_rule(df, value, rule, refcol):
+def check_rule(df, row, value, rule, refcol):
     rtype = rule.get("rule")
     # print(value)
     if rtype == 'not_null':
@@ -72,8 +72,10 @@ def check_rule(df, value, rule, refcol):
         return pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan'
             
     elif rtype == 'capitalization':
-        # return value == " ".join(x.capitalize() for x in str(value).split(" "))
-        return not value == value.title()
+        if (pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan'):
+            return False
+        else:
+            return not value == value.title()
     
     elif rtype == 'phone-regex':
         try:
@@ -99,10 +101,20 @@ def check_rule(df, value, rule, refcol):
             return list(df[rule.get("column")].astype(str)).count(value) > 1
     
     elif rtype == 'validation-postal-code':
-        try:
-            return not validate_postal_code(value, refcol)
-        except:
+        if (pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan'):
             return False
+        else:
+            try:
+                return not validate_postal_code(value, refcol)
+            except:
+                return False
+    
+    # elif rtype == 'combined-not-null':
+    #     isNull = True
+    #     for col in rule.get("combined"):
+    #         val = row[col]
+    #         isNull = isNull or (pd.isnull(val) or str(val).strip() == '' or val.lower() == 'nan')
+    #     return not isNull
     
     elif rtype == 'validation-acc-group':
         return not validate_account_group(value)
@@ -298,7 +310,7 @@ def check_row(df, row,rules):
             refcol = row[rule.get('ref')]
             # print(refcol)
         if col in row:
-            if check_rule(df, str(row[col]).strip(), rule, refcol):
+            if check_rule(df, row, str(row[col]).strip(), rule, refcol):
                 issues.append(message)
                 categories.append(rule_category)
                 num_issues += 1

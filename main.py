@@ -70,7 +70,7 @@ for sheet in sheets:
         columns = ['Supplier', 'Last PO Date', 'Account holder', 'Bank Country', 'Bank Key', 'Bank Account']
         
     if sheet == 'adrc':
-        columns = ['Address Number', 'Postal Code', 'Street', 'Street 2', 'Street 3', 'Street 4', 'Street 5', 
+        columns = ['Supplier', 'Address Number', 'Street', 'Street 2', 'Street 3', 'Street 4', 'Street 5', 
                    'Postal Code', 'PO Box Postal Code', 'PO Box']
         
     if sheet == 'kna1':

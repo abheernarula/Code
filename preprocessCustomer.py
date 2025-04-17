@@ -30,10 +30,10 @@ def preprocessVendorData(vendorMaster):
     lfbk = pd.read_excel(vendorMaster, sheet_name='LFBK')
     adrc = pd.read_excel(vendorMaster, sheet_name='ADRC')
     
-    adrc_required = adrc[['Address Number', 'Postal Code', 'Stret', 'Street 2', 'Street 3', 'Street 4', 'Street 5', 
-                          'Postal Code', 'PO Box Postal Code', 'PO Box']]
-    right = lfa1[['Supplier', 'Address']]
-    adrc = pd.merge(adrc_required, right, how='left', left_on='Address Number', right_on='Address')
+    # adrc_required = adrc[['Address Number', 'Postal Code', 'Stret', 'Street 2', 'Street 3', 'Street 4', 'Street 5', 
+    #                       'Postal Code', 'PO Box Postal Code', 'PO Box']]
+    # right = lfa1[['Supplier', 'Address']]
+    # adrc = pd.merge(adrc_required, right, how='left', left_on='Address Number', right_on='Address')
     
     
     inactiveVendors = []
@@ -53,18 +53,16 @@ def preprocessVendorData(vendorMaster):
     lfb1['Inactive'] = lfb1.progress_apply(lambda row: classifyInactive(lfb1, row, inactiveVendors), axis=1)
     lfm1['Inactive'] = lfm1.progress_apply(lambda row: classifyInactive(lfm1, row, inactiveVendors), axis=1)
     lfbk['Inactive'] = lfbk.progress_apply(lambda row: classifyInactive(lfbk, row, inactiveVendors), axis=1)
-    adrc['Inactive'] = adrc.progress_apply(lambda row: classifyInactive(adrc, row, inactiveVendors), axis=1)
     
     # Comment [line 52 - 60] for Inctive Vendor output
     lfa1_active = lfa1[lfa1['Inactive']==False]
     lfb1_active = lfb1[lfb1['Inactive']==False]
     lfm1_active = lfm1[lfm1['Inactive']==False]
     lfbk_active = lfbk[lfbk['Inactive']==False]
-    adrc_active = adrc[adrc['Inactive']==False]
     
     output_dir = "/".join(vendorMaster.split('/')[:-1])
     output_path = os.path.join(output_dir, 'activeVendorMaster.xlsx')
-    tables = [lfa1_active, lfb1_active, lfm1_active, lfbk_active, adrc_active]
+    tables = [lfa1_active, lfb1_active, lfm1_active, lfbk_active, adrc]
     sheets = ['LFA1', 'LFB1', 'LFM1', 'LFBK', 'ADRC']
     
     # Comment [line 64 - 72] for Active Vendor output
@@ -72,11 +70,10 @@ def preprocessVendorData(vendorMaster):
     # lfb1_inactive = lfb1[lfb1['Inactive']==True]
     # lfm1_inactive = lfm1[lfm1['Inactive']==True]
     # lfbk_inactive = lfbk[lfbk['Inactive']==True]
-    # adrc_inactive = adrc[adrc['Inactive']==True]
     
     # output_dir = "/".join(vendorMaster.split('/')[:-1])
     # output_path = os.path.join(output_dir, 'inactiveVendorMaster.xlsx')
-    # tables = [lfa1_inactive, lfb1_inactive, lfm1_inactive, lfbk_inactive, adrc_inactive]
+    # tables = [lfa1_inactive, lfb1_inactive, lfm1_inactive, lfbk_inactive, adrc]
     # sheets = ['LFA1', 'LFB1', 'LFM1', 'LFBK', 'ADRC']
     
     with pd.ExcelWriter(output_path, engine='openpyxl') as writer:

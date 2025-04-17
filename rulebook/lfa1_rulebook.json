@@ -77,18 +77,6 @@
             "rule_category": "Standardization"
         },
         {
-            "column": "Street",
-            "rule": "not_null",
-            "message": "'Street' should not be null",
-            "rule_category": "Completeness"
-        },
-        {
-            "column": "Street",
-            "rule": "capitalization",
-            "message": "'Street' should be in standard format",
-            "rule_category": "Standardization"
-        },
-        {
             "column": "City",
             "rule": "not_null",
             "message": "'City' should not be null",
@@ -119,45 +107,6 @@
             "re": "Account Group",
             "message": "'Country' should be valid as per Account group",
             "rule_category": "Advanced"
-        },
-        {
-            "column": "PO Box",
-            "rule": "not_null",
-            "message": "'PO Box' should not be null",
-            "rule_category": "Completeness"
-        },
-        {
-            "column": "PO Box",
-            "rule": "validation-postal-code",
-            "ref": "Country",
-            "message": "'PO Box' should be valid as per Country",
-            "rule_category": "Validation"
-        },
-        {
-            "column": "P.O. Box Postal Code",
-            "rule": "not_null",
-            "message": "'P.O. Box Postal Code' should not be null",
-            "rule_category": "Completeness"
-        },
-        {
-            "column": "P.O. Box Postal Code",
-            "rule": "validation-postal-code",
-            "ref": "Country",
-            "message": "'P.O. Box Postal Code' should be valid as per Country",
-            "rule_category": "Validation"
-        },
-        {
-            "column": "Postal Code",
-            "rule": "not_null",
-            "message": "'Postal Code' should not be null",
-            "rule_category": "Completeness"
-        },
-        {
-            "column": "Postal Code",
-            "rule": "validation-postal-code",
-            "ref": "Country",
-            "message": "'Postal Code' should be valid as per Country",
-            "rule_category": "Validation"
         },
         {
             "column": "Telephone 1",
@@ -210,18 +159,6 @@
             "rule": "regex",
             "expression": "^[A-Z]{2}$",
             "message": "'Language Key' should be in a standard format",
-            "rule_category": "Standardization"
-        },
-        {
-            "column": "Address",
-            "rule": "not_null",
-            "message": "'Address' should not be null",
-            "rule_category": "Completeness"
-        },
-        {
-            "column": "Address",
-            "rule": "numeric",
-            "message": "'Address' should be numeric",
             "rule_category": "Standardization"
         },
         {

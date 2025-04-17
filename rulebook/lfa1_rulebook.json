@@ -14,8 +14,11 @@
         },
         {
             "column": "Supplier",
-            "rule": "regex",
-            "expression": "^(?:[138]\\d{6}|(?:90|75|79|60|65|91)\\d{5})$",
+            "ref": "Account Group",
+            "rule": "supplier-regex",
+            "domestic_exp": "^1[0-9]{6}$",
+            "import_exp": "^3[0-9]{6}$",
+            "bonded_exp": "^8[0-9]{6}$",
             "message": "'Supplier' should follow the defined supplier series",
             "rule_category": "Advanced"
         },
@@ -39,12 +42,6 @@
         },
         {
             "column": "Name 2",
-            "rule": "not_null",
-            "message": "'Name 2' should not be null",
-            "rule_category": "Completeness"
-        },
-        {
-            "column": "Name 2",
             "rule": "unique",
             "message": "'Name 2' should be unique",
             "rule_category": "Uniqueness"
@@ -57,12 +54,6 @@
         },
         {
             "column": "Name 3",
-            "rule": "not_null",
-            "message": "'Name 3' should not be null",
-            "rule_category": "Completeness"
-        },
-        {
-            "column": "Name 3",
             "rule": "unique",
             "message": "'Name 3' should be unique",
             "rule_category": "Uniqueness"
@@ -72,12 +63,6 @@
             "rule": "capitalization",
             "message": "'Name 3' should be in a standard format",
             "rule_category": "Standardization"
-        },
-        {
-            "column": "Name 4",
-            "rule": "not_null",
-            "message": "'Name 4' should not be null",
-            "rule_category": "Completeness"
         },
         {
             "column": "Name 4",
@@ -127,6 +112,13 @@
             "expression": "^[A-Z]{2}$",
             "message": "'Country' should be in a standard format",
             "rule_category": "Standardization"
+        },
+        {
+            "column": "Country",
+            "rule": "advance-country",
+            "re": "Account Group",
+            "message": "'Country' should be valid as per Account group",
+            "rule_category": "Advanced"
         },
         {
             "column": "PO Box",
@@ -274,6 +266,12 @@
             "rule": "gst-pan-valid",
             "message": "'Tax Number 3' should be valid",
             "rule_category": "Validation"
-        }    
+        },
+        {
+            "column": "Block function",
+            "rule": "validation-block-function",
+            "message": "Block function must be valid",
+            "rule_category": "Advanced"
+        } 
     ]
 }

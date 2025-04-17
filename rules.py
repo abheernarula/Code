@@ -36,6 +36,8 @@ from methods.msmeStatus import *
 from methods.abacStatusVendor import *
 from methods.confControlsVendor import *
 from methods.glCodeVendor import *
+from methods.blockFunctionVendor import *
+from methods.paymentTermsVendor import *
 
 # def standardizeDate(value):
 #     try:        
@@ -224,12 +226,18 @@ def check_rule(df, value, rule, refcol):
         return not validate_msme_number(value)
     
     elif rtype == 'standard-msme-number':
-        if refcol == '0.0' or refcol == '0' or refcol == '00':
-            return not bool(re.match(rule.get("expression"),value.strip())) 
+        if str(refcol) == '0.0' or str(refcol) == '0' or str(refcol) == '00':
+            pass
+        else:
+            if not (pd.isnull(refcol) or str(refcol).strip() == '' or str(refcol).lower() == 'nan'):
+                return not bool(re.match(rule.get("expression"),value.strip())) 
     
     elif rtype == 'msme_not_null':
-        if refcol == '0.0' or refcol == '0' or refcol == '00':
-            return pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan'
+        if str(refcol) == '0.0' or str(refcol) == '0' or str(refcol) == '00':
+            pass
+        else:
+            if not (pd.isnull(refcol) or str(refcol).strip() == '' or str(refcol).lower() == 'nan'):
+                return pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan'
         
     elif rtype == 'validation-abac':
         return not validate_abac_status(value)
@@ -240,6 +248,36 @@ def check_rule(df, value, rule, refcol):
     elif rtype == 'validation-glCode-vendor':
         return not validate_gl_codes_vendor(value)
     
+    elif rtype == 'supplier-regex':
+        if refcol == 'Z001':
+            try:
+                str(int(float(value)))
+            except:
+                return not bool(re.match(rule.get("domestic_exp"),value.strip()))
+            return not bool(re.match(rule.get("domestic_exp"),str(int(float(value)))))
+        elif refcol == 'Z002':
+            try:
+                str(int(float(value)))
+            except:
+                return not bool(re.match(rule.get("import_exp"),value.strip()))
+            return not bool(re.match(rule.get("import_exp"),str(int(float(value)))))
+        elif refcol == 'Z014':
+            try:
+                str(int(float(value)))
+            except:
+                return not bool(re.match(rule.get("bonded_exp"),value.strip()))
+            return not bool(re.match(rule.get("bonded_exp"),str(int(float(value)))))
+        
+    elif rtype == 'advance-country':
+        if refcol == 'Z014':
+            return str(value).upper() != 'IN'
+        
+    elif rtype == 'validation-block-function':
+        return not validateBlockFunction(value)
+    
+    elif rtype == 'validation-payment-terms':
+        return not validatePaymentTermsVendor(value)
+        
     else: pass
         
 def check_row(df, row,rules):

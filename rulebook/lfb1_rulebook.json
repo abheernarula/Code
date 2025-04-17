@@ -25,6 +25,12 @@
             "rule_category": "Standardization"
         },
         {
+            "column": "Terms of Payment",
+            "rule": "validation-payment-terms",
+            "message": "'Terms of Payment' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
             "column": "Reconciliation acct",
             "rule": "not_null",
             "message": "'Reconciliation acct' should not be null",

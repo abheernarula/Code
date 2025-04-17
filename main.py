@@ -39,7 +39,7 @@ if args.tables != '':
     sheets = args.tables.lower().split(',')
 elif args.isVendor:
     args.data = preprocessVendorData(args.data)
-    sheets = ['lfa1', 'lfb1', 'lfm1', 'lfbk']
+    sheets = ['lfa1', 'lfb1', 'lfm1', 'lfbk', 'adrc']
 elif args.isCustomer:
     sheets = ['kna1', 'knb1', 'knvv', 'knkk', 'knb5', 'adr6', 'account', 'contact']
 else:
@@ -49,11 +49,11 @@ else:
 for sheet in sheets:
     print(f'\n[WORKING ON {sheet.upper()}]...')
     if sheet == 'lfa1':
-        columns = ['Supplier', 'Last PO Date', 'Name 1', 'Name 2', 'Name 3', 'Name 4', 'Street', 'City', 'Country', 'PO Box', 
-                'P.O. Box Postal Code', 'Postal Code', 'Telephone 1', 'Telephone 2', 'Language Key',
-                'Address', 'Plant', 'Tax Jurisdiction', 'Account Group', 'Tax Number 3', 'Created on', 'Created by',
-                'Block function', 'Payment block', 'Central del.block', 'Central posting block', 
-                'Central purchasing block']
+        columns = ['Supplier', 'Last PO Date', 'Name 1', 'Name 2', 'Name 3', 'Name 4', 'Street', 'City', 'Country', 
+                   'PO Box', 'P.O. Box Postal Code', 'Postal Code', 'Telephone 1', 'Telephone 2', 'Language Key',
+                   'Address', 'Plant', 'Tax Jurisdiction', 'Account Group', 'Tax Number 3', 'Created on', 'Created by',
+                   'Block function', 'Payment block', 'Central del.block', 'Central posting block', 
+                   'Central purchasing block']
 
     if sheet == 'lfb1':
         columns = ['Supplier', 'Last PO Date', 'Company Code', 'Terms of Payment', 'Reconciliation acct', 'Posting block for company code',
@@ -68,6 +68,10 @@ for sheet in sheets:
         
     if sheet == 'lfbk':
         columns = ['Supplier', 'Last PO Date', 'Account holder', 'Bank Country', 'Bank Key', 'Bank Account']
+        
+    if sheet == 'adrc':
+        columns = ['Address Number', 'Postal Code', 'Street', 'Street 2', 'Street 3', 'Street 4', 'Street 5', 
+                   'Postal Code', 'PO Box Postal Code', 'PO Box']
         
     if sheet == 'kna1':
         columns = ['Customer', 'Country', 'Name 1', 'Name 2', 'Telephone 1', 'Telephone 2', 'City', 'Street', 'Address',

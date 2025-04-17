@@ -1,13 +1,26 @@
 
 valid_codes = [
-    "01", # AGROCHEMICAL
-    "02", # BIG PHARMA / BIOTECH
-    "03", # MID -SIZE PHARMA / BIO
-    "04", # SMALL PHARMA / BIO
-    "05", # OTHERS
-    "06", # Pharma / Biotech
-    "07" # Animal health
+    "01", "1", # AGROCHEMICAL
+    "02", "2",# BIG PHARMA / BIOTECH
+    "03", "3",# MID -SIZE PHARMA / BIO
+    "04", "4",# SMALL PHARMA / BIO
+    "05", "5",# OTHERS
+    "06", "6",# Pharma / Biotech
+    "07", "7",# Animal health
+    "AGROCHEMICAL",
+    "BIG PHARMA /BIOTECH",
+    "MID -SIZE PHARMA/BIO",
+    "SMALL PHARMA/BIO",
+    "OTHERS",
+    "PHARMA / BIOTECH",
+    "ANIMAL HEALTH"
 ]
 
 def validate_customer_segment(value):
-    return (str(value) in str(valid_codes)) or (str(int(float(value))) in str(valid_codes))
+    try: 
+        return (str(int(float(value))) in valid_codes)
+    except:
+        return (str(value).upper() in valid_codes)
+
+
+# print(validate_customer_segment("01"))

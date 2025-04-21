@@ -112,8 +112,8 @@
             "column": "BillingStateCode",
             "rule": "validation-billing-state-code",
             "ref": "BillingCountryCode",
-            "message": "'BillingStateCode' should be in standard format",
-            "rule_category": "Standardization"
+            "message": "'BillingStateCode' should be valid as per Country",
+            "rule_category": "Validation"
         },
         {
             "column": "BillingPostalCode",

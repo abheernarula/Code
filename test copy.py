@@ -1,4 +1,3 @@
-import datetime
+import pandas as pd
 
-
-print(str(datetime.date.today()).replace("-","") + str(datetime.datetime.now().time()).replace(":","").replace(".","_"))
+print(pd.to_datetime('20251504'))

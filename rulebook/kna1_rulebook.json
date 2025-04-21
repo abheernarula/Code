@@ -127,7 +127,7 @@
         },
         {
             "column": "Address",
-            "rule": "capitalization",
+            "rule": "numeric",
             "message": "'Address' should be in a standard format",
             "rule_category": "Standardization"
         },

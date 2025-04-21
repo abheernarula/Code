@@ -30,9 +30,10 @@ def preprocessVendorData(vendorMaster):
     lfbk = pd.read_excel(vendorMaster, sheet_name='LFBK')
     adrc = pd.read_excel(vendorMaster, sheet_name='ADRC')
     
-    adrc_required = adrc[['Address Number', 'Postal Code', 'Stret', 'Street 2', 'Street 3', 'Street 4', 'Street 5', 
+    adrc_required = adrc[['Address Number', 'Postal Code', 'Street', 'Street 2', 'Street 3', 'Street 4', 'Street 5', 
                           'Postal Code', 'PO Box Postal Code', 'PO Box']]
-    right = lfa1[['Supplier', 'Address']]
+    right = lfa1[['Supplier', 'Address', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 
+                  'Last Invoice Posting Date', 'Country']]
     adrc = pd.merge(adrc_required, right, how='left', left_on='Address Number', right_on='Address')
     
     

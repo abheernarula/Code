@@ -109,12 +109,12 @@ def check_rule(df, row, value, rule, refcol):
             except:
                 return False
     
-    # elif rtype == 'combined-not-null':
-    #     isNull = True
-    #     for col in rule.get("combined"):
-    #         val = row[col]
-    #         isNull = isNull or (pd.isnull(val) or str(val).strip() == '' or val.lower() == 'nan')
-    #     return not isNull
+    elif rtype == 'combined-not-null':
+        isNull = True
+        for col in rule.get("combined"):
+            val = str(row[col])
+            isNull = isNull and (pd.isnull(val) or str(val).strip() == '' or val.lower() == 'nan')
+        return isNull
     
     elif rtype == 'validation-acc-group':
         return not validate_account_group(value)

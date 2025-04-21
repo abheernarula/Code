@@ -1,16 +1,6 @@
 {
     "rules": [
         {
-            "column": "Supplier",
-            "ref": "Account Group",
-            "rule": "supplier-regex",
-            "domestic_exp": "^1[0-9]{6}$",
-            "import_exp": "^3[0-9]{6}$",
-            "bonded_exp": "^8[0-9]{6}$",
-            "message": "'Supplier' should follow the defined supplier series",
-            "rule_category": "Advanced"
-        },
-        {
             "column": "Street",
             "combined": ["Street", "Street 2", "Street 3", "Street 4", "Street 5"],
             "rule": "combined-not-null",

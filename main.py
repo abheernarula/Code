@@ -1,5 +1,6 @@
 import os
 import time
+import datetime
 import argparse
 from rules import *
 from preprocess import *
@@ -45,33 +46,38 @@ elif args.isCustomer:
 else:
     pass
     
-
+suffix = str(datetime.date.today()).replace("-","") + str(datetime.datetime.now().time()).replace(":","").replace(".","_")
 for sheet in sheets:
     print(f'\n[WORKING ON {sheet.upper()}]...')
     if sheet == 'lfa1':
-        columns = ['Supplier', 'Last PO Date', 'Name 1', 'Name 2', 'Name 3', 'Name 4', 'Street', 'City', 'Country', 
-                   'PO Box', 'P.O. Box Postal Code', 'Postal Code', 'Telephone 1', 'Telephone 2', 'Language Key',
-                   'Address', 'Plant', 'Tax Jurisdiction', 'Account Group', 'Tax Number 3', 'Created on', 'Created by',
+        columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date', 
+                   'Name 1', 'Name 2', 'Name 3', 'Name 4', 'Street', 'City', 'Country', 'PO Box', 
+                   'P.O. Box Postal Code', 'Postal Code', 'Telephone 1', 'Telephone 2', 'Language Key', 'Address', 
+                   'Plant', 'Tax Jurisdiction', 'Account Group', 'Tax Number 3', 'Created on', 'Created by',
                    'Block function', 'Payment block', 'Central del.block', 'Central posting block', 
                    'Central purchasing block']
 
     if sheet == 'lfb1':
-        columns = ['Supplier', 'Last PO Date', 'Company Code', 'Terms of Payment', 'Reconciliation acct', 'Posting block for company code',
-                'Deletion Flag for Company Code', 'Planning group', 'Tolerance group', 'Payment methods', 
-                'Created on', 'Created by']
+        columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date',
+                   'Company Code', 'Terms of Payment', 'Reconciliation acct', 'Posting block for company code',
+                   'Deletion Flag for Company Code', 'Planning group', 'Tolerance group', 'Payment methods', 
+                   'Created on', 'Created by']
         
     if sheet == 'lfm1':
-        columns = ['Supplier', 'Last PO Date', 'Purch. block for purchasing organization', 'Purch. Organization', 'Purchasing Group', 
-                'Order currency', 'Confirmation Control', 'Incoterms', 'Incoterms (Part 2)', 'MSME Status', 
-                'MSME Number', 'MSME Issue Date', 'ABAC Status', 'ABAC Reason', 'GR-Based Inv. Verif.', 
-                'Service-Based Invoice Verification', 'Delete flag for purchasing organization']
+        columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date',
+                   'Purch. block for purchasing organization', 'Purch. Organization', 'Purchasing Group', 
+                   'Order currency', 'Confirmation Control', 'Incoterms', 'Incoterms (Part 2)', 'MSME Status', 
+                   'MSME Number', 'MSME Issue Date', 'ABAC Status', 'ABAC Reason', 'GR-Based Inv. Verif.', 
+                   'Service-Based Invoice Verification', 'Delete flag for purchasing organization']
         
     if sheet == 'lfbk':
-        columns = ['Supplier', 'Last PO Date', 'Account holder', 'Bank Country', 'Bank Key', 'Bank Account']
+        columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date',
+                   'Account holder', 'Bank Country', 'Bank Key', 'Bank Account']
         
     if sheet == 'adrc':
-        columns = ['Supplier', 'Address Number', 'Street', 'Street 2', 'Street 3', 'Street 4', 'Street 5', 
-                   'Postal Code', 'PO Box Postal Code', 'PO Box']
+        columns = ['Supplier', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date', 'Address Number', 
+                   'Street', 'Street 2', 'Street 3', 'Street 4', 'Street 5', 'Postal Code', 'PO Box Postal Code', 
+                   'PO Box', 'Country']
         
     if sheet == 'kna1':
         columns = ['Customer', 'Country', 'Name 1', 'Name 2', 'Telephone 1', 'Telephone 2', 'City', 'Street', 'Address',
@@ -116,7 +122,7 @@ for sheet in sheets:
     results = apply_rules(df, rules)
     print('\n[DONE]')
     # print('\n[SAVING RESULTS]...')
-    output_path = os.path.join(output_dir, f'{sheet.lower()}.xlsx')
+    output_path = os.path.join(output_dir, f'{suffix}_{sheet.lower()}.xlsx')
     print('\n[PROCESSING RESULTS]...')
     
     final = preprocessOutput(results, output_path)

@@ -1,0 +1,108 @@
+{
+    "rules":[
+        {
+            "column": "Plant",
+            "rule": "not_null",
+            "message": "'Plant' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Plant",
+            "rule": "validation-plant",
+            "message": "'Plant' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Plant",
+            "rule": "regex",
+            "expression": "^\\d{4}$",
+            "message": "'Plant' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Storage condition",
+            "rule": "not_null",
+            "message": "'Storage condition' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "QM Control Key",
+            "rule": "not_null",
+            "message": "'QM Control Key' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "QM Control Key",
+            "rule": "validation-qmcontrol",
+            "message": "'QM Control Key' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Loading Group",
+            "rule": "not_null",
+            "message": "'Loading Group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Loading Group",
+            "rule": "validation-loading-group",
+            "message": "'Loading Group' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Profit Center",
+            "rule": "not_null",
+            "message": "'Profit Center' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Profit Center",
+            "rule": "validation-profit-center",
+            "message": "'Profit Center' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "MRP Controller",
+            "rule": "not_null",
+            "message": "'MRP Controller' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "MRP Type",
+            "rule": "not_null",
+            "message": "'MRP Type' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "MRP Type",
+            "rule": "validation-mrp-type",
+            "message": "'MRP Type' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Purch. Group",
+            "rule": "not_null",
+            "message": "'Purch. Group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Purch. Group",
+            "rule": "validation-purch-group-mat",
+            "message": "'Purch. Group' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Avail. check",
+            "rule": "not_null",
+            "message": "'Avail. check' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Avail. check",
+            "rule": "validation-avail-check",
+            "message": "'Avail. check' should be valid",
+            "rule_category": "Advanced"
+        }
+        
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "rules":[
+        {
+            "column": "Valuation Cat.",
+            "rule": "not_null",
+            "message": "'Valuation Cat.' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Valuation Cat.",
+            "rule": "validation-valuation-cat",
+            "message": "'Valuation Cat.' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Valuation Class",
+            "rule": "not_null",
+            "message": "'Valuation Class' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Valuation Class",
+            "rule": "validation-valuation-class",
+            "message": "'Valuation Class' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Price Control",
+            "rule": "not_null",
+            "message": "'Price Control' should not be null",
+            "rule_category": "Completeness"
+        }        
+    ]
+}

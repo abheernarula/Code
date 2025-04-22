@@ -38,6 +38,19 @@ from methods.confControlsVendor import *
 from methods.glCodeVendor import *
 from methods.blockFunctionVendor import *
 from methods.paymentTermsVendor import *
+from methods.materialType import *
+from methods.plant import *
+from methods.accountAssignmentMaterial import *
+from methods.materialGroup import *
+from methods.QMControl import *
+from methods.loadingGroup import *
+from methods.profitCenter import *
+from methods.mrpType import *
+from methods.industryMaterial import *
+from methods.purchaseGroupMaterial import *
+from methods.valuationCategory import *
+from methods.availabilityCheck import *
+from methods.valuationClass import *
 
 # def standardizeDate(value):
 #     try:        
@@ -289,8 +302,51 @@ def check_rule(df, row, value, rule, refcol):
     
     elif rtype == 'validation-payment-terms':
         return not validatePaymentTermsVendor(value)
-        
-    else: pass
+    
+    elif rtype == 'validation-material':
+        return not validateMaterialType(value)
+    
+    elif rtype == 'validation-plant':
+        return not validatePlant(value)
+    
+    elif rtype == 'validation-length':
+        return not bool(re.fullmatch(rule.get('expression'),value))
+    
+    elif rtype == 'validation-account-assignment':
+        return not validateAccountAssignment(value)
+    
+    elif rtype == 'validation-mat-group':
+        return not validateMaterialGroup(value)
+    
+    elif rtype == 'validation-qmcontrol':
+        return not validateQMControl(value)
+    
+    elif rtype == 'validation-loading-group':
+        return not validateLoadingGroup(value)
+    
+    elif rtype == 'validation-profit-center':
+        return not validateProfitCenter(value)
+    
+    elif rtype == 'validation-mrp-type':
+        return not validateMRP_type(value)
+    
+    elif rtype == 'validation-mat-industry':
+        return not validateIndustryMaterial(value)
+    
+    elif rtype == 'validation-purch-group-mat':
+        return not validatePurchaseGroupMaterial(value)
+
+    elif rtype == 'validation-valuation-cat':
+        return not validateValuationCat(value)
+    
+    elif rtype == 'validation-avail-check':
+        return not validateAvailCheck(value)
+    
+    elif rtype == 'validation-valuation-class':
+        return not validateValuationClass(value)
+
+    else:
+        raise Exception(f"Rule type {rtype} does not exist")
         
 def check_row(df, row,rules):
     issues = []

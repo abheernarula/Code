@@ -24,6 +24,8 @@ parser = argparse.ArgumentParser(
 parser.add_argument("--data", "-d", required=True, help="Path to excel data")
 parser.add_argument("--isVendor", "-v", help="Check if the input file is Vendor Master", default=False)
 parser.add_argument("--isCustomer", "-c", help="Check if the input file is Vendor Master", default=False)
+parser.add_argument("--isMaterial", "-m", help="Check if the input file is Material Master", default=False)
+parser.add_argument("--materialType", "-mt", help="Material type", default="")
 parser.add_argument("--tables", "-t", help="Tables to apply rules", default="")
 parser.add_argument("--rules", "-r", required=True, help="Path to folder containing rulebooks")
 
@@ -43,8 +45,13 @@ elif args.isVendor:
     sheets = ['lfa1', 'lfb1', 'lfm1', 'lfbk', 'adrc']
 elif args.isCustomer:
     sheets = ['kna1', 'knb1', 'knvv', 'knkk', 'knb5', 'adr6', 'account', 'contact']
+elif args.isMaterial:
+    sheets = ['mara', 'marc', 'mbew']
+    if args.materialType == "":
+        raise ValueError("Please specify Material type")
+    print(f"[MATERIAL TYPE - {str(args.materialType).upper()}]")
 else:
-    pass
+    raise Exception("Please specify master data")
     
 suffix = str(datetime.date.today()).replace("-","") + str(datetime.datetime.now().time()).replace(":","").replace(".","_")
 for sheet in sheets:
@@ -114,15 +121,41 @@ for sheet in sheets:
     if sheet == 'contact':
         columns = ['Email']
         
+    if sheet == 'mara':
+        columns = ['Material', 'Material Type', 'Material Description', 'Material description', 
+                   'Base Unit of Measure', 'Gen. item cat. grp', 'Material Group', 'Material Category',
+                   'Industry', 'Int. material number', 'X-plant matl status', 'Division', 'catalog', 
+                   'Transportation Group', 'Batch management', 'Mfr Part Profile',
+                   'Purchasing value key', 'QM proc. active']
+        
+    if sheet == 'marc':
+        columns = ['Plant', 'Control code', 'Zone Category', 'Storage condition', 'QM Control Key', 'Loading Group',
+                   'Profit Center', 'MRP Controller', 'MRP Type', 'Purchasing Group', 'Prod. stor. location',
+                   'ABC Indicator', 'Procurement type', 'Availability check', 'CAS number (pharm.)', 
+                   'Prodn Supervisor', 'Prod.Sched.Profile', 'Certificate type']
+        
+    if sheet == 'mbew':
+        columns = ['Valuation Category', 'Valuation Class', 'Price Control', 'Valuation Area', 'Valuation Type']
+        
     df = load_excel_data(args.data, sheet.upper(), columns)
     
     print(f'\n[APPLYING DATA QUALITY RULES - {sheet.upper()}]...')
-    rules_dir = os.path.join(args.rules, f'{sheet.lower()}_rulebook.json')
+    
+    if args.isMaterial:
+        rules_dir = os.path.join(args.rules, f'{args.materialType}_{sheet.lower()}_rulebook.json')
+    else:
+        rules_dir = os.path.join(args.rules, f'{sheet.lower()}_rulebook.json')
+        
     rules = load_rules(rules_dir)
     results = apply_rules(df, rules)
     print('\n[DONE]')
     # print('\n[SAVING RESULTS]...')
-    output_path = os.path.join(output_dir, f'{suffix}_{sheet.lower()}.xlsx')
+    
+    if args.isMaterial:
+        output_path = os.path.join(output_dir, f'{suffix}_{args.materialType}_{sheet.lower()}.xlsx')
+    else:
+        output_path = os.path.join(output_dir, f'{suffix}_{sheet.lower()}.xlsx')
+        
     print('\n[PROCESSING RESULTS]...')
     
     final = preprocessOutput(results, output_path)

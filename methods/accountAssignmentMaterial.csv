@@ -1,0 +1,65 @@
+Item category group,Description
+0001,Make-to-order
+1,Make-to-order
+0002,Configuration
+2,Configuration
+0004,Make to order/Assem.
+4,Make to order/Assem.
+0005,Partial Billing
+5,Partial Billing
+ALEN,ALE Standard Item
+ALES,ALE Third Party Item
+BANC,Indiv.Purchase Order
+BANS,Third-party item
+DIEN,Service w/ Delivery
+ERLA,Structure/Mat. above
+FOC,Free of Charge Item
+LEAS,Leasing
+LEER,Empties
+LEIC,Service w/o del.conf
+LEIH,Returnable packaging
+LEIS,Service w/o Delivery
+LO01,Leas. Early C.T. Opt
+LO02,Leasng Return Option
+LO03,Leas. Early P Option
+LO04,Leasing Purch. Optn
+LO06,Leas. Renewal Option
+LO08,Leas. Renewal Option
+LO09,Lsg. Invoice for Opt
+LO11,Leas. E C.T. Opt woV
+LO12,Leasg Retn Optn w/oV
+LO13,Leas. E. P Optn w/oV
+LO14,Leasg Pur. Opt. w/oV
+LO16,Leasg Renwl Opt w/oV
+LO18,Leasg Renwl Opt w/oV
+LO19,Ls. Inv. for Opt woV
+LUMF,Structure/mat. below
+NLAG,Non-stock material
+NORM,Standard item
+SAMM,Generic material
+VCIT,Value contract item
+VERP,Packaging
+VOLL,Full product
+WERT,Val.item deliv.note
+WMPP,Raw materials WM-PP
+YB01,Credit memo
+YB02,Ret. Pack. Delivery
+YB03,Returnable packaging
+YB09,Standard w/o batch
+YBC1,Cnslt SD FxP
+YBC2,Cnslt SD T&M
+YBC3,Cnslt PS FxP
+YBC4,Cnslt PS T&M
+YBC5,Cnslt PS FxP CPI
+YBC6,Cnslt PS T&M CPI
+YBEN,Service w/o Project
+YBEP,Service w/ project
+YBER,Service w/SD-order
+YBKF,Header config.
+YBKP,Component
+YBLE,Service w/o Delivery
+YBNA,Stock ord 3rd party
+YBOR,Stock ord 3rd party
+YBS1,Service w Order CS
+YBUK,Bought-In
+ZIEN,CLN:Ser with deliver

@@ -94,9 +94,9 @@
             "rule_category": "Advanced"
         },
         {
-            "column": "Catalog",
+            "column": "catalog",
             "rule": "not_null",
-            "message": "'Catalog' should not be null",
+            "message": "'catalog' should not be null",
             "rule_category": "Completeness"
         },
         {

@@ -46,7 +46,7 @@ elif args.isVendor:
 elif args.isCustomer:
     sheets = ['kna1', 'knb1', 'knvv', 'knkk', 'knb5', 'adr6', 'account', 'contact']
 elif args.isMaterial:
-    sheets = ['mara', 'marc', 'mbew']
+    sheets = ['mara', 'marc', 'mbew', 'potext']
     if args.materialType == "":
         raise ValueError("Please specify Material type")
     print(f"[MATERIAL TYPE - {str(args.materialType).upper()}]")
@@ -136,6 +136,9 @@ for sheet in sheets:
         
     if sheet == 'mbew':
         columns = ['Valuation Category', 'Valuation Class', 'Price Control', 'Valuation Area', 'Valuation Type']
+
+    if sheet == 'potext':
+        columns = ['Material', 'Purchase Order Text', 'Created On', 'Created By']
         
     df = load_excel_data(args.data, sheet.upper(), columns)
     

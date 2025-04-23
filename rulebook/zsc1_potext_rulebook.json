@@ -1,0 +1,10 @@
+{
+    "rules":[
+        {
+            "column": "Valuation Category",
+            "rule": "not_null",
+            "message": "'Valuation Category' should not be null",
+            "rule_category": "Completeness"
+        }    
+    ]
+}

@@ -80,27 +80,27 @@
             "rule_category": "Advanced"
         },
         {
-            "column": "Purch. Group",
+            "column": "Purchasing Group",
             "rule": "not_null",
-            "message": "'Purch. Group' should not be null",
+            "message": "'Purchasing Group' should not be null",
             "rule_category": "Completeness"
         },
         {
-            "column": "Purch. Group",
+            "column": "Purchasing Group",
             "rule": "validation-purch-group-mat",
-            "message": "'Purch. Group' should be valid",
+            "message": "'Purchasing Group' should be valid",
             "rule_category": "Advanced"
         },
         {
-            "column": "Avail. check",
+            "column": "Availability check",
             "rule": "not_null",
-            "message": "'Avail. check' should not be null",
+            "message": "'Availability check' should not be null",
             "rule_category": "Completeness"
         },
         {
-            "column": "Avail. check",
+            "column": "Availability check",
             "rule": "validation-avail-check",
-            "message": "'Avail. check' should be valid",
+            "message": "'Availability check' should be valid",
             "rule_category": "Advanced"
         }
         

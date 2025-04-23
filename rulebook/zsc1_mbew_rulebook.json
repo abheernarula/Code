@@ -1,15 +1,15 @@
 {
     "rules":[
         {
-            "column": "Valuation Cat.",
+            "column": "Valuation Category",
             "rule": "not_null",
-            "message": "'Valuation Cat.' should not be null",
+            "message": "'Valuation Category' should not be null",
             "rule_category": "Completeness"
         },
         {
-            "column": "Valuation Cat.",
+            "column": "Valuation Category",
             "rule": "validation-valuation-cat",
-            "message": "'Valuation Cat.' should be valid",
+            "message": "'Valuation Category' should be valid",
             "rule_category": "Advanced"
         },
         {

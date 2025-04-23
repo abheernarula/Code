@@ -94,15 +94,15 @@
             "rule_category": "Advanced"
         },
         {
-            "column": "Catalog profile",
+            "column": "Catalog",
             "rule": "not_null",
-            "message": "'Catalog profile' should not be null",
+            "message": "'Catalog' should not be null",
             "rule_category": "Completeness"
         },
         {
-            "column": "QM procurement",
+            "column": "QM proc. active",
             "rule": "not_null",
-            "message": "'QM procurement' should not be null",
+            "message": "'QM proc. active' should not be null",
             "rule_category": "Completeness"
         }
         

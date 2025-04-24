@@ -296,11 +296,14 @@ def check_rule(df, row, value, rule, refcol):
             return not bool(re.match(rule.get("bonded_exp"),str(int(float(value)))))
         
     elif rtype == 'advance-country':
-        if refcol == 'Z014':
-            return str(value).upper() != 'IN'
+        if refcol == 'Z001':
+            return not str(value).upper() == 'IN'
+        if refcol == 'Z002':
+            return str(value).upper() == 'IN'
         
     elif rtype == 'validation-block-function':
-        return not validateBlockFunction(value)
+        if not (pd.isnull(refcol) or str(refcol).strip() == '' or str(refcol).lower() == 'nan'):
+            return not validateBlockFunction(value)
     
     elif rtype == 'validation-payment-terms':
         return not validatePaymentTermsVendor(value)

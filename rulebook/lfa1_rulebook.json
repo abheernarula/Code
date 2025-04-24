@@ -104,7 +104,7 @@
         {
             "column": "Country",
             "rule": "advance-country",
-            "re": "Account Group",
+            "ref": "Account Group",
             "message": "'Country' should be valid as per Account group",
             "rule_category": "Advanced"
         },

@@ -52,10 +52,10 @@
             "rule_category": "Validation"
         },
         {
-            "column": "P.O. Box Postal Code",
+            "column": "PO Box Postal Code",
             "rule": "validation-postal-code",
             "ref": "Country",
-            "message": "'P.O. Box Postal Code' should be valid as per Country",
+            "message": "'PO Box Postal Code' should be valid as per Country",
             "rule_category": "Validation"
         },
         {

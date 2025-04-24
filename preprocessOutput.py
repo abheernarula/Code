@@ -13,7 +13,7 @@ def filter_issues(col, issues):
 def preprocessOutput(df: pd.DataFrame, output_path):
     
     summary = [] 
-    issueList = list(sorted(set([i.strip() for i in ','.join(df['Issues'].to_list()).split(',')])))
+    issueList = list(sorted(set([i.strip() for i in ','.join(df['Issues'].to_list()).split(',') if i.strip()])))
     i = 1
     with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
         df.to_excel(writer, sheet_name='Results', index=False)

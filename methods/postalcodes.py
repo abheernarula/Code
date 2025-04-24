@@ -66,6 +66,7 @@ POSTAL_CODE_DATA = {
     'GT': {'name': 'Guatemala', 'regex': r'^\d{5}$'},
     'GW': {'name': 'Guinea-Bissau', 'regex': r'^$'},
     'GY': {'name': 'Guyana', 'regex': r'^$'},
+    'HK': {'name': 'Hong Kong', 'regex': r'^$'},
     'HN': {'name': 'Honduras', 'regex': r'^\d{5}$'},
     'HR': {'name': 'Croatia', 'regex': r'^\d{5}$'},
     'HT': {'name': 'Haiti', 'regex': r'^$'},

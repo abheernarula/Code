@@ -51,6 +51,8 @@ from methods.purchaseGroupMaterial import *
 from methods.valuationCategory import *
 from methods.availabilityCheck import *
 from methods.valuationClass import *
+from methods.unitOfMeasurement import *
+from methods.mrpController import *
 
 # def standardizeDate(value):
 #     try:        
@@ -344,6 +346,12 @@ def check_rule(df, row, value, rule, refcol):
     
     elif rtype == 'validation-valuation-class':
         return not validateValuationClass(value)
+    
+    elif rtype == 'validation-uom':
+        return not validateUOM(value)
+    
+    elif rtype == 'validation-mrp-controller':
+        return not validateMRPcontroller(int(float(refcol)), value)
 
     else:
         raise Exception(f"Rule type {rtype} does not exist")

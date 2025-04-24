@@ -68,6 +68,13 @@
             "rule_category": "Completeness"
         },
         {
+            "column": "MRP Controller",
+            "ref": "Plant",
+            "rule": "validation-mrp-controller",
+            "message": "'MRP Controller' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
             "column": "MRP Type",
             "rule": "not_null",
             "message": "'MRP Type' should not be null",

@@ -58,6 +58,12 @@
             "rule_category": "Completeness"
         },
         {
+            "column": "Base Unit of Measure",
+            "rule": "validation-uom",
+            "message": "'Base Unit of Measure' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
             "column": "Gen. item cat. grp",
             "rule": "not_null",
             "message": "'Gen. item cat. grp' should not be null",

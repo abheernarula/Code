@@ -127,6 +127,18 @@
             "rule": "not_null",
             "message": "'Control code' should not be null",
             "rule_category": "Completeness"
+        },
+        {
+            "column": "Certificate type",
+            "rule": "not_null",
+            "message": "'Certificate type' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Certificate type",
+            "rule": "validation-cert-type-mat",
+            "message": "'Certificate type' should be valid",
+            "rule_category": "Advanced"
         }
         
     ]

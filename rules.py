@@ -55,6 +55,7 @@ from methods.unitOfMeasurement import *
 from methods.mrpController import *
 from methods.transGroupMat import *
 from methods.purchValueKeyMat import *
+from methods.certTypeMat import *
 
 # def standardizeDate(value):
 #     try:        
@@ -374,6 +375,9 @@ def check_rule(df, row, value, rule, refcol):
     
     elif rtype == 'validation-purch-val-key-mat':
         return not validatePurchValMat(value)
+    
+    elif rtype == 'validation-cert-type-mat':
+        return not validateCertTypeMat(value)
 
     else:
         raise Exception(f"Rule type {rtype} does not exist")

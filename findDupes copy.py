@@ -1,82 +1,97 @@
 #!/usr/bin/env python3
 """
-find_sf_duplicates_export.py
+fast_find_duplicates.py
 
-Scan a customer master CSV for duplicates (GST, PAN, AccountGroup exact;
-Name & Address fuzzy), tag them by group, and export duplicate rows to CSV.
+– Block on AccountGroup (you can add GST or PAN blocks too)
+– Within each block, batch‐compute name & address scores
+– Only compare pairs that pass exact_or_empty(GST, PAN, AccountGroup)
 """
 
 import pandas as pd
 from rapidfuzz import fuzz
+from rapidfuzz.process import cdist
 
-# Thresholds for fuzzy matching (0–100)
-NAME_THRESHOLD = 80
-ADDR_THRESHOLD = 80
+# thresholds
+NAME_THRESH = 55
+ADDR_THRESH = 55
 GST = 'GST_Number__c'
 PAN = 'PAN_Number__c'
 AccountGroup = 'KTOKD__c'
-Name = 'Name'
-Address = 'add_dupe'
 
-def is_potential_duplicate(r1, r2,
-                           name_thresh=NAME_THRESHOLD,
-                           addr_thresh=ADDR_THRESHOLD):
-    def exact_or_empty(a, b):
-        return pd.isna(a) or pd.isna(b) or (a == b)
-    
-    gst_ok = exact_or_empty(r1[GST], r2[GST])
-    pan_ok = exact_or_empty(r1[PAN], r2[PAN])
-    grp_ok = exact_or_empty(r1[AccountGroup], r2[AccountGroup])
-    
-    name_score = fuzz.token_sort_ratio(str(r1[Name]), str(r2[Name]))
-    addr_score = fuzz.token_sort_ratio(str(r1[Address]), str(r2[Address]))
-    name_ok = pd.isna(r1[Name]) or pd.isna(r2[Name]) or (name_score >= name_thresh)
-    addr_ok = pd.isna(r1[Address]) or pd.isna(r2[Address]) or (addr_score >= addr_thresh)
-    
-    return gst_ok and pan_ok and grp_ok and name_ok and addr_ok
+def exact_or_empty(a, b):
+    print(a," -> ", b)
+    print(pd.isna(a) or pd.isna(b) or (str(a).strip() == str(b).strip()) or str(a).lower().strip() == 'nan' or str(a).strip() == '')
+    return pd.isna(a) or pd.isna(b) or (str(a).strip() == str(b).strip()) or str(a).lower().strip() == 'nan' or str(a).strip() == ''
 
-def find_duplicates(df: pd.DataFrame):
+def find_duplicates(df):
     df = df.reset_index(drop=True)
-    n = len(df)
-    visited = set()
     dup_groups = []
-    
-    for i in range(n):
-        if i in visited:
+    visited = set()
+
+    # 1) BLOCK on AccountGroup
+    for _, block in df.groupby('KTOKD__c', dropna=False):
+        idxs = block.index.to_list()
+        if len(idxs) < 2:
             continue
-        group = [i]
-        for j in range(i+1, n):
-            if j in visited:
+
+        # 2) BATCH fuzzy
+        names = block['Name'].fillna('').astype(str).to_list()
+        adds  = block['add_dupe'].fillna('').astype(str).to_list()
+
+        # shape = (M, M)
+        name_scores = cdist(names, names, scorer=fuzz.token_sort_ratio)
+        addr_scores = cdist(adds,  adds,  scorer=fuzz.token_sort_ratio)
+
+        # 3) only check i<j and exact fields
+        for i, id1 in enumerate(idxs):
+            print(f'\nWorking... - {i}')
+            if id1 in visited: 
                 continue
-            if is_potential_duplicate(df.loc[i], df.loc[j]):
-                group.append(j)
-                visited.add(j)
-        if len(group) > 1:
-            dup_groups.append(group)
-    
+            group = [id1]
+
+            for j, id2 in enumerate(idxs[i+1:], start=i+1):
+                if id2 in visited:
+                    continue
+
+                # quick fuzzy filter
+                if name_scores[i, j] < NAME_THRESH or addr_scores[i, j] < ADDR_THRESH:
+                    continue
+
+                r1, r2 = df.loc[id1], df.loc[id2]
+                if (exact_or_empty(r1[GST], r2[GST]) or exact_or_empty(r1[PAN], r2[PAN])):
+                    group.append(id2)
+                    visited.add(id2)
+
+            if len(group) > 1:
+                dup_groups.append(group)
+
     return dup_groups
 
 def main():
-    
-    df = pd.read_excel("../Customer/CustomerMaster.xlsx", sheet_name='ACCOUNT')
-    
-    # 1. Find duplicate groups
+    df = pd.read_excel('../Customer/CustomerMaster.xlsx', sheet_name='ACCOUNT')
+    df = df[df[ 'Name', 'GST_Number__c', 'PAN_Number__c', 'BillingStreet', 'BillingAddress.street',
+                'BillingStateCode', 'BillingPostalCode', 'SAP_Account_Number__c', 'BillingCountryCode', 'BillingAddress.countryCode', 'BillingCity', 'KTOKD__c',
+                'Customer_Type__c', 'SAP_Customer_Creation_Date__c', 'CreatedDate', 'CreatedById','ZTERM__c',
+                'AKONT__c', 'MAHNA__c', 'Total_Credit_Limit__c', 'Credit_Limit__c', 'VSBED__c', 
+                'Sales_Organization__c','INCO1__c', 'INCO2__c', 'SPART__c', 'VTWEG__c', 'KALKS__c', 'KTGRD__c', 
+                'CurrencyIsoCode', 'Account_Currency__c','Company_Size__c', 'Business_Unit__c', 'Portfolio__c', 
+                'Customer_Category__c']]
+    # df = pd.read_csv("customer_dump.csv", dtype=str)
     groups = find_duplicates(df)
-    
+
     if not groups:
-        print("🎉 No duplicates found!")
+        print("No duplicates found.")
         return
-    
-    # 2. Tag each duplicate row with its group ID
+
+    # tag & export
     df['dup_group'] = pd.NA
-    for idx, grp in enumerate(groups, start=1):
-        for row in grp:
-            df.at[row, 'dup_group'] = f"Group {idx}"
-    
-    # 3. Export only the duplicates
-    dup_df = df[df['dup_group'].notna()]
-    dup_df.to_csv("duplicate_records.csv", index=False)
-    print(f"✅ Exported {len(dup_df)} duplicate rows across {len(groups)} groups to duplicate_records.csv")
+    for gid, grp in enumerate(groups, start=1):
+        for idx in grp:
+            df.at[idx, 'dup_group'] = f"{gid}"
+
+    df[df.dup_group.notna()] \
+      .to_csv("duplicates_blocked.csv", index=False)
+    print(f"Exported {df.dup_group.notna().sum()} rows into duplicates_blocked.csv")
 
 if __name__ == "__main__":
     main()

@@ -109,6 +109,24 @@
             "rule": "validation-avail-check",
             "message": "'Availability check' should be valid",
             "rule_category": "Advanced"
+        },
+        {
+            "column": "Zone Category",
+            "rule": "not_null",
+            "message": "'Zone Category' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Batch management",
+            "rule": "validation-x",
+            "message": "'Batch management' should be valid",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Control code",
+            "rule": "not_null",
+            "message": "'Control code' should not be null",
+            "rule_category": "Completeness"
         }
         
     ]

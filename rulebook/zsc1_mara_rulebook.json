@@ -110,6 +110,30 @@
             "rule": "not_null",
             "message": "'QM proc. active' should not be null",
             "rule_category": "Completeness"
+        },
+        {
+            "column": "Transportation Group",
+            "rule": "not_null",
+            "message": "'Transportation Group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Transportation Group",
+            "rule": "validation-trans-group-mat",
+            "message": "'Transportation Group' should be valid",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Purchasing value key",
+            "rule": "not_null",
+            "message": "'Purchasing value key' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Purchasing value key",
+            "rule": "validation-purch-val-key-mat",
+            "message": "'Purchasing value key' should be valid",
+            "rule_category": "Completeness"
         }
         
     ]

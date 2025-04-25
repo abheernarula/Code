@@ -1,9 +1,9 @@
 {
     "rules":[
         {
-            "column": "Valuation Category",
+            "column": "Purchase Order Text",
             "rule": "not_null",
-            "message": "'Valuation Category' should not be null",
+            "message": "'Purchase Order Text' should not be null",
             "rule_category": "Completeness"
         }    
     ]

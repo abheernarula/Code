@@ -53,6 +53,8 @@ from methods.availabilityCheck import *
 from methods.valuationClass import *
 from methods.unitOfMeasurement import *
 from methods.mrpController import *
+from methods.transGroupMat import *
+from methods.purchValueKeyMat import *
 
 # def standardizeDate(value):
 #     try:        
@@ -366,9 +368,16 @@ def check_rule(df, row, value, rule, refcol):
                 return str(value).title() != 'Hyderabad'
         if inco.upper() == 'EXW':
                 return str(value).title() != str(row['City']).title()
+            
+    elif rtype == 'validation-trans-group-mat':
+        return not validateTransGroupMat(value)
+    
+    elif rtype == 'validation-purch-val-key-mat':
+        return not validatePurchValMat(value)
 
     else:
         raise Exception(f"Rule type {rtype} does not exist")
+    
         
 def check_row(df, row,rules):
     issues = []

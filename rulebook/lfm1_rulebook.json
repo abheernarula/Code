@@ -74,6 +74,13 @@
             "rule_category": "Completeness"
         },
         {
+            "column": "Incoterms (Part 2)",
+            "ref": "Purch. Organization",
+            "rule": "validation-incoterms-2-vendor",
+            "message": "'Incoterms (Part 2)' should be valid as per Purch. org / Incoterms",
+            "rule_category": "Completeness"
+        },
+        {
             "column": "MSME Status",
             "rule": "not_null",
             "message": "'MSME Status' should not be null",
@@ -155,6 +162,12 @@
             "rule": "validation-x",
             "message": "'GR-Based Inv. Verif.' should be in a standard format",
             "rule_category": "Standardization"
+        },
+        {
+            "column": "Service-Based Invoice Verification",
+            "rule": "not_null",
+            "message": "'Service-Based Invoice Verification' should not be null",
+            "rule_category": "Completeness"
         },
         {
             "column": "Service-Based Invoice Verification",

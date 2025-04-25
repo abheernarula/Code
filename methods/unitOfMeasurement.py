@@ -11,5 +11,5 @@ def validateUOM(value):
     try:
         str(int(float(value)))
     except:
-        return str(value).upper() in valid or str(value).upper() in additional
-    return str(int(float(value))).upper() in valid or str(int(float(value))).upper() in additional
+        return str(value) in valid or str(value)  in additional
+    return str(int(float(value))) in valid or str(int(float(value))) in additional

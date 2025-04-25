@@ -355,6 +355,17 @@ def check_rule(df, row, value, rule, refcol):
     
     elif rtype == 'validation-mrp-controller':
         return not validateMRPcontroller(int(float(refcol)), value)
+    
+    elif rtype == 'validation-incoterms-2-vendor':
+        inco = str(row['Incoterms'])
+        if int(float(refcol)) == 5100:
+            if inco.upper() == 'DAP' or inco.upper() == 'CIF':
+                return str(value).title() != 'Bangalore' or str(value).title() != 'Bengaluru'
+        elif int(float(refcol)) == 5500:
+            if inco.upper() == 'DAP' or inco.upper() == 'CIF':
+                return str(value).title() != 'Hyderabad'
+        if inco.upper() == 'EXW':
+                return str(value).title() != str(row['City']).title()
 
     else:
         raise Exception(f"Rule type {rtype} does not exist")

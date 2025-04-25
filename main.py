@@ -62,7 +62,7 @@ for sheet in sheets:
                    'P.O. Box Postal Code', 'Postal Code', 'Telephone 1', 'Telephone 2', 'Language Key', 'Address', 
                    'Plant', 'Tax Jurisdiction', 'Account Group', 'Tax Number 3', 'Created on', 'Created by',
                    'Block function', 'Payment block', 'Central del.block', 'Central posting block', 
-                   'Central purchasing block']
+                   'Central purchasing block', 'Permanent account number']
 
     if sheet == 'lfb1':
         columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date',
@@ -71,7 +71,7 @@ for sheet in sheets:
                    'Created on', 'Created by']
         
     if sheet == 'lfm1':
-        columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date',
+        columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date', 'City',
                    'Purch. block for purchasing organization', 'Purch. Organization', 'Purchasing Group', 
                    'Order currency', 'Confirmation Control', 'Incoterms', 'Incoterms (Part 2)', 'MSME Status', 
                    'MSME Number', 'MSME Issue Date', 'ABAC Status', 'ABAC Reason', 'GR-Based Inv. Verif.', 
@@ -126,7 +126,7 @@ for sheet in sheets:
                    'Base Unit of Measure', 'Gen. item cat. grp', 'Material Group', 'Material Category',
                    'Industry', 'Int. material number', 'X-plant matl status', 'Division', 'catalog', 
                    'Transportation Group', 'Batch management', 'Mfr Part Profile',
-                   'Purchasing value key', 'QM proc. active']
+                   'Purchasing value key', 'QM proc. active', 'Created On', 'Created By']
         
     if sheet == 'marc':
         columns = ['Plant', 'Control code', 'Zone Category', 'Storage condition', 'QM Control Key', 'Loading Group',

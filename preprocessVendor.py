@@ -29,6 +29,7 @@ def preprocessVendorData(vendorMaster):
     lfm1 = pd.read_excel(vendorMaster, sheet_name='LFM1')
     lfbk = pd.read_excel(vendorMaster, sheet_name='LFBK')
     adrc = pd.read_excel(vendorMaster, sheet_name='ADRC')
+    j1imovend = pd.read_excel(vendorMaster, sheet_name='J1IMOVEND')
     
     adrc_required = adrc[['Address Number', 'Postal Code', 'Street', 'Street 2', 'Street 3', 'Street 4', 'Street 5', 
                           'Postal Code', 'PO Box Postal Code', 'PO Box']]
@@ -36,6 +37,10 @@ def preprocessVendorData(vendorMaster):
                   'Last Invoice Posting Date', 'Country']]
     adrc = pd.merge(adrc_required, right, how='left', left_on='Address Number', right_on='Address')
     
+    lfa1 = pd.merge(lfa1,j1imovend,'left','Supplier')
+    
+    city = lfa1[['Supplier', 'City']]
+    lfm1 = pd.merge(lfm1, city, 'left', 'Supplier')
     
     inactiveVendors = []
     visited = set()
@@ -80,9 +85,9 @@ def preprocessVendorData(vendorMaster):
     # tables = [lfa1_inactive, lfb1_inactive, lfm1_inactive, lfbk_inactive, adrc_inactive]
     # sheets = ['LFA1', 'LFB1', 'LFM1', 'LFBK', 'ADRC']
     
-    # with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
-    #     for idx, table in enumerate(tables):
-    #         table.to_excel(writer, sheet_name=sheets[idx], index=False)
+    with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
+        for idx, table in enumerate(tables):
+            table.to_excel(writer, sheet_name=sheets[idx], index=False)
             
     return output_path
     

@@ -2,9 +2,9 @@
 """
 fast_find_duplicates.py
 
-– Block on AccountGroup (you can add GST or PAN blocks too)
-– Within each block, batch‐compute name & address scores
-– Only compare pairs that pass exact_or_empty(GST, PAN, AccountGroup)
+- Block on AccountGroup (you can add GST or PAN blocks too)
+- Within each block, batch-compute name & address scores
+- Only compare pairs that pass exact_or_empty(GST, PAN, AccountGroup)
 """
 
 import pandas as pd

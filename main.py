@@ -7,6 +7,7 @@ from preprocess import *
 from methods.cityClustering import *
 from preprocessVendor import *
 from preprocessOutput import *
+from preprocessCustomer import *
 
 def filter_issues(col, issues):
     filtered = issues.split('; ')
@@ -44,6 +45,7 @@ elif args.isVendor:
     args.data = preprocessVendorData(args.data)
     sheets = ['lfa1', 'lfb1', 'lfm1', 'lfbk', 'adrc']
 elif args.isCustomer:
+    args.data = preprocessCustomerData(args.data)
     sheets = ['kna1', 'knb1', 'knvv', 'knkk', 'knb5', 'adr6', 'account', 'contact']
 elif args.isMaterial:
     sheets = ['mara', 'marc', 'mbew', 'potext', 'mvke']

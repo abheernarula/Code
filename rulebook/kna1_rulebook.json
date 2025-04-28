@@ -57,7 +57,8 @@
         },
         {
             "column": "Telephone 1",
-            "rule": "not_null",
+            "combined": ["Telephone 1","Telephone 2"],
+            "rule": "combined-not-null",
             "message": "'Telephone 1' should not be null",
             "rule_category": "Completeness"
         },
@@ -74,12 +75,6 @@
             "message": "'Telephone 1' should be in a standard format",
             "ref": "Country",
             "rule_category": "Standardization"
-        },
-        {
-            "column": "Telephone 2",
-            "rule": "not_null",
-            "message": "'Telephone 2' should not be null",
-            "rule_category": "Completeness"
         },
         {
             "column": "Telephone 2",
@@ -133,7 +128,8 @@
         },
         {
             "column": "Postal Code",
-            "rule": "not_null",
+            "combined": ["Postal Code", "PO Box", "P.O. Box Postal Code"],
+            "rule": "combined-not-null",
             "message": "'Postal Code' should not be null",
             "rule_category": "Completeness"
         },
@@ -146,22 +142,10 @@
         },
         {
             "column": "PO Box",
-            "rule": "not_null",
-            "message": "'PO Box' should not be null",
-            "rule_category": "Completeness"
-        },
-        {
-            "column": "PO Box",
             "rule": "validation-postal-code",
             "ref": "Country",
             "message": "'PO Box' should be valid as per Country",
             "rule_category": "Validation"
-        },
-        {
-            "column": "P.O. Box Postal Code",
-            "rule": "not_null",
-            "message": "'P.O. Box Postal Code' should not be null",
-            "rule_category": "Completeness"
         },
         {
             "column": "P.O. Box Postal Code",

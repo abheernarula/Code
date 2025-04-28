@@ -70,12 +70,11 @@ def find_duplicates(df):
 def main():
     df = pd.read_excel('../Customer/CustomerMaster.xlsx', sheet_name='ACCOUNT')
     df = df[df[ 'Name', 'GST_Number__c', 'PAN_Number__c', 'BillingStreet', 'BillingAddress.street',
-                'BillingStateCode', 'BillingPostalCode', 'SAP_Account_Number__c', 'BillingCountryCode', 'BillingAddress.countryCode', 'BillingCity', 'KTOKD__c',
-                'Customer_Type__c', 'SAP_Customer_Creation_Date__c', 'CreatedDate', 'CreatedById','ZTERM__c',
+                'BillingStateCode', 'BillingPostalCode', 'SAP_Account_Number__c', 'BillingCountryCode', 
+                'BillingAddress.countryCode', 'BillingCity', 'KTOKD__c', 'Customer_Type__c', 
+                'SAP_Customer_Creation_Date__c', 'CreatedDate', 'CreatedById','ZTERM__c',
                 'AKONT__c', 'MAHNA__c', 'Total_Credit_Limit__c', 'Credit_Limit__c', 'VSBED__c', 
-                'Sales_Organization__c','INCO1__c', 'INCO2__c', 'SPART__c', 'VTWEG__c', 'KALKS__c', 'KTGRD__c', 
-                'CurrencyIsoCode', 'Account_Currency__c','Company_Size__c', 'Business_Unit__c', 'Portfolio__c', 
-                'Customer_Category__c']]
+                'Sales_Organization__c','INCO1__c', 'INCO2__c']]
     # df = pd.read_csv("customer_dump.csv", dtype=str)
     groups = find_duplicates(df)
 

@@ -29,6 +29,12 @@
             "rule": "not_null",
             "message": "'Price Control' should not be null",
             "rule_category": "Completeness"
+        },
+        {
+            "column": "Price Control",
+            "rule": "validation-price-control-mat",
+            "message": "'Price Control' should be valid",
+            "rule_category": "Advanced"
         }        
     ]
 }

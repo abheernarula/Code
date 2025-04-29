@@ -56,6 +56,11 @@ from methods.mrpController import *
 from methods.transGroupMat import *
 from methods.purchValueKeyMat import *
 from methods.certTypeMat import *
+from methods.mfrPartProfile import *
+from methods.acctAssmtCatMat import *
+from methods.priceControlMat import *
+from methods.acctAssmtGrpMat import *
+from methods.taxIndicatorMat import *
 
 # def standardizeDate(value):
 #     try:        
@@ -357,7 +362,7 @@ def check_rule(df, row, value, rule, refcol):
         return not validateUOM(value)
     
     elif rtype == 'validation-mrp-controller':
-        return not validateMRPcontroller(int(float(refcol)), value)
+        return not validateMRPcontroller(value)
     
     elif rtype == 'validation-incoterms-2-vendor':
         inco = str(row['Incoterms'])
@@ -377,7 +382,22 @@ def check_rule(df, row, value, rule, refcol):
         return not validatePurchValMat(value)
     
     elif rtype == 'validation-cert-type-mat':
-        return not validateCertTypeMat(value)
+        return not validateCertTypeMat(int(float(refcol)), value)
+    
+    elif rtype == 'validation-mfr-part-profile':
+        return not validateMfrPartProfile(value)
+    
+    elif rtype == 'validation-acct-assnt-cat':
+        return not validateAcctAssmtCat(value)
+    
+    elif rtype == 'validation-price-control-mat':
+        return not validatePriceControlMat(value)
+    
+    elif rtype == 'validation-acct-assmt-grp-mat':
+        return not validateAcctAssmtGrpMat(value)
+    
+    elif rtype == 'validation-tax-ind-mat':
+        return not validateTaxIndicatorMat(value)
 
     else:
         raise Exception(f"Rule type {rtype} does not exist")

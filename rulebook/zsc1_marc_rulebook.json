@@ -69,7 +69,6 @@
         },
         {
             "column": "MRP Controller",
-            "ref": "Plant",
             "rule": "validation-mrp-controller",
             "message": "'MRP Controller' should be valid",
             "rule_category": "Advanced"
@@ -136,8 +135,15 @@
         },
         {
             "column": "Certificate type",
+            "ref": "Plant",
             "rule": "validation-cert-type-mat",
             "message": "'Certificate type' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Acct Assignment Cat.",
+            "rule": "validation-acct-assnt-cat",
+            "message": "'Acct Assignment Cat.' should be valid",
             "rule_category": "Advanced"
         }
         

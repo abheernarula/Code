@@ -121,7 +121,7 @@
             "column": "Transportation Group",
             "rule": "validation-trans-group-mat",
             "message": "'Transportation Group' should be valid",
-            "rule_category": "Completeness"
+            "rule_category": "Advanced"
         },
         {
             "column": "Purchasing value key",
@@ -133,8 +133,13 @@
             "column": "Purchasing value key",
             "rule": "validation-purch-val-key-mat",
             "message": "'Purchasing value key' should be valid",
-            "rule_category": "Completeness"
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Mfr Part Profile",
+            "rule": "validation-mfr-part-profile",
+            "message": "'Purchasing value key' should be valid",
+            "rule_category": "Advanced"
         }
-        
     ]
 }

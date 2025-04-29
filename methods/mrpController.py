@@ -1,9 +1,12 @@
 import pandas as pd
 
-vals = pd.read_csv('methods/mrpCOntroller.csv')
+# vals = pd.read_csv('methods/mrpController.csv')
+valid = [
+    'S00'
+]
 
-def validateMRPcontroller(plant, value):
-    valid = vals[vals['Plant']==plant]['MRP Controller'].to_list()
+def validateMRPcontroller(value):
+    # valid = vals[vals['Plant']==plant]['MRP Controller'].to_list()
     
     try:
         str(int(float(value)))

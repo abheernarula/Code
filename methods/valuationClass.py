@@ -1,6 +1,9 @@
 import pandas as pd
 
-valid = pd.read_csv('methods/valuationClass.csv')['Valuation Class'].to_list()
+# valid = pd.read_csv('methods/valuationClass.csv')['Valuation Class'].to_list()
+valid = [
+    9040, '9040'
+]
 
 def validateValuationClass(value):
     try:

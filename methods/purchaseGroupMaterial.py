@@ -1,6 +1,9 @@
 import pandas as pd
 
-valid = pd.read_csv('methods/purchasegroupMaterial.csv')['Purchasing Group'].to_list()
+# valid = pd.read_csv('methods/purchasegroupMaterial.csv')['Purchasing Group'].to_list()
+valid = [
+    501, '501'
+]
 
 def validatePurchaseGroupMaterial(value):
     try:

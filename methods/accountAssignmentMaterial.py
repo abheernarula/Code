@@ -1,6 +1,7 @@
 import pandas as pd
 
-valid = pd.read_csv('methods/accountAssignmentMaterial.csv')['Item category group'].to_list()
+# valid = pd.read_csv('methods/accountAssignmentMaterial.csv')['Item category group'].to_list()
+valid = ['NORM']
 
 def validateAccountAssignment(value):
     try:

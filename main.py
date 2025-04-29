@@ -134,7 +134,7 @@ for sheet in sheets:
         columns = ['Plant', 'Control code', 'Zone Category', 'Storage condition', 'QM Control Key', 'Loading Group',
                    'Profit Center', 'MRP Controller', 'MRP Type', 'Purchasing Group', 'Prod. stor. location',
                    'ABC Indicator', 'Procurement type', 'Availability check', 'CAS number (pharm.)', 
-                   'Prodn Supervisor', 'Prod.Sched.Profile', 'Certificate type']
+                   'Prodn Supervisor', 'Prod.Sched.Profile', 'Certificate type', 'Acct Assignment Cat.']
         
     if sheet == 'mbew':
         columns = ['Valuation Category', 'Valuation Class', 'Price Control', 'Valuation Area', 'Valuation Type']
@@ -143,7 +143,10 @@ for sheet in sheets:
         columns = ['Material', 'Purchase Order Text', 'Created On', 'Created By']
         
     if sheet == 'mvke':
-        columns = ['Material', 'Item category group', 'Acct Assmt Grp Mat.', '']
+        columns = ['Material', 'Item category group', 'Acct Assmt Grp Mat.']
+        
+    if sheet == 'mlan':
+        columns = ['Material', 'Tax ind. f. material']
         
     df = load_excel_data(args.data, sheet.upper(), columns)
     

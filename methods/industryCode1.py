@@ -8,6 +8,6 @@ valid_codes = pd.read_csv('methods/industryCode1.csv')
 # print(valid_codes['Industry code'].to_list())
 
 def validate_industry_code(value):
-    return str(value) in valid_codes['Industry code'].to_list()
+    return str(value).lower() in [str(i).lower() for i in valid_codes['Industry Key'].to_list()]
 # def validate_billingStateCode(companyKey, value):
 #     return str(value) in valid_codes[valid_codes['Country Key']==str(companyKey)]['Region'].to_list()

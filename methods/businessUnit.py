@@ -4,4 +4,12 @@ valid_list = ['Biologics', 'Chemical Development', 'Clinical Development', 'Comp
               'Discovery Biology', 'Discovery Chemistry', 'Formulation', 'Safety Assessment', 'Stability']
 
 def validateBU(value):
-    return value.lower() in [i.lower() for i in valid_list]
+    vals = str(value).split(';')
+    vals = [i.strip() for i in vals]
+    
+    res = True
+    for val in vals:
+        if val.lower() not in [i.lower() for i in valid_list]:
+            res = False
+            return res
+    return res

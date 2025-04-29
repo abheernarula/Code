@@ -17,6 +17,7 @@ def find_duplicates(df,
     grouped = non_null_df.groupby([gst_col, vat_col])
     
     for group_key, group_df in grouped:
+        print(f'Done - {group_key}')
         if len(group_df) < 2:
             continue
         indices = group_df.index.tolist()
@@ -49,6 +50,7 @@ def find_duplicates(df,
         current_group = [i]
         visited.add(i)
         for j in indices:
+            print(f'done -> {i}, {j}')
             if j in visited or i == j:
                 continue
             name_sim = fuzz.ratio(str(df_result.loc[i, name_col]), str(df_result.loc[j, name_col]))
@@ -63,11 +65,14 @@ def find_duplicates(df,
 
     return df_result
 
-df = pd.read_csv('../../LFA1.csv', low_memory=False)
+# df = pd.read_csv('../../.csv', low_memory=False)
+df = pd.read_excel('../Customer/CustomerMaster.xlsx', sheet_name='ACCOUNT')
 
-dupes = find_duplicates(df,'Name 1', 'Street', 'Tax Number 3', 'Tax Number 1',70,70)
+print('Start')
+
+dupes = find_duplicates(df,'Name', 'add_dupe', 'GST_Number__c', 'PAN_Number__c',70,70)
 dup_df = dupes[dupes["dup_group"].notnull()]
-dup_df.to_csv("duplicate_records.csv", index=False)
+dup_df.to_csv("customer_duplicate_records_noAccGrp.csv", index=False)
 
 
 # ----------------------------------------------------------------------------

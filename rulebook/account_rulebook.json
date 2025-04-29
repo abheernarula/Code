@@ -378,12 +378,6 @@
             "rule_category": "Completeness"
         },
         {
-            "column": "INCO2__c",
-            "rule": "validation-incoterms",
-            "message": "'INCO2__c' should be valid",
-            "rule_category": "Advanced rule"
-        },
-        {
             "column": "SPART__c",
             "rule": "not_null",
             "message": "'SPART__c' should not be null",

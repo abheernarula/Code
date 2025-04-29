@@ -89,39 +89,50 @@ for sheet in sheets:
                    'PO Box', 'Country']
         
     if sheet == 'kna1':
-        columns = ['Customer', 'Country', 'Name 1', 'Name 2', 'Telephone 1', 'Telephone 2', 'City', 'Street', 'Address',
-                'Postal Code', 'PO Box', 'P.O. Box Postal Code', 'Account group', 'Tax Number 3', 'Tax Number 1',
-                'VAT Registration No.', 'Industry', 'Title', 'Created by', 'Created on', 'Attribute 2']
+        columns = ['Customer', 'Open Pipeline', 'All Time Customer', 'Open Project?', 'Open Sales Order?', 
+                   'Open Invoices', 'Last Invoice Posting Date', 'Country', 'Name 1', 'Name 2', 'Telephone 1', 
+                   'Telephone 2', 'City', 'Street', 'Address', 'Postal Code', 'PO Box', 'P.O. Box Postal Code', 
+                   'Account group', 'Tax Number 3', 'Tax Number 1', 'VAT Registration No.', 'Industry', 'Title', 
+                   'Created by', 'Created on', 'Attribute 2']
 
     if sheet == 'knb1':
-        columns = ['Customer', 'Company Code', 'Created by', 'Created on', 'Reconciliation acct', 'Terms of Payment']
+        columns = ['Customer', 'Open Pipeline', 'All Time Customer', 'Open Project?', 'Open Sales Order?', 
+                   'Open Invoices', 'Last Invoice Posting Date', 'Company Code', 'Created by', 'Created on', 
+                   'Reconciliation acct', 'Terms of Payment']
 
     if sheet == 'knkk':
-        columns = ['Customer', 'Credit limit', 'Created by', 'Created on']
+        columns = ['Customer', 'Open Pipeline', 'All Time Customer', 'Open Project?', 'Open Sales Order?', 
+                   'Open Invoices', 'Last Invoice Posting Date', 'Credit limit', 'Created by', 'Created on']
         
     if sheet == 'knvv':
-        columns = ['Customer', 'Created By', 'Created On', 'Cust.Acct.Assg.Group', 'Order block for sales area',
-                'Sales Organization', 'Distribution Channel', 'Division', 'Cust.pric.procedure','Incoterms', 
-                'Incoterms (Part 2)', 'Shipping Conditions']
+        columns = ['Customer', 'Open Pipeline', 'All Time Customer', 'Open Project?', 'Open Sales Order?', 
+                   'Open Invoices', 'Last Invoice Posting Date', 'Created By', 'Created On', 'Cust.Acct.Assg.Group', 
+                   'Order block for sales area', 'Sales Organization', 'Distribution Channel', 'Division', 
+                   'Cust.pric.procedure','Incoterms', 'Incoterms (Part 2)', 'Shipping Conditions']
 
     if sheet == 'knb5':
-        columns = ['Customer', 'Dunning Procedure', 'Company Code']
+        columns = ['Customer', 'Open Pipeline', 'All Time Customer', 'Open Project?', 'Open Sales Order?', 
+                   'Open Invoices', 'Last Invoice Posting Date', 'Dunning Procedure', 'Company Code']
         
     if sheet == 'adr6':
-        columns = ['E-Mail Address']
+        columns = ['Customer', 'Open Pipeline', 'All Time Customer', 'Open Project?', 'Open Sales Order?', 
+                   'Open Invoices', 'Last Invoice Posting Date', 'E-Mail Address']
         
     if sheet == 'account':
-        columns = ['VAT_Number__c', 'Phone', 'GST_Number__c', 'PAN_Number__c', 'BillingStreet', 'BillingAddress.street',
-                'BillingStateCode', 'BillingPostalCode', 'Name', 'Industry_Sector__c', 'Industry', 
-                'SAP_Account_Number__c', 'BillingCountryCode', 'BillingAddress.countryCode', 'BillingCity', 'KTOKD__c',
-                'Customer_Type__c', 'SAP_Customer_Creation_Date__c', 'CreatedDate', 'CreatedById','ZTERM__c',
-                'AKONT__c', 'MAHNA__c', 'Total_Credit_Limit__c', 'Credit_Limit__c', 'VSBED__c', 
-                'Sales_Organization__c','INCO1__c', 'INCO2__c', 'SPART__c', 'VTWEG__c', 'KALKS__c', 'KTGRD__c', 
-                'CurrencyIsoCode', 'Account_Currency__c','Company_Size__c', 'Business_Unit__c', 'Portfolio__c', 
-                'Customer_Category__c']
+        columns = ['SAP_Account_Number__c', 'Open Pipeline', 'All Time Customer', 'Open Project?', 
+                   'Open Sales Order?', 'Open Invoices', 'Last Invoice Posting Date', 'VAT_Number__c', 'Phone', 
+                   'GST_Number__c', 'PAN_Number__c', 'BillingStreet', 'BillingAddress.street', 'BillingStateCode', 
+                   'BillingPostalCode', 'Name', 'Industry_Sector__c', 'Industry', 'BillingCountryCode', 
+                   'BillingAddress.countryCode', 'BillingCity', 'KTOKD__c', 'Customer_Type__c', 
+                   'SAP_Customer_Creation_Date__c', 'CreatedDate', 'CreatedById','ZTERM__c', 'AKONT__c', 
+                   'MAHNA__c', 'Total_Credit_Limit__c', 'Credit_Limit__c', 'VSBED__c', 'Sales_Organization__c',
+                   'INCO1__c', 'INCO2__c', 'SPART__c', 'VTWEG__c', 'KALKS__c', 'KTGRD__c', 'CurrencyIsoCode', 
+                   'Account_Currency__c','Company_Size__c', 'Business_Unit__c', 'Portfolio__c', 
+                   'Customer_Category__c']
 
     if sheet == 'contact':
-        columns = ['Email']
+        columns = ['AccountId', 'SAP_Account_Number__c', 'Email', 'Open Pipeline', 'All Time Customer', 
+                   'Open Project?', 'Open Sales Order?', 'Open Invoices', 'Last Invoice Posting Date', ]
         
     if sheet == 'mara':
         columns = ['Material', 'Material Type', 'Material Description', 'Material description', 

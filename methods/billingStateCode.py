@@ -7,4 +7,11 @@ valid_codes = pd.read_csv('methods/BillingStateCodeValidationSFDC.csv')
 # )
 
 def validate_billingStateCode(companyKey, value):
-    return str(value) in valid_codes[valid_codes['Country Key']==str(companyKey)]['Region'].to_list()
+    valid = valid_codes[valid_codes['Country Key']==str(companyKey)]['Region'].to_list()
+    try:
+        str(int(float(value)))
+    except:
+        return str(value).upper() in valid
+    return str(int(float(value))).upper() in valid
+
+# print(valid_codes[valid_codes['Country Key']=='DK'])

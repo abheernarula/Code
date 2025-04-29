@@ -61,6 +61,7 @@ from methods.acctAssmtCatMat import *
 from methods.priceControlMat import *
 from methods.acctAssmtGrpMat import *
 from methods.taxIndicatorMat import *
+from methods.itemCategoryMat import *
 
 # def standardizeDate(value):
 #     try:        
@@ -379,7 +380,11 @@ def check_rule(df, row, value, rule, refcol):
         return not validateTransGroupMat(value)
     
     elif rtype == 'validation-purch-val-key-mat':
-        return not validatePurchValMat(value)
+        # print(value)
+        if not (pd.isnull(value) or str(value).strip() == '' or str(value).lower() == 'nan'):
+            # print(f'not empty -> {value}')
+            # print(not validatePurchValMat(value))
+            return not validatePurchValMat(value)
     
     elif rtype == 'validation-cert-type-mat':
         return not validateCertTypeMat(int(float(refcol)), value)
@@ -398,6 +403,10 @@ def check_rule(df, row, value, rule, refcol):
     
     elif rtype == 'validation-tax-ind-mat':
         return not validateTaxIndicatorMat(value)
+    
+    elif rtype == 'validation-item-cat-mat':
+        if not (pd.isnull(refcol) or str(refcol).strip() == '' or str(refcol).lower() == 'nan'):
+            return not validateItemCatMat(value)
 
     else:
         raise Exception(f"Rule type {rtype} does not exist")

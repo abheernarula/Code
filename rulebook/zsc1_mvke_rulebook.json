@@ -17,6 +17,12 @@
             "rule": "not_null",
             "message": "'Item category group' should not be null",
             "rule_category": "Completeness"
+        },
+        {
+            "column": "Item category group",
+            "rule": "validation-item-cat-mat",
+            "message": "'Item category group' should be valid",
+            "rule_category": "Advanced"
         }
     ]
 }

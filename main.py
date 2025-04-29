@@ -142,13 +142,15 @@ for sheet in sheets:
                    'Purchasing value key', 'QM proc. active', 'Created On', 'Created By']
         
     if sheet == 'marc':
-        columns = ['Plant', 'Control code', 'Zone Category', 'Storage condition', 'QM Control Key', 'Loading Group',
-                   'Profit Center', 'MRP Controller', 'MRP Type', 'Purchasing Group', 'Prod. stor. location',
-                   'ABC Indicator', 'Procurement type', 'Availability check', 'CAS number (pharm.)', 
-                   'Prodn Supervisor', 'Prod.Sched.Profile', 'Certificate type', 'Acct Assignment Cat.']
+        columns = ['Material', 'Plant', 'Control code', 'Zone Category', 'Storage condition', 'QM Control Key', 
+                   'Loading Group', 'Profit Center', 'MRP Controller', 'MRP Type', 'Purchasing Group', 
+                   'Prod. stor. location', 'ABC Indicator', 'Procurement type', 'Availability check', 
+                   'CAS number (pharm.)', 'Prodn Supervisor', 'Prod.Sched.Profile', 'Certificate type', 
+                   'Acct Assignment Cat.']
         
     if sheet == 'mbew':
-        columns = ['Valuation Category', 'Valuation Class', 'Price Control', 'Valuation Area', 'Valuation Type']
+        columns = ['Material', 'Valuation Category', 'Valuation Class', 'Price Control', 'Valuation Area', 
+                   'Valuation Type']
 
     if sheet == 'potext':
         columns = ['Material', 'Purchase Order Text', 'Created On', 'Created By']

@@ -1,5 +1,5 @@
-valid_values = [
-    '01', # Distribtn Channel 01
+valid = [
+    '01', '1', # Distribtn Channel 01
     '10', # Domestic
     '20', # Exports
     '30', # Distributor
@@ -14,4 +14,8 @@ valid_values = [
 
 
 def validate_dist_channel(value):
-    return str(value) in valid_values
+    try:
+        str(int(float(value)))
+    except:
+        return str(value) in valid
+    return str(int(float(value))) in valid

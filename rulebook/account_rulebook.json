@@ -282,15 +282,15 @@
             "rule_category": "Standardization"
         },
         {
-            "column": "AKONT_c",
+            "column": "AKONT__c",
             "rule": "not_null",
-            "message": "'AKONT_c' should not be null",
+            "message": "'AKONT__c' should not be null",
             "rule_category": "Completeness"
         },
         {
-            "column": "AKONT_c",
+            "column": "AKONT__c",
             "rule": "numeric",
-            "message": "'AKONT_c' should only contain numeric values",
+            "message": "'AKONT__c' should only contain numeric values",
             "rule_category": "Standardization"
         },
         {

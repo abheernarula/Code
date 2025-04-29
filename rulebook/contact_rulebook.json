@@ -4,7 +4,7 @@
             "column": "Email",
             "rule": "not_null",
             "message": "'Email' should not be null",
-            "rule_category": "Validation"
+            "rule_category": "Completeness"
         },
         {
             "column": "Email",

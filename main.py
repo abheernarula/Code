@@ -144,9 +144,9 @@ for sheet in sheets:
     if sheet == 'marc':
         columns = ['Material', 'Plant', 'Control code', 'Zone Category', 'Storage condition', 'QM Control Key', 
                    'Loading Group', 'Profit Center', 'MRP Controller', 'MRP Type', 'Purchasing Group', 
-                   'Prod. stor. location', 'ABC Indicator', 'Procurement type', 'Availability check', 
-                   'CAS number (pharm.)', 'Prodn Supervisor', 'Prod.Sched.Profile', 'Certificate type', 
-                   'Acct Assignment Cat.']
+                   'Prod. stor. location', 'Batch management', 'ABC Indicator', 'Procurement type', 
+                   'Availability check', 'CAS number (pharm.)', 'Prodn Supervisor', 'Prod.Sched.Profile', 
+                   'Certificate type', 'Acct Assignment Cat.']
         
     if sheet == 'mbew':
         columns = ['Material', 'Valuation Category', 'Valuation Class', 'Price Control', 'Valuation Area', 

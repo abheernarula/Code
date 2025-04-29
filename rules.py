@@ -405,7 +405,9 @@ def check_rule(df, row, value, rule, refcol):
         return not validateTaxIndicatorMat(value)
     
     elif rtype == 'validation-item-cat-mat':
-        if not (pd.isnull(refcol) or str(refcol).strip() == '' or str(refcol).lower() == 'nan'):
+        if not (pd.isnull(value) or str(value).strip() == '' or str(value).lower() == 'nan'):
+            # print(f'Not null -> {value}')
+            # print(not validateItemCatMat(value))
             return not validateItemCatMat(value)
 
     else:

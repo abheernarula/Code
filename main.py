@@ -91,7 +91,7 @@ for sheet in sheets:
                    'PO Box', 'Country']
         
     if sheet == 'kna1':
-        columns = ['Customer', 'Open Pipeline', 'All Time Customer', 'Open Project?', 'Open Sales Order?', 
+        columns = ['Customer', 'SalesforceID', 'Open Pipeline', 'All Time Customer', 'Open Project?', 'Open Sales Order?', 
                    'Open Invoices', 'Last Invoice Posting Date', 'Country', 'Name 1', 'Name 2', 'Telephone 1', 
                    'Telephone 2', 'City', 'Street', 'Address', 'Postal Code', 'PO Box', 'P.O. Box Postal Code', 
                    'Account group', 'Tax Number 3', 'Tax Number 1', 'VAT Registration No.', 'Industry', 'Title', 

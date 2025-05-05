@@ -26,6 +26,7 @@
         },
         {
             "column": "Terms of Payment",
+            "ref": "MSME Status",
             "rule": "validation-payment-terms",
             "message": "'Terms of Payment' should be valid",
             "rule_category": "Advanced"

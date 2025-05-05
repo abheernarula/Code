@@ -39,9 +39,8 @@ sheets = []
 
 start = time.time()
 print('\n[READING INPUT FILES]...')
-if args.tables != '':
-    sheets = args.tables.lower().split(',')
-elif args.isVendor:
+
+if args.isVendor:
     args.data = preprocessVendorData(args.data)
     sheets = ['lfa1', 'lfb1', 'lfm1', 'lfbk', 'adrc']
 elif args.isCustomer:
@@ -54,6 +53,9 @@ elif args.isMaterial:
     print(f"[MATERIAL TYPE - {str(args.materialType).upper()}]")
 else:
     raise Exception("Please specify master data")
+
+if args.tables != '':
+    sheets = args.tables.lower().split(',')
     
 suffix = str(datetime.date.today()).replace("-","") + str(datetime.datetime.now().time()).replace(":","").replace(".","_")
 for sheet in sheets:
@@ -70,7 +72,7 @@ for sheet in sheets:
         columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date',
                    'Company Code', 'Terms of Payment', 'Reconciliation acct', 'Posting block for company code',
                    'Deletion Flag for Company Code', 'Planning group', 'Tolerance group', 'Payment methods', 
-                   'Created on', 'Created by']
+                   'Created on', 'Created by', 'MSME Status']
         
     if sheet == 'lfm1':
         columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date', 'City',

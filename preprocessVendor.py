@@ -42,6 +42,10 @@ def preprocessVendorData(vendorMaster):
     city = lfa1[['Supplier', 'City']]
     lfm1 = pd.merge(lfm1, city, 'left', 'Supplier')
     
+    isMSME = lfm1[['Supplier', 'MSME Status']]
+    lfb1 = pd.merge(lfb1, isMSME, 'left', 'Supplier')
+    # print(lfb1.columns)
+    
     inactiveVendors = []
     visited = set()
     lfb1.progress_apply(lambda row: checkInactive(lfb1, row, inactiveVendors, visited,

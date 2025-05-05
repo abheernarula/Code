@@ -315,7 +315,7 @@ def check_rule(df, row, value, rule, refcol):
             return not validateBlockFunction(value)
     
     elif rtype == 'validation-payment-terms':
-        print(refcol)
+        # print(refcol)
         return not validatePaymentTermsVendor(refcol, value)
     
     elif rtype == 'validation-material':

@@ -5,6 +5,11 @@ valid = list(filter(lambda x: x.startswith('ZS'), valid_values))
     
 
 def validatePaymentTermsVendor(isMSME, value):
+    try:
+        isMSME = str(int(float(isMSME)))       
+    except:
+        isMSME = str(isMSME).upper()
+    
     if isMSME == '00' or isMSME == '0' or pd.isnull(isMSME) or str(isMSME).lower() == 'nan' or str(isMSME).strip() == '':
         try:
             str(int(float(value)))

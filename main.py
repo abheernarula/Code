@@ -15,7 +15,6 @@ def filter_issues(col, issues):
     for i in filtered:
         if col in i:
             res.append(i)
-
     return '; '.join(res)
 
 parser = argparse.ArgumentParser(

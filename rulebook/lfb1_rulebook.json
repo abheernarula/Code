@@ -28,7 +28,7 @@
             "column": "Terms of Payment",
             "ref": "MSME Status",
             "rule": "validation-payment-terms",
-            "message": "'Terms of Payment' should be valid",
+            "message": "For MSME Vendors, 'Terms of Payment' should be 'ZSA9'",
             "rule_category": "Advanced"
         },
         {

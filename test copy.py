@@ -1,1 +1,3 @@
-print(False or False)
+a = 'abc.xlsx'
+
+print(a[-4:])

@@ -2,7 +2,7 @@ import re
 
 POSTAL_CODE_DATA = {
     'AD': {'name': 'Andorra', 'regex': r'^AD\d{3}$'},
-    'AE': {'name': 'United Arab Emirates', 'regex': r'^$'},  # UAE typically does not use postal codes
+    'AE': {'name': 'United Arab Emirates', 'regex': r'^$'},
     'AF': {'name': 'Afghanistan', 'regex': r'^\d{4}$'},
     'AL': {'name': 'Albania', 'regex': r'^\d{4}$'},
     'AM': {'name': 'Armenia', 'regex': r'^\d{4}$'},

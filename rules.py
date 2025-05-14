@@ -62,6 +62,7 @@ from methods.priceControlMat import *
 from methods.acctAssmtGrpMat import *
 from methods.taxIndicatorMat import *
 from methods.itemCategoryMat import *
+from methods.validateCity import *
 
 # def standardizeDate(value):
 #     try:        
@@ -408,6 +409,9 @@ def check_rule(df, row, value, rule, refcol):
     elif rtype == 'validation-item-cat-mat':
         if not (pd.isnull(value) or str(value).strip() == '' or str(value).lower() == 'nan'):
             return not validateItemCatMat(value)
+        
+    elif rtype == 'validation-city':
+        return not validateCity(str(value))
 
     else:
         raise Exception(f"Rule type {rtype} does not exist")

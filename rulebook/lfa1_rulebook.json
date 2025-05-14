@@ -89,6 +89,12 @@
             "rule_category": "Standardization"
         },
         {
+            "column": "City",
+            "rule": "validation-city",
+            "message": "'City' should be valid",
+            "rule_category": "Validation"
+        },
+        {
             "column": "Country",
             "rule": "not_null",
             "message": "'Country' should not be null",

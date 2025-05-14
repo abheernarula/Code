@@ -1,0 +1,17 @@
+{
+    "rules":[
+        {
+            "column": "Street",
+            "pattern": "title"
+        },
+        {
+            "column": "City",
+            "pattern": "title"
+        },
+        {
+            "column": "ABAC Status",
+            "pattern": "title"
+        }
+        
+    ]
+}

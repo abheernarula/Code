@@ -2,15 +2,19 @@
     "rules":[
         {
             "column": "Street",
-            "pattern": "title"
+            "action": "title"
+        },
+        {
+            "column": "Street",
+            "action": "standard-str"
         },
         {
             "column": "City",
-            "pattern": "title"
+            "action": "title"
         },
         {
             "column": "ABAC Status",
-            "pattern": "title"
+            "action": "title"
         }
         
     ]

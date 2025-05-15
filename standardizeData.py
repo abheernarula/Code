@@ -1,9 +1,14 @@
 import os
+import re
 import json
 import argparse
 import pandas as pd
+import geonamescache
 from tqdm import tqdm
+from rapidfuzz import process, fuzz
 tqdm.pandas()
+gc = geonamescache.GeonamesCache()
+all_cities = {c["name"] for c in gc.get_cities().values()}
 
 def load_rules(path):
     with open(path, 'r') as rules:
@@ -13,17 +18,38 @@ def load_rules(path):
 def apply_rules(df, rules):
     return standardizeCol(df, rules)
 
+def standardizeStreet(df, col):
+    pattern = r"[^A-Za-z0-9\s\.,\-/']"
+    df[col] = (
+        df[col]
+        .str.replace(pattern, '', regex=True)
+        .str.replace(r'\s+', ' ', regex=True)
+        .str.replace(r'^[^A-Za-z0-9]+|[^A-Za-z0-9]+$', '', regex=True)
+        .str.strip()
+    )
+    return df[col]
+
+def standardizeStreet(val, threshold=80):
+    if pd.isna(val) or pd.isnull(val) or str(val).lower() == 'nan':
+        return val
+    
+    res = val.strip().title()
+    
+
 def standardizeCol(df, rules):
     for rule in rules:
         
         col = rule.get('column')
-        pattern = rule.get('pattern')
+        action = rule.get('action')
         # print(df_new.columns)
         
         if col in df.columns:
             
-            if pattern == 'title':
-                df[col] = df[col].str.title()
+            if action == 'title':
+                df[col] = df[col].astype(str).str.upper()
+            
+            elif action == 'standard-str':
+                df[col] = standardizeStreet(df, col)
         
         else:
             raise Exception(f'"{col}" not found!')

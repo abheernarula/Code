@@ -6,16 +6,31 @@
         },
         {
             "column": "Street",
-            "action": "standard-str"
+            "action": "validate-street"
         },
         {
             "column": "City",
             "action": "title"
         },
         {
+            "column": "City",
+            "action": "validate-city"
+        },
+        {
             "column": "ABAC Status",
             "action": "title"
-        }
-        
+        },
+        {
+            "column": "First telephone number",
+            "action": "validate-phone"
+        },
+        {
+            "column": "Second telephone number",
+            "action": "validate-phone"
+        },
+        {
+            "column": "Incoterms (Part 2)",
+            "action": "validate-incoterms"
+        }     
     ]
 }

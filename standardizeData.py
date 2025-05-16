@@ -52,7 +52,7 @@ def standardizeIncoterms(row):
         if inco1 == 'DAP' or inco1 == 'CIF':
             return 'BENGALURU'
     
-    if coCode == 5300:
+    if coCode == 5500:
         if inco1 == 'DAP' or inco1 == 'CIF':
             return 'HYDERABAD'
     
@@ -61,7 +61,7 @@ def standardizeIncoterms(row):
     
     return row['Incoterms (Part 2)']
 
-def standardizePhone(phone_str: str, default_region: str = "IN"):
+def standardizePhone(phone_str: str, default_region: str):
     if pd.isnull(phone_str) or pd.isna(phone_str) or phone_str.strip().lower()=='nan' or phone_str.strip()=='' or phone_str=='0':
         return ''
     else:
@@ -77,10 +77,12 @@ def standardizePhone(phone_str: str, default_region: str = "IN"):
                     PhoneNumberType.FIXED_LINE_OR_MOBILE,
                     PhoneNumberType.TOLL_FREE
                 ):
-                    std = format_number(pn, PhoneNumberFormat.INTERNATIONAL)
+                    # std = format_number(pn, PhoneNumberFormat.INTERNATIONAL)
+                    std = f"+{pn.country_code} {pn.national_number}"
                     # tag = "Landline"
                 else:
-                    std = format_number(pn, PhoneNumberFormat.INTERNATIONAL)
+                    # std = format_number(pn, PhoneNumberFormat.INTERNATIONAL)
+                    std = f"+{pn.country_code} {pn.national_number}"
                     # tag = "Other"
 
                 std = std.replace('-', ' ')
@@ -104,7 +106,7 @@ def standardizeCol(df, rules):
         
         if col in df.columns:
             
-            if action == 'title':
+            if action == 'upper':
                 df[col] = df[col].astype(str).str.upper()
             
             elif action == 'validate-street':
@@ -140,7 +142,7 @@ args = parser.parse_args()
 
 if args.isVendor:
     rule_dir = os.path.join(args.rules, 'vendor.json')
-    sheets = ['5100', '5300', '5500']
+    sheets = ['5100', '5300', '5500', 'No org']
 elif args.isMaterial:
     rule_dir = os.path.join(args.rules, 'material.json')
     sheets = []

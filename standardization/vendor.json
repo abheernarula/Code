@@ -2,7 +2,7 @@
     "rules":[
         {
             "column": "Street",
-            "action": "title"
+            "action": "upper"
         },
         {
             "column": "Street",
@@ -10,15 +10,27 @@
         },
         {
             "column": "City",
-            "action": "title"
+            "action": "upper"
         },
         {
             "column": "City",
             "action": "validate-city"
         },
         {
+            "column": "Name 1",
+            "action": "upper"
+        },
+        {
+            "column": "Name 2",
+            "action": "upper"
+        },
+        {
+            "column": "Terms of Payment Key",
+            "action": "upper"
+        },
+        {
             "column": "ABAC Status",
-            "action": "title"
+            "action": "upper"
         },
         {
             "column": "First telephone number",
@@ -31,6 +43,14 @@
         {
             "column": "Incoterms (Part 2)",
             "action": "validate-incoterms"
-        }     
+        },
+        {
+            "column": "Incoterms (Part 2)",
+            "action": "upper"
+        },
+        {
+            "column": "Incoterms (Part 1)",
+            "action": "upper"
+        }
     ]
 }

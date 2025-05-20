@@ -120,7 +120,7 @@ def standardizeCol(df, rules):
                 df[col] = standardizeStreet(df, col)
             
             elif action == 'validate-city':
-                df[f'{col}_new'] = df['City'].progress_apply(standardizeCity)
+                df[f'{col}_new'] = df[col].progress_apply(standardizeCity)
                 
             elif action == 'validate-phone':
                 df[f'{col}_std'] = df.progress_apply(lambda row: standardizePhone(str(row[col]), str(row[refcol])), 
@@ -155,19 +155,21 @@ elif args.isMaterial:
     sheets = []
 elif args.isCustomer:
     rule_dir = os.path.join(args.rules, 'customer.json')
-    sheets = []
+    sheets = ['ACCOUNT']
 else:
     raise Exception("Please specify master data")
 
 rules = load_rules(rule_dir)
-countryCode = pd.read_excel('../Vendor/VendorMaster.xlsx', sheet_name='LFA1')[['Supplier', 'Country']]
-companyCode = pd.read_excel('../Vendor/VendorMaster.xlsx', sheet_name='LFB1')[['Supplier', 'Company Code']]
+if args.isVendor:
+    countryCode = pd.read_excel('../Vendor/VendorMaster.xlsx', sheet_name='LFA1')[['Supplier', 'Country']]
+    companyCode = pd.read_excel('../Vendor/VendorMaster.xlsx', sheet_name='LFB1')[['Supplier', 'Company Code']]
 
 for sheet in sheets:
     print(f'WORKING ON SHEET: {sheet}')
     df = pd.read_excel(args.data, sheet_name=sheet)
-    df = pd.merge(df, countryCode, 'left', left_on='Account Number of Supplier', right_on='Supplier')
-    df = pd.merge(df, companyCode, 'left', left_on='Account Number of Supplier', right_on='Supplier')
+    if args.isVendor:
+        df = pd.merge(df, countryCode, 'left', left_on='Account Number of Supplier', right_on='Supplier')
+        df = pd.merge(df, companyCode, 'left', left_on='Account Number of Supplier', right_on='Supplier')
     results = apply_rules(df, rules)
     output_path = os.path.join(args.output, f'{sheet}_standardizedOutput.xlsx')
 

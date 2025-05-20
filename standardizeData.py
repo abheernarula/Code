@@ -17,6 +17,7 @@ from phonenumbers import (
 tqdm.pandas()
 gc = geonamescache.GeonamesCache()
 all_cities = {c["name"] for c in gc.get_cities().values()}
+all_cities2 = pd.read_csv('city.csv')['City'].to_list()
 
 def load_rules(path):
     with open(path, 'r') as rules:
@@ -39,7 +40,7 @@ def standardizeStreet(df, col):
 
 def standardizeCity(val, threshold=80):
     val = val.strip().title()
-    if val in all_cities:
+    if val in all_cities or val in all_cities2:
         return val.upper()
     return ''
 
@@ -63,6 +64,8 @@ def standardizeIncoterms(row):
 
 def standardizePhone(phone_str: str, default_region: str):
     if pd.isnull(phone_str) or pd.isna(phone_str) or phone_str.strip().lower()=='nan' or phone_str.strip()=='' or phone_str=='0':
+        return ''
+    if pd.isnull(default_region) or pd.isna(default_region) or default_region.strip().lower()=='nan' or default_region.strip()=='' or default_region=='0':
         return ''
     else:
         try:
@@ -102,6 +105,10 @@ def standardizeCol(df, rules):
         
         col = rule.get('column')
         action = rule.get('action')
+        try:
+            refcol = rule.get('ref')
+        except:
+            pass
         # print(df_new.columns)
         
         if col in df.columns:
@@ -116,7 +123,7 @@ def standardizeCol(df, rules):
                 df[f'{col}_new'] = df['City'].progress_apply(standardizeCity)
                 
             elif action == 'validate-phone':
-                df[f'{col}_std'] = df.progress_apply(lambda row: standardizePhone(str(row[col]), str(row['Country'])), 
+                df[f'{col}_std'] = df.progress_apply(lambda row: standardizePhone(str(row[col]), str(row[refcol])), 
                                                      axis=1)
             
             elif action == 'validate-incoterms':

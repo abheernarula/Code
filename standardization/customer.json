@@ -1,0 +1,41 @@
+{
+    "rules":[
+        {
+            "column": "BillingAddress.street",
+            "action": "upper"
+        },
+        {
+            "column": "BillingAddress.street",
+            "action": "validation-street"
+        },
+        {
+            "column": "BillingCity",
+            "action": "upper"
+        },
+        {
+            "column": "BillingCity",
+            "action": "validate-city"
+        },
+        {
+            "column": "BillingStreet",
+            "action": "upper"
+        },
+        {
+            "column": "BillingStreet",
+            "action": "validation-street"
+        },
+        {
+            "column": "GST_Number__c",
+            "action": "upper"
+        },
+        {
+            "column": "Name",
+            "action": "upper"
+        },
+        {
+            "column": "Phone",
+            "ref": "BillingCountryCode",
+            "action": "validate-phone"
+        }
+    ]
+}

@@ -16,8 +16,11 @@ def find_duplicates(df,
       - Eliminates .loc/.at calls inside loops
       - Removes debug prints
     """
+    df[name_col] = df[name_col].str.lower()
+    df[address_col] = df[address_col].str.lower()
     # 1. Prepare
     df_result = df.copy()
+    
     n = len(df_result)
     dup_group = np.full(n, None, dtype=object)
     group_id = 1
@@ -84,9 +87,9 @@ df = pd.read_excel('../Customer/CustomerMaster.xlsx', sheet_name='ACCOUNT')
 
 print('Start')
 
-dupes = find_duplicates(df,'Name', 'add_dupe', 'GST_Number__c', 'PAN_Number__c',70,70)
+dupes = find_duplicates(df,'Name', 'add_dupe', 'GST_Number__c', 'PAN_Number__c',69,69)
 dup_df = dupes[dupes["dup_group"].notnull()]
-dup_df.to_csv("customer_duplicate_records_noAccGrp.csv", index=False)
+dup_df.to_csv("customer_duplicate_records_noAccGrpV2.csv", index=False)
 
 
 # Example usage:

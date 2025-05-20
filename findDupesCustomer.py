@@ -70,7 +70,7 @@ df = pd.read_excel('../Customer/CustomerMaster.xlsx', sheet_name='ACCOUNT')
 
 print('Start')
 
-dupes = find_duplicates(df,'Name', 'add_dupe', 'GST_Number__c', 'PAN_Number__c',70,70)
+dupes = find_duplicates(df,'Name', 'add_dupe', 'GST_Number__c', 'PAN_Number__c',60,60)
 dup_df = dupes[dupes["dup_group"].notnull()]
 dup_df.to_csv("customer_duplicate_records_noAccGrp.csv", index=False)
 

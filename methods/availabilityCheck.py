@@ -9,11 +9,13 @@
 #     "Y2"
 # ]
 
-valid = [
-    'KP'
-]
+vals = {
+    'ZSC1' : ['KP'],
+    'ZRDM' : ['01','1']
+}
 
-def validateAvailCheck(value):
+def validateAvailCheck(value, matType):
+    valid = vals[matType]
     try:
         str(int(float(value)))
     except:

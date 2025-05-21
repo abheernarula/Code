@@ -353,19 +353,19 @@ def check_rule(df, row, value, rule, refcol):
         return not validatePurchaseGroupMaterial(value)
 
     elif rtype == 'validation-valuation-cat':
-        return not validateValuationCat(value)
+        return not validateValuationCat(value, rule.get('matType'))
     
     elif rtype == 'validation-avail-check':
-        return not validateAvailCheck(value)
+        return not validateAvailCheck(value, rule.get('matType'))
     
     elif rtype == 'validation-valuation-class':
-        return not validateValuationClass(value)
+        return not validateValuationClass(value, rule.get('matType'))
     
     elif rtype == 'validation-uom':
         return not validateUOM(value)
     
     elif rtype == 'validation-mrp-controller':
-        return not validateMRPcontroller(value)
+        return not validateMRPcontroller(value, rule.get('matType'), refcol)
     
     elif rtype == 'validation-incoterms-2-vendor':
         inco = str(row['Incoterms'])
@@ -398,17 +398,17 @@ def check_rule(df, row, value, rule, refcol):
         return not validateAcctAssmtCat(value)
     
     elif rtype == 'validation-price-control-mat':
-        return not validatePriceControlMat(value)
+        return not validatePriceControlMat(value, rule.get('matType'))
     
     elif rtype == 'validation-acct-assmt-grp-mat':
-        return not validateAcctAssmtGrpMat(value)
+        return not validateAcctAssmtGrpMat(value, rule.get('matType'))
     
     elif rtype == 'validation-tax-ind-mat':
-        return not validateTaxIndicatorMat(value)
+        return not validateTaxIndicatorMat(value, rule.get('matType'))
     
     elif rtype == 'validation-item-cat-mat':
         if not (pd.isnull(value) or str(value).strip() == '' or str(value).lower() == 'nan'):
-            return not validateItemCatMat(value)
+            return not validateItemCatMat(value, rule.get('matType'))
         
     elif rtype == 'validation-city':
         return not validateCity(str(value))

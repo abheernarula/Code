@@ -1,8 +1,10 @@
-valid = [
-    '90'
-]
+vals = {
+    'ZSC1': ['90'],
+    'ZRDM': ['90']
+}
 
-def validateAcctAssmtGrpMat(value):
+def validateAcctAssmtGrpMat(value, matType):
+    valid = vals[matType]
     try:
         str(int(float(value)))
     except:

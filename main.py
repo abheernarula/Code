@@ -46,7 +46,7 @@ elif args.isCustomer:
     args.data = preprocessCustomerData(args.data)
     sheets = ['kna1', 'knb1', 'knvv', 'knkk', 'knb5', 'adr6', 'account', 'contact']
 elif args.isMaterial:
-    sheets = ['mara', 'marc', 'mbew', 'potext', 'mvke', 'mlan']
+    sheets = ['mara', 'marc', 'mbew', 'mvke', 'mlan']
     if args.materialType == "":
         raise ValueError("Please specify Material type")
     print(f"[MATERIAL TYPE - {str(args.materialType).upper()}]")

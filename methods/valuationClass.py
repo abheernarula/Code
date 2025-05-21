@@ -1,11 +1,13 @@
 import pandas as pd
 
 # valid = pd.read_csv('methods/valuationClass.csv')['Valuation Class'].to_list()
-valid = [
-    9040, '9040'
-]
+vals = {
+    "ZSC1": [9040, '9040'],
+    'ZRDM': [9000, '9000']
+}
 
-def validateValuationClass(value):
+def validateValuationClass(value, matType):
+    valid = vals[matType]
     try:
         str(int(float(value)))
     except:

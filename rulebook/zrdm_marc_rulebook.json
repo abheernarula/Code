@@ -46,6 +46,7 @@
         {
             "column": "Loading Group",
             "rule": "validation-loading-group",
+            "matType": "ZRDM",
             "message": "'Loading Group' should be valid",
             "rule_category": "Advanced"
         },
@@ -84,6 +85,7 @@
         {
             "column": "MRP Type",
             "rule": "validation-mrp-type",
+            "matType":"ZRDM",
             "message": "'MRP Type' should be valid",
             "rule_category": "Advanced"
         },
@@ -96,6 +98,7 @@
         {
             "column": "Purchasing Group",
             "rule": "validation-purch-group-mat",
+            "matType":"ZRDM",
             "message": "'Purchasing Group' should be valid",
             "rule_category": "Advanced"
         },
@@ -140,6 +143,7 @@
             "column": "Certificate type",
             "ref": "Plant",
             "rule": "validation-cert-type-mat",
+            "matType":"ZRDM",
             "message": "'Certificate type' should be valid",
             "rule_category": "Advanced"
         },

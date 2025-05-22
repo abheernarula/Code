@@ -338,19 +338,19 @@ def check_rule(df, row, value, rule, refcol):
         return not validateQMControl(value)
     
     elif rtype == 'validation-loading-group':
-        return not validateLoadingGroup(value)
+        return not validateLoadingGroup(value, rule.get('matType'))
     
     elif rtype == 'validation-profit-center':
         return not validateProfitCenter(value)
     
     elif rtype == 'validation-mrp-type':
-        return not validateMRP_type(value)
+        return not validateMRP_type(value, rule.get('matType'))
     
     elif rtype == 'validation-mat-industry':
         return not validateIndustryMaterial(value)
     
     elif rtype == 'validation-purch-group-mat':
-        return not validatePurchaseGroupMaterial(value)
+        return not validatePurchaseGroupMaterial(value, rule.get('matType'))
 
     elif rtype == 'validation-valuation-cat':
         return not validateValuationCat(value, rule.get('matType'))
@@ -395,7 +395,7 @@ def check_rule(df, row, value, rule, refcol):
         return not validateMfrPartProfile(value)
     
     elif rtype == 'validation-acct-assnt-cat':
-        return not validateAcctAssmtCat(value)
+        return not validateAcctAssmtCat(value, rule.get('matType'))
     
     elif rtype == 'validation-price-control-mat':
         return not validatePriceControlMat(value, rule.get('matType'))

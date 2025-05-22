@@ -16,7 +16,12 @@ import pandas as pd
 plants = pd.read_csv('methods/PlantsGMP.csv')
 gmp = plants[plants['GMP']=='X']['Plant'].to_list()
 
+vals = {
+    'ZSC1': ['S06'],
+    'ZRDM': ['S06']
+}
 
-def validateCertTypeMat(plant, value):
+def validateCertTypeMat(value, plant, matType):
+    valid = vals[matType]
     if plant in gmp:
-        return value == "S06"
+        return str(value).upper() in valid

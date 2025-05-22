@@ -45,7 +45,7 @@ for block_key, block_df in df.groupby('block_key'):
         if idx in visited:
             continue
         # 3) Fuzzy‐match *only* within this block
-        print(idx)
+        # print(idx)
         matches = process.extract(
             desc,
             choices,

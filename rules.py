@@ -389,7 +389,7 @@ def check_rule(df, row, value, rule, refcol):
             return not validatePurchValMat(value)
     
     elif rtype == 'validation-cert-type-mat':
-        return not validateCertTypeMat(int(float(refcol)), value)
+        return not validateCertTypeMat(value, int(float(refcol)), rule.get('matType'))
     
     elif rtype == 'validation-mfr-part-profile':
         return not validateMfrPartProfile(value)

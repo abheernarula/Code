@@ -1,0 +1,156 @@
+{
+    "rules":[
+        {
+            "column": "Plant",
+            "rule": "not_null",
+            "message": "'Plant' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Plant",
+            "rule": "validation-plant",
+            "message": "'Plant' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Plant",
+            "rule": "regex",
+            "expression": "^\\d{4}$",
+            "message": "'Plant' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Storage condition",
+            "rule": "not_null",
+            "message": "'Storage condition' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "QM Control Key",
+            "rule": "not_null",
+            "message": "'QM Control Key' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "QM Control Key",
+            "rule": "validation-qmcontrol",
+            "matType":"ZVRP",
+            "ref":"Plant",
+            "message": "'QM Control Key' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Loading Group",
+            "rule": "not_null",
+            "message": "'Loading Group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Loading Group",
+            "rule": "validation-loading-group",
+            "matType": "ZVRP",
+            "message": "'Loading Group' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Profit Center",
+            "rule": "not_null",
+            "message": "'Profit Center' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Profit Center",
+            "rule": "validation-profit-center",
+            "matType":"ZVRP",
+            "message": "'Profit Center' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "MRP Controller",
+            "rule": "not_null",
+            "message": "'MRP Controller' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "MRP Controller",
+            "rule": "validation-mrp-controller",
+            "ref": "Plant",
+            "matType": "ZVRP",
+            "message": "'MRP Controller' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "MRP Type",
+            "rule": "not_null",
+            "message": "'MRP Type' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "MRP Type",
+            "rule": "validation-mrp-type",
+            "matType":"ZVRP",
+            "message": "'MRP Type' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Purchasing Group",
+            "rule": "not_null",
+            "message": "'Purchasing Group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Purchasing Group",
+            "rule": "validation-purch-group-mat",
+            "matType":"ZVRP",
+            "message": "'Purchasing Group' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Availability check",
+            "rule": "not_null",
+            "message": "'Availability check' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Availability check",
+            "rule": "validation-avail-check",
+            "matType": "ZVRP",
+            "message": "'Availability check' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Batch management",
+            "rule": "validation-x",
+            "message": "'Batch management' should be valid",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Control code",
+            "rule": "not_null",
+            "message": "'Control code' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Certificate type",
+            "rule": "not_null",
+            "message": "'Certificate type' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Certificate type",
+            "ref": "Plant",
+            "rule": "validation-cert-type-mat",
+            "matType":"ZVRP",
+            "message": "'Certificate type' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Acct Assignment Cat.",
+            "rule": "validation-acct-assnt-cat",
+            "matType": "ZVRP",
+            "message": "'Acct Assignment Cat.' should be valid",
+            "rule_category": "Advanced"
+        }
+        
+    ]
+}

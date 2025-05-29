@@ -1,6 +1,9 @@
-valid = [
-    'Z001'
-]
+vals = {
+    'ZSC1': ['Z001'],
+    'ZRDM': ['Z001'],
+    'ZVRP': ['Z001']
+}
 
-def validateMfrPartProfile(value):
+def validateMfrPartProfile(value, matType):
+    valid = vals[matType]
     return str(value).upper() in valid

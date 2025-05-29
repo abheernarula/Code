@@ -329,19 +329,19 @@ def check_rule(df, row, value, rule, refcol):
         return not bool(re.fullmatch(rule.get('expression'),value))
     
     elif rtype == 'validation-account-assignment':
-        return not validateAccountAssignment(value)
+        return not validateAccountAssignment(value, rule.get('matType'))
     
     elif rtype == 'validation-mat-group':
         return not validateMaterialGroup(value)
     
     elif rtype == 'validation-qmcontrol':
-        return not validateQMControl(value)
+        return not validateQMControl(value, rule.get('matType'), refcol)
     
     elif rtype == 'validation-loading-group':
         return not validateLoadingGroup(value, rule.get('matType'))
     
     elif rtype == 'validation-profit-center':
-        return not validateProfitCenter(value)
+        return not validateProfitCenter(value, rule.get('matType'))
     
     elif rtype == 'validation-mrp-type':
         return not validateMRP_type(value, rule.get('matType'))
@@ -379,20 +379,20 @@ def check_rule(df, row, value, rule, refcol):
                 return str(value).title() != str(row['City']).title()
             
     elif rtype == 'validation-trans-group-mat':
-        return not validateTransGroupMat(value)
+        return not validateTransGroupMat(value, rule.get('matType'))
     
     elif rtype == 'validation-purch-val-key-mat':
         # print(value)
         if not (pd.isnull(value) or str(value).strip() == '' or str(value).lower() == 'nan'):
             # print(f'not empty -> {value}')
             # print(not validatePurchValMat(value))
-            return not validatePurchValMat(value)
+            return not validatePurchValMat(value, rule.get('matType'))
     
     elif rtype == 'validation-cert-type-mat':
         return not validateCertTypeMat(value, int(float(refcol)), rule.get('matType'))
     
     elif rtype == 'validation-mfr-part-profile':
-        return not validateMfrPartProfile(value)
+        return not validateMfrPartProfile(value, rule.get('matType'))
     
     elif rtype == 'validation-acct-assnt-cat':
         return not validateAcctAssmtCat(value, rule.get('matType'))

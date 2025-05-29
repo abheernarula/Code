@@ -120,6 +120,7 @@
         {
             "column": "Transportation Group",
             "rule": "validation-trans-group-mat",
+            "matType": "ZSC1",
             "message": "'Transportation Group' should be valid",
             "rule_category": "Advanced"
         },

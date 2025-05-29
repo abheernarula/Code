@@ -114,6 +114,7 @@
         {
             "column": "Transportation Group",
             "rule": "validation-trans-group-mat",
+            "matType":"ZRDM",
             "message": "'Transportation Group' should be valid",
             "rule_category": "Advanced"
         },
@@ -132,7 +133,7 @@
         {
             "column": "Mfr Part Profile",
             "rule": "validation-mfr-part-profile",
-            "message": "'Purchasing value key' should be valid",
+            "message": "'Manufacturer part profile' should be valid",
             "rule_category": "Advanced"
         },
         {

@@ -1,9 +1,14 @@
 import pandas as pd
 
 # valid = pd.read_csv('methods/accountAssignmentMaterial.csv')['Item category group'].to_list()
-valid = ['NORM']
+vals = {
+    'ZSC1': ['NORM'],
+    'ZRDM': ['NORM'],
+    'ZVRP': ['NORM']
+}
 
-def validateAccountAssignment(value):
+def validateAccountAssignment(value, matType):
+    valid = vals[matType]
     try:
         str(int(float(value)))
     except:

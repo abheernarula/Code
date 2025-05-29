@@ -22,7 +22,7 @@ desc_columns = str(args.columns).split(',')
 similarity_threshold = float(args.score)
 
 df = pd.read_excel(input_file, sheet_name=args.sheet)
-df['Combined_Description'] = df[desc_columns].fillna('').agg(' '.join, axis=1)
+df['Combined_Description'] = df[desc_columns].fillna('').agg(' '.join, axis=1).str.lower()
 
 print('[DONE]...')
 

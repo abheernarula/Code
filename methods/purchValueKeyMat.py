@@ -1,6 +1,7 @@
 # valid = pd.read_csv('methods/purchValueKeyMat.csv')['Purchasing value key'].to_list()
 vals = {
     'ZSC1': ["ZM00"],
+    'ZSC2': ["ZM00"],
     'ZRDM': ["ZM00"],
     'ZVRP': ["ZM00"]
 }

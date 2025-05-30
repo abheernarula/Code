@@ -3,6 +3,7 @@ import pandas as pd
 # valid = pd.read_csv('methods/accountAssignmentMaterial.csv')['Item category group'].to_list()
 vals = {
     'ZSC1': ['NORM'],
+    'ZSC2': ['NORM'],
     'ZRDM': ['NORM'],
     'ZVRP': ['NORM']
 }

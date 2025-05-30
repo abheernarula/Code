@@ -1,0 +1,43 @@
+{
+    "rules":[
+        {
+            "column": "Valuation Category",
+            "rule": "not_null",
+            "message": "'Valuation Category' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Valuation Category",
+            "rule": "validation-valuation-cat",
+            "matType": "ZSC2",
+            "message": "'Valuation Category' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Valuation Class",
+            "rule": "not_null",
+            "message": "'Valuation Class' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Valuation Class",
+            "rule": "validation-valuation-class",
+            "matType":"ZSC2",
+            "message": "'Valuation Class' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Price Control",
+            "rule": "not_null",
+            "message": "'Price Control' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Price Control",
+            "rule": "validation-price-control-mat",
+            "matType":"ZSC2",
+            "message": "'Price Control' should be valid",
+            "rule_category": "Advanced"
+        }        
+    ]
+}

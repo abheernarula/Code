@@ -11,7 +11,9 @@
 
 vals = {
     'ZSC1' : ['KP'],
-    'ZRDM' : ['01','1']
+    'ZSC2' : ['KP'],
+    'ZRDM' : ['01','1'],
+    'ZVRP' : ['KP']
 }
 
 def validateAvailCheck(value, matType):

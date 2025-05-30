@@ -3,7 +3,9 @@ import pandas as pd
 # valid = pd.read_csv('methods/valuationClass.csv')['Valuation Class'].to_list()
 vals = {
     "ZSC1": [9040, '9040'],
-    'ZRDM': [9000, '9000']
+    "ZSC2": [9040, '9040'],
+    'ZRDM': [9000, '9000'],
+    'ZVRP': [9010, '9010', '9011', 9011]
 }
 
 def validateValuationClass(value, matType):

@@ -3,7 +3,9 @@ import pandas as pd
 # vals = pd.read_csv('methods/mrpController.csv')
 vals = {
     'ZSC1': ['S00'],
-    'ZRDM': ['S00']
+    'ZSC2': ['S00'],
+    'ZRDM': ['S00'],
+    'ZVRP': ['S00']
 }
 
 def validateMRPcontroller(value, matType, plant:int=0):

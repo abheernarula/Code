@@ -1,6 +1,8 @@
 vals = {
     'ZSC1': ['90'],
-    'ZRDM': ['90']
+    'ZSC2': ['90'],
+    'ZRDM': ['90'],
+    'ZVRP': ['90']
 }
 
 def validateAcctAssmtGrpMat(value, matType):

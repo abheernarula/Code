@@ -3,7 +3,9 @@ import pandas as pd
 # valid = pd.read_csv('methods/mrpType.csv')['MRP Type'].to_list()
 vals = {
     'ZSC1': ['ND'],
-    'ZRDM': ['ND']
+    'ZSC2': ['ND'],
+    'ZRDM': ['ND'],
+    'ZVRP': ['ND']
 }
 
 def validateMRP_type(value, matType):

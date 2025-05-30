@@ -3,7 +3,9 @@ import pandas as pd
 # valid = pd.read_csv('methods/purchasegroupMaterial.csv')['Purchasing Group'].to_list()
 vals = {
     'ZSC1': [501, '501'],
-    'ZRDM': [501, '501']
+    'ZSC2': [501, '501'],
+    'ZRDM': [501, '501'],
+    'ZVRP': [501, '501']
 }
 
 def validatePurchaseGroupMaterial(value, matType):

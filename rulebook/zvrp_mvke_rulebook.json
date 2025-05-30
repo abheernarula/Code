@@ -1,0 +1,30 @@
+{
+    "rules":[
+        {
+            "column": "Acct Assmt Grp Mat.",
+            "rule": "not_null",
+            "message": "'Acct Assmt Grp Mat.' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Acct Assmt Grp Mat.",
+            "rule": "validation-acct-assmt-grp-mat",
+            "matType": "ZVRP",
+            "message": "'Acct Assmt Grp Mat.' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Item category group",
+            "rule": "not_null",
+            "message": "'Item category group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Item category group",
+            "rule": "validation-item-cat-mat",
+            "matType": "ZVRP",
+            "message": "'Item category group' should be valid",
+            "rule_category": "Advanced"
+        }
+    ]
+}

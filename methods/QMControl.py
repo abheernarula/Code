@@ -4,7 +4,7 @@ valid = ["0000","0","9000","Z9000","ZSY1"]
 plantGMP = pd.read_csv('methods/PlantsGMP.csv')
 plantGMP = plantGMP[plantGMP['GMP']=='X']['Plant'].to_list()
 
-def validateQMControl(value, matType, plant):
+def validateQMControl(value, matType, plant, valid=valid):
     if matType == 'ZVRP':
         if plant in plantGMP:
             valid = ['9000']

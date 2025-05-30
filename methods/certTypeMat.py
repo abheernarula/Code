@@ -18,7 +18,9 @@ gmp = plants[plants['GMP']=='X']['Plant'].to_list()
 
 vals = {
     'ZSC1': ['S06'],
-    'ZRDM': ['S06']
+    'ZSC2': ['S06'],
+    'ZRDM': ['S06'],
+    'ZVRP': ['S06']
 }
 
 def validateCertTypeMat(value, plant, matType):

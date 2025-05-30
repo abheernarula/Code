@@ -412,6 +412,9 @@ def check_rule(df, row, value, rule, refcol):
         
     elif rtype == 'validation-city':
         return not validateCity(str(value))
+    
+    elif rtype == 'validation-control-code':
+        return 
 
     else:
         raise Exception(f"Rule type {rtype} does not exist")

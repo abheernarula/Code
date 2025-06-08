@@ -5,7 +5,8 @@ vals = {
     'ZSC1': ['S00'],
     'ZSC2': ['S00'],
     'ZRDM': ['S00'],
-    'ZVRP': ['S00']
+    'ZVRP': ['S00'],
+    'ZANI': ['S00']
 }
 
 def validateMRPcontroller(value, matType, plant:int=0):

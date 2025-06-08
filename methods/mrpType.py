@@ -5,7 +5,8 @@ vals = {
     'ZSC1': ['ND'],
     'ZSC2': ['ND'],
     'ZRDM': ['ND'],
-    'ZVRP': ['ND']
+    'ZVRP': ['ND'],
+    'ZANI': ['ND']
 }
 
 def validateMRP_type(value, matType):

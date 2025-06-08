@@ -2,7 +2,8 @@ vals ={
     'ZSC1': ['V'],
     'ZSC2': ['V'],
     'ZRDM': ['V'],
-    'ZVRP': ['V']
+    'ZVRP': ['V'],
+    'ZANI': ['V']
 }
 
 def validatePriceControlMat(value, matType):

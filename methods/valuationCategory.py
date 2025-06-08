@@ -2,7 +2,8 @@ vals = {
     'ZSC1': ['X'],
     'ZSC2': ['X'],
     'ZRDM': ['BCHRX'],
-    'ZVRP': ['BCHRX']
+    'ZVRP': ['BCHRX'],
+    'ZANI': ['X'],
 }
 
 def validateValuationCat(value, matType):

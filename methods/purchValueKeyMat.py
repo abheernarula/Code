@@ -3,7 +3,8 @@ vals = {
     'ZSC1': ["ZM00"],
     'ZSC2': ["ZM00"],
     'ZRDM': ["ZM00"],
-    'ZVRP': ["ZM00"]
+    'ZVRP': ["ZM00"],
+    'ZANI': ["ZM00"]
 }
 
 def validatePurchValMat(value, matType):

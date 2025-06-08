@@ -3,6 +3,7 @@ vals = {
     'ZSC2': ['Q'],
     'ZRDM': ['Q'],
     'ZVRP': ['P'],
+    'ZANI': ['P']
 }
 
 def validateAcctAssmtCat(value, matType):

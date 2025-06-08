@@ -20,7 +20,8 @@ vals = {
     'ZSC1': ['S06'],
     'ZSC2': ['S06'],
     'ZRDM': ['S06'],
-    'ZVRP': ['S06']
+    'ZVRP': ['S06'],
+    'ERSA': ['S06']
 }
 
 def validateCertTypeMat(value, plant, matType):

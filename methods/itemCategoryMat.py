@@ -3,7 +3,10 @@ vals = {
     'ZSC2': ['NORM'],
     'ZRDM': ['NORM'],
     'ZVRP': ['VERP'],
-    'ZANI': ['NORM']
+    'ZANI': ['NORM'],
+    'ZCAP': ['NORM'],
+    'ZSTR': ['NORM'],
+    'ERSA': ['NORM']
 }
 
 def validateItemCatMat(value, matType):

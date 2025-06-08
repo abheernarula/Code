@@ -6,7 +6,10 @@ vals = {
     'ZSC2': [501, '501'],
     'ZRDM': [501, '501'],
     'ZVRP': [501, '501'],
-    'ZANI': [501, '501']
+    'ZANI': [501, '501'],
+    'ZCAP': [501, '501'],
+    'ZSTR': [501, '501'],
+    'ERSA': [501, '501']
 }
 
 def validatePurchaseGroupMaterial(value, matType):

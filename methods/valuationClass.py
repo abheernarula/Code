@@ -6,7 +6,10 @@ vals = {
     "ZSC2": [9040, '9040'],
     'ZRDM': [9000, '9000'],
     'ZVRP': [9010, '9010', '9011', 9011],
-    'ZANI': ['ZANI']
+    'ZANI': ['ZANI'],
+    'ZCAP': [9010, '9010'],
+    'ZSTR': ['ZSTR'],
+    "ERSA": [9030, '9030']
 }
 
 def validateValuationClass(value, matType):

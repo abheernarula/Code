@@ -3,7 +3,10 @@ vals = {
     'ZSC2': ['0'],
     'ZRDM': ['0'],
     'ZVRP': ['0'],
-    'ZANI': ['0']
+    'ZANI': ['0'],
+    'ZCAP': ['0'],
+    'ZSTR': ['0'],
+    'ERSA': ['0']
 }
 
 def validateTaxIndicatorMat(value, matType):

@@ -6,13 +6,16 @@ vals = {
     'ZSC2': ['S00'],
     'ZRDM': ['S00'],
     'ZVRP': ['S00'],
-    'ZANI': ['S00']
+    'ZANI': ['S00'],
+    'ZCAP': ['S00'],
+    'ZSTR': ['S00'],
+    'ERSA': ['S00']
 }
 
 def validateMRPcontroller(value, matType, plant:int=0):
     # valid = vals[vals['Plant']==plant]['MRP Controller'].to_list()
     valid = vals[matType]
-    if matType=='ZRDM':
+    if matType=='ZRDM' or matType == 'ERSA':
         if plant == 5183 or plant == 5193:
             valid = ['N10']
     try:

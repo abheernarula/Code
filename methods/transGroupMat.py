@@ -3,7 +3,10 @@ vals = {
     'ZSC2': ["0001","1"],
     'ZRDM': ["0001","1"],
     'ZVRP': ["0001","1"],
-    'ZVRP': ["0001","1"]
+    'ZANI': ["0001","1"],
+    'ZCAP': ["0001","1"],
+    'ZSTR': ["0001","1"],
+    'ERSA': ["0001","1"]
 }
 
 def validateTransGroupMat(value, matType):

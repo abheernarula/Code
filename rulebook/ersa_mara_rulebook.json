@@ -1,0 +1,137 @@
+{
+    "rules":[
+        {
+            "column": "Material",
+            "rule": "not_null",
+            "message": "'Material' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Material",
+            "rule": "unique",
+            "message": "'Material' should be unique",
+            "rule_category": "Uniqueness"
+        },
+        {
+            "column": "Material",
+            "rule": "regex",
+            "expression": "^22\\d{7}$",
+            "message": "'Material' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Material Type",
+            "rule": "validation-material",
+            "message": "'Material' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Material Type",
+            "rule": "not_null",
+            "message": "'Material Type' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Material Type",
+            "rule": "regex",
+            "expression": "^[A-Z0-9]{3,4}$",
+            "message": "'Material Type' should be in standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Material Description",
+            "rule": "not_null",
+            "message": "'Material Description' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Material Description",
+            "rule": "validation-length",
+            "expression": ".{0,40}",
+            "message": "'Material Description' should not exceed 40 char limit",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Base Unit of Measure",
+            "rule": "not_null",
+            "message": "'Base Unit of Measure' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Base Unit of Measure",
+            "rule": "validation-uom",
+            "message": "'Base Unit of Measure' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Gen. item cat. grp",
+            "rule": "not_null",
+            "message": "'Gen. item cat. grp' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Gen. item cat. grp",
+            "rule": "validation-account-assignment",
+            "matType":"ERSA",
+            "message": "'Gen. item cat. grp' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Material Group",
+            "rule": "not_null",
+            "message": "'Material Group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Material Group",
+            "rule": "validation-mat-group",
+            "message": "'Material Group' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Industry",
+            "rule": "not_null",
+            "message": "'Industry' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Industry",
+            "rule": "validation-mat-industry",
+            "message": "'Industry' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Transportation Group",
+            "rule": "not_null",
+            "message": "'Transportation Group' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Transportation Group",
+            "rule": "validation-trans-group-mat",
+            "matType": "ERSA",
+            "message": "'Transportation Group' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Purchasing value key",
+            "rule": "not_null",
+            "message": "'Purchasing value key' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Purchasing value key",
+            "rule": "validation-purch-val-key-mat",
+            "matType":"ERSA",
+            "message": "'Purchasing value key' should be valid",
+            "rule_category": "Advanced"
+        },
+        {
+            "column": "Mfr Part Profile",
+            "rule": "validation-mfr-part-profile",
+            "matType":"ERSA",
+            "message": "'Purchasing value key' should be valid",
+            "rule_category": "Advanced"
+        }
+    ]
+}

@@ -10,9 +10,7 @@ from phonenumbers import (
     NumberParseException,
     is_possible_number,
     number_type,
-    PhoneNumberType,
-    format_number,
-    PhoneNumberFormat
+    PhoneNumberType
 )
 tqdm.pandas()
 gc = geonamescache.GeonamesCache()

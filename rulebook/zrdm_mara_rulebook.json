@@ -135,12 +135,6 @@
             "rule": "validation-mfr-part-profile",
             "message": "'Manufacturer part profile' should be valid",
             "rule_category": "Advanced"
-        },
-        {
-            "column": "Purchase Order Text",
-            "rule": "not_null",
-            "message": "'Purchase Order Text' should not be null",
-            "rule_category": "Completeness"
-        } 
+        }
     ]
 }

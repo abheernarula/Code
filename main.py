@@ -140,7 +140,7 @@ for sheet in sheets:
                    'Base Unit of Measure', 'Gen. item cat. grp', 'Material Group', 'Material Category',
                    'Industry', 'Int. material number', 'X-plant matl status', 'Division', 'catalog', 
                    'Transportation Group', 'Batch management', 'Mfr Part Profile',
-                   'Purchasing value key', 'QM proc. active', 'Created On', 'Created By', 'Purchase Order Text']
+                   'Purchasing value key', 'QM proc. active', 'Created On', 'Created By']
         
     if sheet == 'marc':
         columns = ['Material', 'Plant', 'Control code', 'Zone Category', 'Storage condition', 'QM Control Key', 

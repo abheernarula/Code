@@ -100,7 +100,7 @@ def check_rule(df, row, value, rule, refcol):
         if (pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan'):
             return False
         else:
-            return not value == value.title()
+            return not value == value.upper()
     
     elif rtype == 'phone-regex':
         try:

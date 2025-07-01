@@ -29,7 +29,10 @@ def preprocessVendorData(vendorMaster):
     lfm1 = pd.read_excel(vendorMaster, sheet_name='LFM1')
     lfbk = pd.read_excel(vendorMaster, sheet_name='LFBK')
     adrc = pd.read_excel(vendorMaster, sheet_name='ADRC')
-    j1imovend = pd.read_excel(vendorMaster, sheet_name='J1IMOVEND')
+    try:
+        j1imovend = pd.read_excel(vendorMaster, sheet_name='J1IMOVEND')
+    except:
+        pass
     
     adrc_required = adrc[['Address Number', 'Postal Code', 'Street', 'Street 2', 'Street 3', 'Street 4', 'Street 5', 
                           'Postal Code', 'PO Box Postal Code', 'PO Box']]
@@ -37,7 +40,10 @@ def preprocessVendorData(vendorMaster):
                   'Last Invoice Posting Date', 'Country']]
     adrc = pd.merge(adrc_required, right, how='left', left_on='Address Number', right_on='Address')
     
-    lfa1 = pd.merge(lfa1,j1imovend,'left','Supplier')
+    try:
+        lfa1 = pd.merge(lfa1,j1imovend,'left','Supplier')
+    except:
+        pass 
     
     city = lfa1[['Supplier', 'City']]
     lfm1 = pd.merge(lfm1, city, 'left', 'Supplier')

@@ -1,0 +1,158 @@
+
+**** Log file opened at 2025-07-02 21:22:39.403177 UTC+05:30 (India Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 7, Compiled on Sep 19 2020 01:34:20
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\abhena\Biocon Limited\Data Management Office - Data Management Office\Data Cleansing\Python\Scripts\Code\sap, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: SYGLAP3437, IP address: 172.21.250.188, IPv6 address: ::1
+
+2025-07-02 21:22:39.403508 [07488] >> Info entry
+	Did not find config file C:\Users\abhena\Biocon Limited\Data Management Office - Data Management Office\Data Cleansing\Python\Scripts\Code\sap\sapnwrfc.ini.
+2025-07-02 21:23:00.521280 [07488] >> Error entry
+	[Handle: 2346619672416	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host SYGLAP3437 with Unicode
+ERROR       partner '172.16.201.11:3310' not reached
+TIME        Wed Jul 02 21:23:00 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 172.16.201.11:3310
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2025-07-02 21:26:02.354925 UTC+05:30 (India Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 7, Compiled on Sep 19 2020 01:34:20
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\abhena\Biocon Limited\Data Management Office - Data Management Office\Data Cleansing\Python\Scripts\Code\sap, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: SYGLAP3437, IP address: 172.21.250.188, IPv6 address: ::1
+
+2025-07-02 21:26:02.355287 [26796] >> Error entry
+	[Handle: 2357917252784	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host SYGLAP3437 with Unicode
+ERROR       partner '172.16.201.11:3310' not reached
+TIME        Wed Jul 02 21:26:02 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 172.16.201.11:3310
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2025-07-02 21:29:44.323187 UTC+05:30 (India Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 7, Compiled on Sep 19 2020 01:34:20
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\abhena\Biocon Limited\Data Management Office - Data Management Office\Data Cleansing\Python\Scripts\Code\sap, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: SYGLAP3437, IP address: 172.21.250.188, IPv6 address: ::1
+
+2025-07-02 21:29:44.323414 [11048] >> Error entry
+	[Handle: 2552754709296	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host SYGLAP3437 with Unicode
+ERROR       partner '172.16.201.11:3310' not reached
+TIME        Wed Jul 02 21:29:44 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 172.16.201.11:3310
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2025-07-02 21:31:26.992987 UTC+05:30 (India Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 7, Compiled on Sep 19 2020 01:34:20
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\abhena\Biocon Limited\Data Management Office - Data Management Office\Data Cleansing\Python\Scripts\Code\sap, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: SYGLAP3437, IP address: 172.21.250.188, IPv6 address: ::1
+
+2025-07-02 21:31:26.993405 [23660] >> Error entry
+	[Handle: 2083815793456	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host SYGLAP3437 with Unicode
+ERROR       partner '172.16.200.17:3302' not reached
+TIME        Wed Jul 02 21:31:26 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 172.16.200.17:3302
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2025-07-02 21:35:56.165015 UTC+05:30 (India Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 7, Compiled on Sep 19 2020 01:34:20
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\abhena\Biocon Limited\Data Management Office - Data Management Office\Data Cleansing\Python\Scripts\Code\sap, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: SYGLAP3437, IP address: 172.21.250.188, IPv6 address: ::1
+
+2025-07-02 21:35:56.165399 [10944] >> Error entry
+	[Handle: 2027029242672	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host SYGLAP3437 with Unicode
+ERROR       partner '172.16.201.11:3310' not reached
+TIME        Wed Jul 02 21:35:56 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 172.16.201.11:3310
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2025-07-02 21:43:26.655112 UTC+05:30 (India Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 7, Compiled on Sep 19 2020 01:34:20
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\abhena\Biocon Limited\Data Management Office - Data Management Office\Data Cleansing\Python\Scripts\Code\sap, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: SYGLAP3437, IP address: 172.21.250.188, IPv6 address: ::1
+
+2025-07-02 21:43:26.655441 [06584] >> Error entry
+	[Handle: 2521135537920	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host SYGLAP3437 with Unicode
+ERROR       partner '172.16.201.11:3310' not reached
+TIME        Wed Jul 02 21:43:26 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 172.16.201.11:3310
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+

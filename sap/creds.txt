@@ -1,0 +1,2 @@
+set SAPNWRFC_HOME=C:\Users\abhena\nwrfcsdk\nwrfcsdk
+set PATH=%SAPNWRFC_HOME%\lib;%PATH%

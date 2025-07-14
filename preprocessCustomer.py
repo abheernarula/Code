@@ -110,7 +110,7 @@ def preprocessCustomerData(customerMaster):
     # contact_inactive = contact[contact['IsActive']==False]
     
     # output_dir = "/".join(customerMaster.split('/')[:-1])
-    # output_path = os.path.join(output_dir, 'activeCustomerMaster.xlsx')
+    # output_path = os.path.join(output_dir, 'inactiveCustomerMaster.xlsx')
     # tables = [kna1_inactive, knb1_inactive, knvv_inactive, knkk_inactive, knvk_inactive, knb5_inactive, adr6_inactive, 
     #           account_inactive, contact_inactive]
     # sheets = ["KNA1", 'KNB1', "KNVV", 'KNKK', 'KNVK', 'KNB5', 'ADR6', 'ACCOUNT', 'CONTACT']

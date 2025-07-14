@@ -156,3 +156,29 @@ ERRNO       10060
 ERRNO TEXT  WSAETIMEDOUT: Connection timed out
 COUNTER     2
 
+
+**** Log file opened at 2025-07-09 14:00:29.928916 UTC+05:30 (India Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 7, Compiled on Sep 19 2020 01:34:20
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\abhena\Biocon Limited\Data Management Office - Data Management Office\Data Cleansing\Python\Scripts\Code\sap, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: SYGLAP3437, IP address: 172.21.250.165, IPv6 address: ::1
+
+2025-07-09 14:00:29.931599 [20284] >> Error entry
+	[Handle: 2490916804368	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host SYGLAP3437 with Unicode
+ERROR       partner '172.16.201.11:3310' not reached
+TIME        Wed Jul 09 14:00:29 2025
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 172.16.201.11:3310
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+

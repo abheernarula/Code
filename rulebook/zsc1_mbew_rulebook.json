@@ -9,6 +9,7 @@
         {
             "column": "Valuation Category",
             "rule": "validation-valuation-cat",
+            "matType":"ZSC1",
             "message": "'Valuation Category' should be valid",
             "rule_category": "Advanced"
         },
@@ -21,6 +22,7 @@
         {
             "column": "Valuation Class",
             "rule": "validation-valuation-class",
+            "matType":"ZSC1",
             "message": "'Valuation Class' should be valid",
             "rule_category": "Advanced"
         },
@@ -33,6 +35,7 @@
         {
             "column": "Price Control",
             "rule": "validation-price-control-mat",
+            "matType":"ZSC1",
             "message": "'Price Control' should be valid",
             "rule_category": "Advanced"
         }        

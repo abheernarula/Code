@@ -9,6 +9,7 @@
         {
             "column": "Tax ind. f. material",
             "rule": "validation-tax-ind-mat",
+            "matType":"ZSC1",
             "message": "'Tax ind. f. material' should be valid",
             "rule_category": "Advanced"
         }

@@ -9,6 +9,7 @@
         {
             "column": "Acct Assmt Grp Mat.",
             "rule": "validation-acct-assmt-grp-mat",
+            "matType":"ZSC1",
             "message": "'Acct Assmt Grp Mat.' should be valid",
             "rule_category": "Advanced"
         },
@@ -21,6 +22,7 @@
         {
             "column": "Item category group",
             "rule": "validation-item-cat-mat",
+            "matType":"ZSC1",
             "message": "'Item category group' should be valid",
             "rule_category": "Advanced"
         }

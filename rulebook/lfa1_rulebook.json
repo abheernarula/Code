@@ -85,7 +85,7 @@
         {
             "column": "City",
             "rule": "capitalization",
-            "message": "'City' should be in a standard format",
+            "message": "'City' should be capitalized",
             "rule_category": "Standardization"
         },
         {
@@ -188,8 +188,8 @@
         {
             "column": "Account Group",
             "rule": "validation-account-group-vendor",
-            "message": "'Account Group' should be valid",
-            "rule_category": "Advanced"
+            "message": "'Account Group' should have values from SAP Table T077Y",
+            "rule_category": "Validation"
         },
         {
             "column": "Tax Number 3",
@@ -234,6 +234,18 @@
             "rule": "validation-block-function",
             "message": "Block function must be valid",
             "rule_category": "Advanced"
-        } 
+        },
+        {
+            "column": "Address",
+            "rule": "not_null",
+            "message": "'Address' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Address",
+            "rule": "numeric",
+            "message": "'Address' should only have numeric values",
+            "rule_category": "Standardization"
+        }
     ]
 }

@@ -5,7 +5,7 @@ def load_csv_data(path, columns):
     return df[columns]
 
 def load_excel_data(path, sheet, columns):
-    df = pd.read_excel(path, sheet_name=sheet)
+    df = pd.read_excel(path, sheet_name=sheet, dtype=str)
     return df[columns]
 
 # def consolidate_data(kna1, knb1, sfdc):

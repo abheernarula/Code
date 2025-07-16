@@ -46,6 +46,7 @@
         {
             "column": "Loading Group",
             "rule": "validation-loading-group",
+            "matType": "ZSC1",
             "message": "'Loading Group' should be valid",
             "rule_category": "Advanced"
         },
@@ -70,6 +71,7 @@
         {
             "column": "MRP Controller",
             "rule": "validation-mrp-controller",
+            "matType":"ZSC1",
             "message": "'MRP Controller' should be valid",
             "rule_category": "Advanced"
         },
@@ -82,6 +84,7 @@
         {
             "column": "MRP Type",
             "rule": "validation-mrp-type",
+            "matType":"ZSC1",
             "message": "'MRP Type' should be valid",
             "rule_category": "Advanced"
         },
@@ -94,6 +97,7 @@
         {
             "column": "Purchasing Group",
             "rule": "validation-purch-group-mat",
+            "matType":"ZSC1",
             "message": "'Purchasing Group' should be valid",
             "rule_category": "Advanced"
         },
@@ -106,6 +110,7 @@
         {
             "column": "Availability check",
             "rule": "validation-avail-check",
+            "matType":"ZSC1",
             "message": "'Availability check' should be valid",
             "rule_category": "Advanced"
         },
@@ -137,12 +142,14 @@
             "column": "Certificate type",
             "ref": "Plant",
             "rule": "validation-cert-type-mat",
+            "matType":"ZSC1",
             "message": "'Certificate type' should be valid",
             "rule_category": "Advanced"
         },
         {
             "column": "Acct Assignment Cat.",
             "rule": "validation-acct-assnt-cat",
+            "matType":"ZSC1",
             "message": "'Acct Assignment Cat.' should be valid",
             "rule_category": "Advanced"
         }

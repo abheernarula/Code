@@ -23,7 +23,10 @@ def checkInactive(table, row, inactiveList : list, visited : set, *cols):
 def classifyInactive(table, row, inactive: list):
     return row['Supplier'] in inactive
 
-def preprocessVendorData(vendorMaster):
+def preprocessVendorData(vendorMaster, flag):
+    if not flag:
+        return vendorMaster
+    
     lfa1 = pd.read_excel(vendorMaster, sheet_name='LFA1')
     lfb1 = pd.read_excel(vendorMaster, sheet_name='LFB1')
     lfm1 = pd.read_excel(vendorMaster, sheet_name='LFM1')

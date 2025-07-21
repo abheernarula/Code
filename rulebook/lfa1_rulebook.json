@@ -20,7 +20,7 @@
             "import_exp": "^3[0-9]{6}$",
             "bonded_exp": "^8[0-9]{6}$",
             "message": "'Supplier' should follow the defined supplier series",
-            "rule_category": "Advanced"
+            "rule_category": "Accuracy"
         },
         {
             "column": "Name 1",
@@ -112,7 +112,7 @@
             "rule": "advance-country",
             "ref": "Account Group",
             "message": "'Country' should be valid as per Account group",
-            "rule_category": "Advanced"
+            "rule_category": "Validation"
         },
         {
             "column": "Telephone 1",
@@ -207,8 +207,8 @@
         {
             "column": "Tax Number 3",
             "rule": "gst-pan-valid",
-            "message": "'Tax Number 3' should be valid",
-            "rule_category": "Validation"
+            "message": "'Tax Number 3' should be in a standard format",
+            "rule_category": "Standardization"
         },
         {
             "column": "Permanent account number",

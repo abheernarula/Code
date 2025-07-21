@@ -1,11 +1,11 @@
-﻿Industry	Industry Key
-Z001	DTA Customer
-Z002	SEZ Customer
-Z003	EOU Customer
-Z004	Export Customer
-Z005	Unregistered Custome
-Z006	Government Entity
-Z007	ISD Customer
-Z008	Composition Customer
-Z009	UIN Customer
-Z010	Co-Developer
+﻿Industry,Industry Key
+Z001,DTA Customer
+Z002,SEZ Customer
+Z003,EOU Customer
+Z004,Export Customer
+Z005,Unregistered Custome
+Z006,Government Entity
+Z007,ISD Customer
+Z008,Composition Customer
+Z009,UIN Customer
+Z010,Co-Developer

@@ -10,10 +10,6 @@
         },
         {
             "column": "BillingCity",
-            "action": "upper"
-        },
-        {
-            "column": "BillingCity",
             "action": "validate-city"
         },
         {
@@ -36,6 +32,42 @@
             "column": "Phone",
             "ref": "BillingCountryCode",
             "action": "validate-phone"
+        },
+        {
+            "column": "Industry_Sector__c",
+            "ref": "BillingCountryCode",
+            "action": "validate-industry-cust"
+        },
+        {
+            "column": "KALKS__c",
+            "ref": "BillingCountryCode",
+            "action": "validate-acc-asgmt-cust"
+        },
+        {
+            "column": "KTGRD__c",
+            "ref": "BillingCountryCode",
+            "action": "validate-ktgrd-cust"
+        },
+        {
+            "column": "KTOKD__c",
+            "action": "validate-ktokd-cust"
+        },
+        {
+            "column": "SPART__c",
+            "ref": "Portfolio__c",
+            "action": "validate-spart-cust"
+        },
+        {
+            "column": "INCO1__c",
+            "action": "validate-inco1-cust"
+        },
+        {
+            "column": "INCO2__c",
+            "action": "validate-inco2-cust"
+        },
+        {
+            "column": "Sales_Organization__c",
+            "action": "validate-sales-org-cust"
         }
     ]
 }

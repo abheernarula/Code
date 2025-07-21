@@ -41,21 +41,22 @@ start = time.time()
 print('\n[READING INPUT FILES]...')
 
 flagPreprocess = args.preprocess
-print(flagPreprocess)
 
-# if args.isVendor:
-#     args.data = preprocessVendorData(args.data, flagPreprocess)
-#     sheets = ['lfa1', 'lfb1', 'lfm1', 'lfbk', 'adrc']
-# elif args.isCustomer:
-#     args.data = preprocessCustomerData(args.data, flagPreprocess)
-#     sheets = ['kna1', 'knb1', 'knvv', 'knkk', 'knb5', 'adr6', 'account', 'contact']
-# elif args.isMaterial:
-#     sheets = ['mara', 'marc', 'mbew', 'mvke', 'mlan']
-#     if args.materialType == "":
-#         raise ValueError("Please specify Material type")
-#     print(f"[MATERIAL TYPE - {str(args.materialType).upper()}]")
-# else:
-#     raise Exception("Please specify master data")
+if args.isVendor:
+    # args.data = preprocessVendorData(args.data) if flagPreprocess else args.data
+    if flagPreprocess: args.data = preprocessVendorData(args.data)
+    sheets = ['lfa1', 'lfb1', 'lfm1', 'lfbk', 'adrc']
+elif args.isCustomer:
+    # args.data = preprocessCustomerData(args.data) if flagPreprocess else args.data
+    if flagPreprocess: args.data = preprocessCustomerData(args.data)
+    sheets = ['kna1', 'knb1', 'knvv', 'knkk', 'knb5', 'adr6', 'account', 'contact']
+elif args.isMaterial:
+    sheets = ['mara', 'marc', 'mbew', 'mvke', 'mlan']
+    if args.materialType == "":
+        raise ValueError("Please specify Material type")
+    print(f"[MATERIAL TYPE - {str(args.materialType).upper()}]")
+else:
+    raise Exception("Please specify master data")
 
 if args.tables != '':
     sheets = args.tables.lower().split(',')

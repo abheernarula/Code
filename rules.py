@@ -420,7 +420,7 @@ def check_rule(df, row, value, rule, refcol):
         raise Exception(f"Rule type {rtype} does not exist")
     
         
-def check_row(df, row,rules):
+def check_row(df, row, rules):
     issues = []
     prev_rule = ''
     prev_col = ''
@@ -432,6 +432,9 @@ def check_row(df, row,rules):
         col = rule.get("column")        
         message = rule.get("message", f"Issue with {col}")
         rule_category = rule.get("rule_category")
+        # if col not in df.columns:
+        #     continue
+        # else:
         if prev_col != '' and rule.get('rule') != prev_rule and col == prev_col:
             continue
         if 'ref' in rule.keys():

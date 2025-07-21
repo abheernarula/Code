@@ -7,6 +7,11 @@ def load_csv_data(path, columns):
 def load_excel_data(path, sheet, columns):
     df = pd.read_excel(path, sheet_name=sheet, dtype=str)
     return df[columns]
+    # try:
+    #     return df[columns]
+    # except:
+    #     cols = [i for i in columns if i in df.columns]
+    #     return df[cols]
 
 # def consolidate_data(kna1, knb1, sfdc):
 #     sap_master = kna1.merge(knb1, on="Customer", how="left")

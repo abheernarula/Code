@@ -25,16 +25,75 @@ def load_rules(path):
 def apply_rules(df, rules):
     return standardizeCol(df, rules)
 
+# def standardizeStreet(df, col):
+#     pattern = r"[^A-Za-z0-9\s\.,\-/']"
+#     df[col] = (
+#         df[col]
+#         .str.replace(pattern, '', regex=True)
+#         .str.replace(r'\s+', ' ', regex=True)
+#         .str.replace(r'^[^A-Za-z0-9]+|[^A-Za-z0-9]+$', '', regex=True)
+#         .str.strip()
+#     )
+#     return df[col]
+
+def standardizeIndustryCust(value, country):
+    if pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan':
+        if country == 'IN': return 'DTA Customer'
+        else: return 'Export Customer'
+    else:
+        return value
+    
+def standardizeAccAsgmtCust(value, country, sapId):
+    if pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan':
+        if str(sapId).startswith('7'): return '3'
+        if country == 'IN': return '1'
+        else: return "2"
+    else: return value
+    
+def standardizeKTGRD(value, country, sapId):
+    if pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan':
+        if len(str(sapId)) == 4: return '30'
+        if country == 'IN': return '10'
+        else: return '20'
+
+def standardizeKTOKD(value):
+    if pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan':
+        return 'Z001'
+    else: return value
+    
+def standardizeSalesOrgCust(value):
+    if pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan':
+        return '5100'
+    else: return value
+
+    
+def standardizeIncoCust(value, ref):
+    if pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan':
+        if ref == 1: return 'EXW'
+        if ref == 2: return 'Ex Works'
+    else: return value
+
+    
+def standardizeSPART(value, portfolio):
+    if pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan':
+        if portfolio=='Discovery': return '52'
+        elif portfolio == 'Development': return '51'
+        elif portfolio == 'Bioligics': return '55'
+        elif portfolio == 'Clinical Development': return '60'
+        else: return '<TBF>'
+    else: return value
+
 def standardizeStreet(df, col):
     pattern = r"[^A-Za-z0-9\s\.,\-/']"
-    df[col] = (
+    res = (
         df[col]
+        .str.replace('&', 'and')
         .str.replace(pattern, '', regex=True)
         .str.replace(r'\s+', ' ', regex=True)
         .str.replace(r'^[^A-Za-z0-9]+|[^A-Za-z0-9]+$', '', regex=True)
         .str.strip()
     )
-    return df[col]
+    return res
 
 def standardizeCity(val, threshold=80):
     val = val.strip().title()
@@ -115,7 +174,7 @@ def standardizeCol(df, rules):
                 df[col] = df[col].astype(str).str.upper()
             
             elif action == 'validate-street':
-                df[col] = standardizeStreet(df, col)
+                df[f'{col}_new'] = standardizeStreet(df, col)
             
             elif action == 'validate-city':
                 df[f'{col}_new'] = df[col].progress_apply(standardizeCity)
@@ -126,7 +185,38 @@ def standardizeCol(df, rules):
             
             elif action == 'validate-incoterms':
                 df[col] = df.progress_apply(lambda row: standardizeIncoterms(row), axis=1)
-        
+            
+            elif action == 'validate-industry-cust':
+                df[f'{col}_std'] = df.progress_apply(lambda row: standardizeIndustryCust(str(row[col]), str(row[refcol])), 
+                                                     axis=1)
+            elif action == 'validate-acc-asgmt-cust':
+                df[f'{col}_std'] = df.progress_apply(lambda row: standardizeAccAsgmtCust(str(row[col]), str(row[refcol]), str(row['SAP_Account_Number__c'])),
+                                                     axis=1)
+            
+            elif action == 'validate-ktgrd-cust':
+                df[f'{col}_std'] = df.progress_apply(lambda row: standardizeAccAsgmtCust(str(row[col]), str(row[refcol]), str(row['SAP_Account_Number__c'])),
+                                                     axis=1)
+            
+            elif action == 'validate-ktokd-cust':
+                df[f'{col}_std'] = df.progress_apply(lambda row: standardizeKTOKD(str(row[col])),
+                                                     axis=1)
+            
+            elif action == 'validate-ktokd-cust':
+                df[f'{col}_std'] = df.progress_apply(lambda row: standardizeSPART(str(row[col]), str(row[refcol])),
+                                                     axis=1)
+
+            elif action == 'validate-inco1-cust':
+                df[f'{col}_std'] = df.progress_apply(lambda row: standardizeIncoCust(str(row[col]), 1),
+                                                     axis=1)
+            
+            elif action == 'validate-inco2-cust':
+                df[f'{col}_std'] = df.progress_apply(lambda row: standardizeIncoCust(str(row[col]), 2),
+                                                     axis=1)
+            
+            elif action == 'validate-sales-org-cust':
+                df[f'{col}_std'] = df.progress_apply(lambda row: standardizeSalesOrgCust(str(row[col])),
+                                                     axis=1)
+            
         else:
             raise Exception(f'"{col}" not found!')
         
@@ -159,12 +249,12 @@ else:
 
 rules = load_rules(rule_dir)
 if args.isVendor:
-    countryCode = pd.read_excel('../Vendor/VendorMaster.xlsx', sheet_name='LFA1')[['Supplier', 'Country']]
-    companyCode = pd.read_excel('../Vendor/VendorMaster.xlsx', sheet_name='LFB1')[['Supplier', 'Company Code']]
+    countryCode = pd.read_excel('../Vendor/VendorMaster.xlsx', sheet_name='LFA1', dtype=str)[['Supplier', 'Country']]
+    companyCode = pd.read_excel('../Vendor/VendorMaster.xlsx', sheet_name='LFB1', dtype=str)[['Supplier', 'Company Code']]
 
 for sheet in sheets:
     print(f'WORKING ON SHEET: {sheet}')
-    df = pd.read_excel(args.data, sheet_name=sheet)
+    df = pd.read_excel(args.data, sheet_name=sheet, dtype=str, keep_default_na=False)
     if args.isVendor:
         df = pd.merge(df, countryCode, 'left', left_on='Account Number of Supplier', right_on='Supplier')
         df = pd.merge(df, companyCode, 'left', left_on='Account Number of Supplier', right_on='Supplier')
@@ -172,4 +262,4 @@ for sheet in sheets:
     output_path = os.path.join(args.output, f'{sheet}_standardizedOutput.xlsx')
 
     with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
-        results.to_excel(writer, sheet_name=sheet, index=False)
+        results.astype(str).to_excel(writer, sheet_name=sheet, index=False)

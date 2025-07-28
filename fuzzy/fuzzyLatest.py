@@ -44,4 +44,4 @@ def add_exact_groups(df: pd.DataFrame, col="Purchase Order Text") -> pd.DataFram
     df["is_dup_100"] = df.duplicated("fp_exact", keep="first")
     return df
 
-add_exact_groups(pd.read_excel('../../Material/potext/ZRDM_PO.xlsx')).to_csv('zrdm_fuzzy.csv')
+add_exact_groups(pd.read_excel('../../Material/july21/ZSC2.xlsx', sheet_name='POTEXT')).to_csv('zsc2_fuzzy.csv')

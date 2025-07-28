@@ -20,7 +20,7 @@
             "import_exp": "^3[0-9]{6}$",
             "bonded_exp": "^8[0-9]{6}$",
             "message": "'Supplier' should follow the defined supplier series",
-            "rule_category": "Accuracy"
+            "rule_category": "Standardization"
         },
         {
             "column": "Name 1",
@@ -42,33 +42,15 @@
         },
         {
             "column": "Name 2",
-            "rule": "unique",
-            "message": "'Name 2' should be unique",
-            "rule_category": "Uniqueness"
-        },
-        {
-            "column": "Name 2",
             "rule": "capitalization",
             "message": "'Name 2' should be in a standard format",
             "rule_category": "Standardization"
         },
         {
             "column": "Name 3",
-            "rule": "unique",
-            "message": "'Name 3' should be unique",
-            "rule_category": "Uniqueness"
-        },
-        {
-            "column": "Name 3",
             "rule": "capitalization",
             "message": "'Name 3' should be in a standard format",
             "rule_category": "Standardization"
-        },
-        {
-            "column": "Name 4",
-            "rule": "unique",
-            "message": "'Name 4' should be unique",
-            "rule_category": "Uniqueness"
         },
         {
             "column": "Name 4",
@@ -207,8 +189,8 @@
         {
             "column": "Tax Number 3",
             "rule": "gst-pan-valid",
-            "message": "'Tax Number 3' should be in a standard format",
-            "rule_category": "Standardization"
+            "message": "'Tax Number 3' should be valid",
+            "rule_category": "Validation"
         },
         {
             "column": "Permanent account number",
@@ -246,6 +228,24 @@
             "rule": "numeric",
             "message": "'Address' should only have numeric values",
             "rule_category": "Standardization"
+        },
+        {
+            "column": "Title",
+            "rule": "not_null",
+            "message": "'Title' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Title",
+            "rule": "alphabetic",
+            "message": "'Title' should be alphabetic",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Title",
+            "rule": "validation-title-vendor",
+            "message": "'Title' should be valid",
+            "rule_category": "Validation"
         }
     ]
 }

@@ -10,7 +10,7 @@
             "column": "Company Code",
             "rule": "validation-company-code-vendor",
             "message": "'Company Code' should be valid",
-            "rule_category": "Advanced"
+            "rule_category": "Validation"
         },
         {
             "column": "Terms of Payment",

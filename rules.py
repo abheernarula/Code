@@ -63,6 +63,7 @@ from methods.acctAssmtGrpMat import *
 from methods.taxIndicatorMat import *
 from methods.itemCategoryMat import *
 from methods.validateCity import *
+from methods.vendorTitle import *
 
 # def standardizeDate(value):
 #     try:        
@@ -183,6 +184,12 @@ def check_rule(df, row, value, rule, refcol):
     
     elif rtype == 'alpha-numeric':
         return not str(value).isalnum()
+    
+    elif rtype == 'alphabetic':
+        return not str(value).isalpha()
+    
+    elif rtype == 'validation-title-vendor':
+        return not validate_vendor_title(value)
     
     elif rtype == 'validation-customer-segment':
         return not validate_customer_segment(value)

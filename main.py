@@ -41,21 +41,21 @@ start = time.time()
 print('\n[READING INPUT FILES]...')
 
 flagPreprocess = args.preprocess
-print(flagPreprocess)
+# print(flagPreprocess)
 
-# if args.isVendor:
-#     args.data = preprocessVendorData(args.data, flagPreprocess)
-#     sheets = ['lfa1', 'lfb1', 'lfm1', 'lfbk', 'adrc']
-# elif args.isCustomer:
-#     args.data = preprocessCustomerData(args.data, flagPreprocess)
-#     sheets = ['kna1', 'knb1', 'knvv', 'knkk', 'knb5', 'adr6', 'account', 'contact']
-# elif args.isMaterial:
-#     sheets = ['mara', 'marc', 'mbew', 'mvke', 'mlan']
-#     if args.materialType == "":
-#         raise ValueError("Please specify Material type")
-#     print(f"[MATERIAL TYPE - {str(args.materialType).upper()}]")
-# else:
-#     raise Exception("Please specify master data")
+if args.isVendor:
+    args.data = preprocessVendorData(args.data, flagPreprocess)
+    sheets = ['lfa1', 'lfb1', 'lfm1', 'lfbk', 'adrc']
+elif args.isCustomer:
+    args.data = preprocessCustomerData(args.data, flagPreprocess)
+    sheets = ['kna1', 'knb1', 'knvv', 'knkk', 'knb5', 'adr6', 'account', 'contact']
+elif args.isMaterial:
+    sheets = ['mara', 'marc', 'mbew', 'mvke', 'mlan']
+    if args.materialType == "":
+        raise ValueError("Please specify Material type")
+    print(f"[MATERIAL TYPE - {str(args.materialType).upper()}]")
+else:
+    raise Exception("Please specify master data")
 
 if args.tables != '':
     sheets = args.tables.lower().split(',')
@@ -147,31 +147,31 @@ for sheet in sheets:
                    'Open Project?', 'Open Sales Order?', 'Open Invoices', 'Last Invoice Posting Date', ]
         
     if sheet == 'mara':
-        columns = ['Material', 'Material Type', 'Material Description', 'Material description', 
+        columns = ['Material', 'Plants', 'Material Type', 'Material Description', 'Material description', 
                    'Base Unit of Measure', 'Gen. item cat. grp', 'Material Group', 'Material Category',
                    'Industry', 'Int. material number', 'X-plant matl status', 'Division', 'catalog', 
                    'Transportation Group', 'Batch management', 'Mfr Part Profile',
                    'Purchasing value key', 'QM proc. active', 'Created On', 'Created By']
         
     if sheet == 'marc':
-        columns = ['Material', 'Plant', 'Control code', 'Zone Category', 'Storage condition', 'QM Control Key', 
+        columns = ['Material', 'Plants', 'Plant', 'Control code', 'Zone Category', 'Storage condition', 'QM Control Key', 
                    'Loading Group', 'Profit Center', 'MRP Controller', 'MRP Type', 'Purchasing Group', 
                    'Prod. stor. location', 'Batch management', 'ABC Indicator', 'Procurement type', 
                    'Availability check', 'CAS number (pharm.)', 'Prodn Supervisor', 'Prod.Sched.Profile', 
                    'Certificate type', 'Acct Assignment Cat.']
         
     if sheet == 'mbew':
-        columns = ['Material', 'Valuation Category', 'Valuation Class', 'Price Control', 'Valuation Area', 
+        columns = ['Material', 'Plants', 'Valuation Category', 'Valuation Class', 'Price Control', 'Valuation Area', 
                    'Valuation Type']
 
     if sheet == 'potext':
-        columns = ['Material', 'Purchase Order Text', 'Created On', 'Created By']
+        columns = ['Material', 'Plants', 'Purchase Order Text', 'Created On', 'Created By']
         
     if sheet == 'mvke':
-        columns = ['Material', 'Item category group', 'Acct Assmt Grp Mat.']
+        columns = ['Material', 'Plants', 'Item category group', 'Acct Assmt Grp Mat.']
         
     if sheet == 'mlan':
-        columns = ['Material', 'Tax ind. f. material']
+        columns = ['Material', 'Plants', 'Tax ind. f. material']
         
     df = load_excel_data(args.data, sheet.upper(), columns)
     

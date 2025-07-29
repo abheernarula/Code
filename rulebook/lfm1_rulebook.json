@@ -10,7 +10,7 @@
             "column": "Purch. Organization",
             "rule": "validation-purchase-organization",
             "message": "'Purch. Organization' should be valid",
-            "rule_category": "Advanced"
+            "rule_category": "Validation"
         },
         {
             "column": "Purchasing Group",
@@ -22,7 +22,7 @@
             "column": "Purchasing Group",
             "rule": "validation-purchase-group",
             "message": "'Purchasing Group' should be valid",
-            "rule_category": "Advanced"
+            "rule_category": "Validation"
         },
         {
             "column": "Purch. block for purchasing organization",
@@ -65,7 +65,7 @@
             "column": "Incoterms",
             "rule": "validation-incoterms-vendor",
             "message": "'Incoterms' should be valid",
-            "rule_category": "Advanced"
+            "rule_category": "Validation"
         },
         {
             "column": "Incoterms (Part 2)",
@@ -78,7 +78,7 @@
             "ref": "Purch. Organization",
             "rule": "validation-incoterms-2-vendor",
             "message": "'Incoterms (Part 2)' should be valid as per Purch. org / Incoterms",
-            "rule_category": "Completeness"
+            "rule_category": "Validation"
         },
         {
             "column": "MSME Status",
@@ -137,7 +137,7 @@
             "column": "ABAC Status",
             "rule": "validation-abac",
             "message": "'ABAC Status' should be valid",
-            "rule_category": "Advanced"
+            "rule_category": "Validation"
         },
         {
             "column": "ABAC Status",

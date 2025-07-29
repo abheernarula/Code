@@ -1,0 +1,17 @@
+{
+    "rules": [
+        {
+            "column": "E-Mail Address",
+            "rule": "regex",
+            "expression": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
+            "message": "'E-Mail Address' should be valid",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "E-Mail Address",
+            "rule": "not_null",
+            "message": "'E-Mail Address' should not be null",
+            "rule_category": "Completeness"
+        }
+    ]
+}

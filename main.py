@@ -25,7 +25,6 @@ parser.add_argument("--data", "-d", required=True, help="Path to excel data")
 parser.add_argument("--isVendor", "-v", help="Check if the input file is Vendor Master", default=False)
 parser.add_argument("--isCustomer", "-c", help="Check if the input file is Vendor Master", default=False)
 parser.add_argument("--isMaterial", "-m", help="Check if the input file is Material Master", default=False)
-parser.add_argument("--preprocess", "-p", help="Is preprocessing required?", default=True)
 parser.add_argument("--materialType", "-mt", help="Material type", default="")
 parser.add_argument("--tables", "-t", help="Tables to apply rules", default="")
 parser.add_argument("--rules", "-r", required=True, help="Path to folder containing rulebooks")
@@ -40,14 +39,13 @@ sheets = []
 start = time.time()
 print('\n[READING INPUT FILES]...')
 
-flagPreprocess = args.preprocess
 # print(flagPreprocess)
 
 if args.isVendor:
-    args.data = preprocessVendorData(args.data, flagPreprocess)
-    sheets = ['lfa1', 'lfb1', 'lfm1', 'lfbk', 'adrc']
+    # args.data = preprocessVendorData(args.data)
+    sheets = ['lfa1', 'lfb1', 'lfm1', 'lfbk', 'adrc', 'v_adr6', 'j_1imovend']
 elif args.isCustomer:
-    args.data = preprocessCustomerData(args.data, flagPreprocess)
+    # args.data = preprocessCustomerData(args.data)
     sheets = ['kna1', 'knb1', 'knvv', 'knkk', 'knb5', 'adr6', 'account', 'contact']
 elif args.isMaterial:
     sheets = ['mara', 'marc', 'mbew', 'mvke', 'mlan']
@@ -64,41 +62,47 @@ suffix = str(datetime.date.today()).replace("-","") + str(datetime.datetime.now(
 for sheet in sheets:
     print(f'\n[WORKING ON {sheet.upper()}]...')
     if sheet == 'lfa1':
-        columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date', 
-        # columns = ['Supplier', 
+        # columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date', 
+        columns = ['Supplier', 
                    'Name 1', 'Name 2', 'Name 3', 'Name 4', 'Street', 'City', 'Country', 'PO Box', 
                    'P.O. Box Postal Code', 'Postal Code', 'Telephone 1', 'Telephone 2', 'Language Key', 'Address', 
                    'Plant', 'Tax Jurisdiction', 'Account Group', 'Tax Number 3', 'Created on', 'Created by',
                    'Block function', 'Payment block', 'Central del.block', 'Central posting block', 
-                   'Central purchasing block', 'Permanent account number']
+                   'Central purchasing block']
                 #    'Central purchasing block']
+    
+    if sheet == 'j_1imovend':
+        columns = ['Supplier', 'Country', 'Permanent account number']
 
     if sheet == 'lfb1':
-        columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date',
-        # columns = ['Supplier',
+        # columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date',
+        columns = ['Supplier',
                    'Company Code', 'Terms of Payment', 'Reconciliation acct', 'Posting block for company code',
                    'Deletion Flag for Company Code', 'Planning group', 'Tolerance group', 'Payment methods', 
                    'Created on', 'Created by', 'MSME Status']
                 #    'Created on', 'Created by']
         
     if sheet == 'lfm1':
-        columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date', 'City',
-        # columns = ['Supplier', 'City',
+        # columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date', 'City',
+        columns = ['Supplier', 'City',
                    'Purch. block for purchasing organization', 'Purch. Organization', 'Purchasing Group', 
                    'Order currency', 'Confirmation Control', 'Incoterms', 'Incoterms (Part 2)', 'MSME Status', 
                    'MSME Number', 'MSME Issue Date', 'ABAC Status', 'ABAC Reason', 'GR-Based Inv. Verif.', 
                    'Service-Based Invoice Verification', 'Delete flag for purchasing organization']
         
     if sheet == 'lfbk':
-        columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date',
-        # columns = ['Supplier',
+        # columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date',
+        columns = ['Supplier',
                    'Account holder', 'Bank Country', 'Bank Key', 'Bank Account']
         
     if sheet == 'adrc':
-        columns = ['Supplier', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date', 'Address Number',
-        # columns = ['Supplier', 'Address Number',  
+        # columns = ['Supplier', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date', 'Address Number',
+        columns = ['Supplier', 'Address Number',  
                    'Street', 'Street 2', 'Street 3', 'Street 4', 'Street 5', 'Postal Code', 'PO Box Postal Code', 
                    'PO Box', 'Country']
+        
+    if sheet == 'v_adr6':
+        columns = ['Supplier', 'E-Mail Address']
         
     if sheet == 'kna1':
         columns = ['Customer', 'SalesforceID', 'Open Pipeline', 'All Time Customer', 'Open Project?', 'Open Sales Order?', 

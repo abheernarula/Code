@@ -28,8 +28,8 @@
             "column": "Terms of Payment",
             "ref": "MSME Status",
             "rule": "validation-payment-terms",
-            "message": "For MSME Vendors, 'Terms of Payment' should be 'ZSA9'",
-            "rule_category": "Advanced"
+            "message": "'Terms of Payment' should be ZSA9 for MSME vendors",
+            "rule_category": "Validation"
         },
         {
             "column": "Reconciliation acct",
@@ -41,7 +41,7 @@
             "column": "Reconciliation acct",
             "rule": "validation-glCode-vendor",
             "message": "'Reconciliation acct' should be valid",
-            "rule_category": "Advanced"
+            "rule_category": "Validation"
         },
         {
             "column": "Planning group",
@@ -53,7 +53,7 @@
             "column": "Planning group",
             "rule": "validation-planning-group",
             "message": "'Planning group' should be valid",
-            "rule_category": "Advanced"
+            "rule_category": "Validation"
         },
         {
             "column": "Tolerance group",
@@ -65,7 +65,7 @@
             "column": "Tolerance group",
             "rule": "validation-tolerance-group",
             "message": "'Tolerance group' should be valid",
-            "rule_category": "Advanced"
+            "rule_category": "Validation"
         },
         {
             "column": "Payment methods",

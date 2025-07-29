@@ -28,10 +28,7 @@ def checkActive(table, row, activeList : list, visited : set, *cols):
 #     else: 
 #         return row['Customer'] in active
 
-def preprocessCustomerData(customerMaster, flag):
-    
-    if not flag:
-        return customerMaster
+def preprocessCustomerData(customerMaster):
     
     kna1 = pd.read_excel(customerMaster, sheet_name='KNA1')
     knb1 = pd.read_excel(customerMaster, sheet_name='KNB1')

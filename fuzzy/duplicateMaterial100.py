@@ -9,7 +9,7 @@ PO_COL = "Purchase Order Text"
 MD_COL = "Material Description"
 EXPORT_PATH = "zrdm_dupes.xlsx"
 
-STRICT_EXACT_100 = False   # True => exact-normalized dupes only
+STRICT_EXACT_100 = True   # True => exact-normalized dupes only
 THRESHOLD = 90             # fuzzy threshold when STRICT_EXACT_100 is False
 LEN_DIFF_MAX = 0.30        # reject if |len(a)-len(b)|/maxlen > 30%
 BLOCK_TOKENS = 2           # tokens for blocking key
@@ -109,7 +109,7 @@ if __name__ == "__main__":
     df['catalogIfPresent'] = df.progress_apply(lambda row: find_cat(str(row['merged_desc'])), axis=1)
 
     # 2) normalized text
-    df["__norm__"] = df["merged_desc"].map(norm_text)
+    df["__norm__"] = df["merged_desc"]#.map(norm_text)
 
     if STRICT_EXACT_100:
         df["dup_group"] = assign_groups_exact(df, "__norm__")

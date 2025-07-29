@@ -193,29 +193,10 @@
             "rule_category": "Validation"
         },
         {
-            "column": "Permanent account number",
-            "rule": "gst-pan-not-null",
-            "ref": "Country",
-            "message": "'Permanent account number' should not be null",
-            "rule_category": "Completeness"
-        },
-        {
-            "column": "Permanent account number",
-            "rule": "unique",
-            "message": "'Permanent account number' should be unique",
-            "rule_category": "Uniqueness"
-        },
-        {
-            "column": "Permanent account number",
-            "rule": "gst-pan-valid",
-            "message": "'Permanent account number' should be valid",
-            "rule_category": "Validation"
-        },
-        {
             "column": "Block function",
             "rule": "validation-block-function",
             "message": "Block function must be valid",
-            "rule_category": "Advanced"
+            "rule_category": "Validation"
         },
         {
             "column": "Address",

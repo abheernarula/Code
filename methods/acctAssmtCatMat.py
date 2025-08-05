@@ -6,7 +6,8 @@ vals = {
     'ZANI': ['P'],
     'ZCAP': ['P'],
     'ZSTR': ['P'],
-    'ERSA': ['P']
+    'ERSA': ['P'],
+    'ABF': ['P']
 }
 
 def validateAcctAssmtCat(value, matType):

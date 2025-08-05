@@ -1,0 +1,11 @@
+{
+    "rules":
+    [
+        {
+            "column": "Purchase Order Text",
+            "rule": "not_null",
+            "message": "'Purchase Order Text' should not be null",
+            "rule_category": "Completeness"
+        }
+    ]
+}

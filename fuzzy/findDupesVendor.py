@@ -1,6 +1,6 @@
 import pandas as pd
 
-def check_duplicates_vendor(df: pd.DataFrame, accGroupCol, accGroupConfig, output_path="duplicates_vendor.xlsx"):
+def check_duplicates_vendor(df: pd.DataFrame, accGroupCol, accGroupConfig, output_path="active_duplicates_p2vendor.xlsx"):
     
     grouped = df.groupby(accGroupCol)
     
@@ -75,9 +75,9 @@ map_lfbk = {
 }
 
 # Load data
-lfa1 = pd.read_excel('../../Vendor/july21/VendorMaster.xlsx', sheet_name='LFA1').rename(columns=map_lfa1)
-lfbk = pd.read_excel('../../Vendor/july21/VendorMaster.xlsx', sheet_name='LFBK').rename(columns=map_lfbk)
-lfm1 = pd.read_excel('../../Vendor/july21/VendorMaster.xlsx', sheet_name='LFM1').rename(columns=map_lfm1)
+lfa1 = pd.read_excel('../../Vendor/july21/activeVendorMaster.xlsx', sheet_name='LFA1').rename(columns=map_lfa1)
+lfbk = pd.read_excel('../../Vendor/july21/activeVendorMaster.xlsx', sheet_name='LFBK').rename(columns=map_lfbk)
+lfm1 = pd.read_excel('../../Vendor/july21/activeVendorMaster.xlsx', sheet_name='LFM1').rename(columns=map_lfm1)
 
 
 lfa1 = lfa1[['Supplier', 'Name 1', 'Name 2', 'Name 3', 'Name 4', 'Street', 'City', 'Country', 'PO Box', 

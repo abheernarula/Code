@@ -9,7 +9,8 @@ vals = {
     'ZANI': ['ND'],
     'ZCAP': ['KP'],
     'ZSTR': ['ND'],
-    'ERSA': ['KP']
+    'ERSA': ['KP'],
+    'ABF': ['ND']
 }
 
 def validateMRP_type(value, matType):

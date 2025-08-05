@@ -6,7 +6,8 @@ vals = {
     'ZANI': ['NORM'],
     'ZCAP': ['NORM'],
     'ZSTR': ['NORM'],
-    'ERSA': ['NORM']
+    'ERSA': ['NORM'],
+    'ABF': ['NORM']
 }
 
 def validateItemCatMat(value, matType):

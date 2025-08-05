@@ -1,0 +1,17 @@
+{
+    "rules":[
+        {
+            "column": "Tax ind. f. material",
+            "rule": "not_null",
+            "message": "'Tax ind. f. material' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Tax ind. f. material",
+            "rule": "validation-tax-ind-mat",
+            "matType": "ABF",
+            "message": "'Tax ind. f. material' should be valid",
+            "rule_category": "Advanced"
+        }
+    ]
+}

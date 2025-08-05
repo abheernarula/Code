@@ -20,7 +20,7 @@
             "import_exp": "^3[0-9]{6}$",
             "bonded_exp": "^8[0-9]{6}$",
             "message": "'Supplier' should follow the defined supplier series",
-            "rule_category": "Standardization"
+            "rule_category": "Validation"
         },
         {
             "column": "Name 1",
@@ -150,18 +150,6 @@
             "rule_category": "Standardization"
         },
         {
-            "column": "Plant",
-            "rule": "not_null",
-            "message": "'Plant' should not be null",
-            "rule_category": "Completeness"
-        },
-        {
-            "column": "Tax Jurisdiction",
-            "rule": "not_null",
-            "message": "'Tax Jurisdiction' should not be null",
-            "rule_category": "Completeness"
-        },
-        {
             "column": "Account Group",
             "rule": "not_null",
             "message": "'Account Group' should not be null",
@@ -172,6 +160,13 @@
             "rule": "validation-account-group-vendor",
             "message": "'Account Group' should have values from SAP Table T077Y",
             "rule_category": "Validation"
+        },
+        {
+            "column": "Account Group",
+            "ref": "Supplier",
+            "rule": "acc-account-group-vendor",
+            "message": "'Account Group' should be accurate as per vendor series",
+            "rule_category": "Accuracy"
         },
         {
             "column": "Tax Number 3",

@@ -6,7 +6,8 @@ vals = {
     'ZANI': ['0'],
     'ZCAP': ['0'],
     'ZSTR': ['0'],
-    'ERSA': ['0']
+    'ERSA': ['0'],
+    'ABF': ['0']
 }
 
 def validateTaxIndicatorMat(value, matType):

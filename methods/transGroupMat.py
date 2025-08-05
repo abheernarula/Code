@@ -6,7 +6,8 @@ vals = {
     'ZANI': ["0001","1"],
     'ZCAP': ["0001","1"],
     'ZSTR': ["0001","1"],
-    'ERSA': ["0001","1"]
+    'ERSA': ["0001","1"],
+    'ABF': ['0001', '1']
 }
 
 def validateTransGroupMat(value, matType):

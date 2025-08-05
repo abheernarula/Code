@@ -17,7 +17,8 @@ vals = {
     'ZANI' : ['KP'],
     'ZCAP' : ['KP'],
     'ZSTR' : ['KP'],
-    'ERSA' : ['KP']
+    'ERSA' : ['KP'],
+    'ABF': ['KP']
 }
 
 def validateAvailCheck(value, matType):

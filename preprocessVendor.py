@@ -51,6 +51,7 @@ map_lfm1 = {
     "SPERM": "Purch. block for purchasing organization",
     "EKORG": "Purch. Organization",
     "EKGRP": "Purchasing Group",
+    "ZTERM": "Terms of Payment",
     "WAERS": "Order currency",
     "BSTAE": "Confirmation Control",
     "INCO1": "Incoterms",
@@ -118,13 +119,13 @@ def classifyInactive(table, row, inactive: list):
 
 def preprocessVendorData(vendorMaster):
     
-    lfa1 = pd.read_excel(vendorMaster, sheet_name='LFA1').rename(columns=map_lfa1)
-    lfb1 = pd.read_excel(vendorMaster, sheet_name='LFB1').rename(columns=map_lfb1)
-    lfm1 = pd.read_excel(vendorMaster, sheet_name='LFM1').rename(columns=map_lfm1)
-    lfbk = pd.read_excel(vendorMaster, sheet_name='LFBK').rename(columns=map_lfbk)
-    adrc = pd.read_excel(vendorMaster, sheet_name='ADRC').rename(columns=map_adrc)
-    j_1imovend = pd.read_excel(vendorMaster, sheet_name='J_1IMOVEND').rename(columns=map_j1imovend)
-    adr6 = pd.read_excel(vendorMaster, sheet_name='ADR6').rename(columns=map_adr6)
+    lfa1 = pd.read_excel(vendorMaster, sheet_name='LFA1', dtype=str).rename(columns=map_lfa1)
+    lfb1 = pd.read_excel(vendorMaster, sheet_name='LFB1', dtype=str).rename(columns=map_lfb1)
+    lfm1 = pd.read_excel(vendorMaster, sheet_name='LFM1', dtype=str).rename(columns=map_lfm1)
+    lfbk = pd.read_excel(vendorMaster, sheet_name='LFBK', dtype=str).rename(columns=map_lfbk)
+    adrc = pd.read_excel(vendorMaster, sheet_name='ADRC', dtype=str).rename(columns=map_adrc)
+    j_1imovend = pd.read_excel(vendorMaster, sheet_name='J_1IMOVEND', dtype=str).rename(columns=map_j1imovend)
+    adr6 = pd.read_excel(vendorMaster, sheet_name='V_ADR6', dtype=str).rename(columns=map_adr6)
     
     # print(adrc)
     # try:
@@ -154,7 +155,9 @@ def preprocessVendorData(vendorMaster):
     lfm1 = pd.merge(lfm1, city, 'left', 'Supplier')
     
     isMSME = lfm1[['Supplier', 'MSME Status']]
+    country = lfa1[['Supplier', 'Country']]
     lfb1 = pd.merge(lfb1, isMSME, 'left', 'Supplier')
+    lfb1 = pd.merge(lfb1, country, 'left', 'Supplier')
     # print(lfb1.columns)
     
     inactiveVendors = []

@@ -9,7 +9,8 @@ vals = {
     'ZANI': ['NORM'],
     'ZCAP': ['NORM'],
     'ZSTR': ['NORM'],
-    'ERSA': ['NORM']
+    'ERSA': ['NORM'],
+    'ABF': ['NORM']
 }
 
 def validateAccountAssignment(value, matType):

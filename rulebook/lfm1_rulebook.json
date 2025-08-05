@@ -127,6 +127,26 @@
             "message": "'MSME Issue Date' should be in a standard format",
             "rule_category": "Standardization"
         },
+        
+        {
+            "column": "Terms of Payment",
+            "rule": "not_null",
+            "message": "'Terms of Payment' should not be null",
+            "rule_category": "Completeness"
+        },
+        {
+            "column": "Terms of Payment",
+            "rule": "alpha-numeric",
+            "message": "'Terms of Payment' should be in a standard format",
+            "rule_category": "Standardization"
+        },
+        {
+            "column": "Terms of Payment",
+            "ref": "MSME Status",
+            "rule": "validation-payment-terms",
+            "message": "'Terms of Payment' should be valid",
+            "rule_category": "Validation"
+        },
         {
             "column": "ABAC Status",
             "rule": "not_null",
@@ -153,21 +173,9 @@
         },
         {
             "column": "GR-Based Inv. Verif.",
-            "rule": "not_null",
-            "message": "'GR-Based Inv. Verif.' should not be null",
-            "rule_category": "Completeness"
-        },
-        {
-            "column": "GR-Based Inv. Verif.",
             "rule": "validation-x",
             "message": "'GR-Based Inv. Verif.' should be in a standard format",
             "rule_category": "Standardization"
-        },
-        {
-            "column": "Service-Based Invoice Verification",
-            "rule": "not_null",
-            "message": "'Service-Based Invoice Verification' should not be null",
-            "rule_category": "Completeness"
         },
         {
             "column": "Service-Based Invoice Verification",

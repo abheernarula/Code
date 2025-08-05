@@ -13,6 +13,20 @@
             "rule_category": "Validation"
         },
         {
+            "column": "Country",
+            "ref": "Company Code",
+            "rule": "validation-country-co",
+            "message": "'Country' should be valid as per company code",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Supplier",
+            "ref": "Company Code",
+            "rule": "validation-supplier-co",
+            "message": "'Supplier' should be valid as per company code",
+            "rule_category": "Validation"
+        },
+        {
             "column": "Terms of Payment",
             "rule": "not_null",
             "message": "'Terms of Payment' should not be null",
@@ -28,7 +42,7 @@
             "column": "Terms of Payment",
             "ref": "MSME Status",
             "rule": "validation-payment-terms",
-            "message": "'Terms of Payment' should be ZSA9 for MSME vendors",
+            "message": "'Terms of Payment' should be valid",
             "rule_category": "Validation"
         },
         {

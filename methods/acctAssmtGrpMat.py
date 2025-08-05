@@ -6,7 +6,8 @@ vals = {
     'ZANI': ['90'],
     'ZCAP': ['90'],
     'ZSTR': ['90'],
-    'ERSA': ['90']
+    'ERSA': ['90'],
+    'ABF': ['90']
 }
 
 def validateAcctAssmtGrpMat(value, matType):

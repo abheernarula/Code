@@ -55,6 +55,7 @@ def standardizeKTGRD(value, country, sapId):
         if len(str(sapId)) == 4: return '30'
         if country == 'IN': return '10'
         else: return '20'
+    else: return value
 
 def standardizeKTOKD(value):
     if pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan':
@@ -76,17 +77,18 @@ def standardizeIncoCust(value, ref):
     
 def standardizeSPART(value, portfolio):
     if pd.isnull(value) or str(value).strip() == '' or value.lower() == 'nan':
-        if portfolio=='Discovery': return '52'
-        elif portfolio == 'Development': return '51'
-        elif portfolio == 'Bioligics': return '55'
-        elif portfolio == 'Clinical Development': return '60'
+        if str(portfolio).__contains__('Discovery'): return '52'
+        elif str(portfolio).__contains__('Development'): return '51'
+        elif str(portfolio).__contains__('Bioligics'): return '55'
+        elif str(portfolio).__contains__('Clinical Development'): return '60'
         else: return '<TBF>'
     else: return value
 
 def standardizeStreet(df, col):
-    pattern = r"[^A-Za-z0-9\s\.,\-/']"
+    df2 = df.copy()
+    pattern = r"[^A-Za-z0-9\s\.\-/',&#]"
     res = (
-        df[col]
+        df2[col]
         .str.replace('&', 'and')
         .str.replace(pattern, '', regex=True)
         .str.replace(r'\s+', ' ', regex=True)
@@ -173,7 +175,7 @@ def standardizeCol(df, rules):
             if action == 'upper':
                 df[col] = df[col].astype(str).str.upper()
             
-            elif action == 'validate-street':
+            elif action == 'validation-street':
                 df[f'{col}_new'] = standardizeStreet(df, col)
             
             elif action == 'validate-city':
@@ -194,7 +196,7 @@ def standardizeCol(df, rules):
                                                      axis=1)
             
             elif action == 'validate-ktgrd-cust':
-                df[f'{col}_std'] = df.progress_apply(lambda row: standardizeAccAsgmtCust(str(row[col]), str(row[refcol]), str(row['SAP_Account_Number__c'])),
+                df[f'{col}_std'] = df.progress_apply(lambda row: standardizeKTGRD(str(row[col]), str(row[refcol]), str(row['SAP_Account_Number__c'])),
                                                      axis=1)
             
             elif action == 'validate-ktokd-cust':

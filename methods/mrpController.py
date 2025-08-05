@@ -9,7 +9,8 @@ vals = {
     'ZANI': ['S00'],
     'ZCAP': ['S00'],
     'ZSTR': ['S00'],
-    'ERSA': ['S00']
+    'ERSA': ['S00'],
+    'ABF': ['S00']
 }
 
 def validateMRPcontroller(value, matType, plant:int=0):

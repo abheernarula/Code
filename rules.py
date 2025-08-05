@@ -420,8 +420,19 @@ def check_rule(df, row, value, rule, refcol):
     elif rtype == 'validation-city':
         return not validateCity(str(value))
     
-    elif rtype == 'validation-control-code':
-        return 
+    elif rtype == 'acc-account-group-vendor':
+        if str(refcol).startswith('1'): return value == 'Z001'
+        if str(refcol).startswith('3'): return value == 'Z002'
+        if str(refcol).startswith('8'): return value == 'Z014'
+        
+    elif rtype == 'validation-country-co':
+        if str(refcol).startswith('53'): return value == 'US'
+        else: return value == 'IN'
+        
+    elif rtype == 'validation-supplier-co':
+        codes = df[df['Supplier']==value]['Company Code'].unique().tolist()
+        if len(codes) > 1 and '5300' in codes: return True
+        else: return False
 
     else:
         raise Exception(f"Rule type {rtype} does not exist")

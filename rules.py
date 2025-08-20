@@ -426,11 +426,24 @@ def check_rule(df, row, value, rule, refcol):
         if str(refcol).startswith('8'): return value == 'Z014'
         
     elif rtype == 'validation-country-co':
-        if str(refcol).startswith('53'): return value == 'US'
-        else: return value == 'IN'
+        if str(refcol)=='5300':
+            if bool(re.match(rule.get('domestic_exp'), row['Supplier'])):
+                return value != 'US'
+            elif bool(re.match(rule.get('import_exp'), row['Supplier'])):
+                return value == 'US'
+        else: 
+            if bool(re.match(rule.get('domestic_exp'), row['Supplier'])):
+                return value != 'IN'
+            elif bool(re.match(rule.get('import_exp'), row['Supplier'])):
+                return value == 'IN'
         
     elif rtype == 'validation-supplier-co':
         codes = df[df['Supplier']==value]['Company Code'].unique().tolist()
+        if len(codes) > 1 and '5300' in codes: return True
+        else: return False
+        
+    elif rtype == 'validation-supplier-co-m1':
+        codes = df[df['Supplier']==value]['Purch. Organization'].unique().tolist()
         if len(codes) > 1 and '5300' in codes: return True
         else: return False
 

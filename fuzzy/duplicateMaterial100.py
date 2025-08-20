@@ -7,7 +7,7 @@ from tqdm import tqdm
 # ----------------------------- CONFIG ---------------------------------
 PO_COL = "Purchase Order Text"
 MD_COL = "Material Description"
-EXPORT_PATH = "zstr_dupes_0508.xlsx"
+EXPORT_PATH = "ersa_dupes_0708.xlsx"
 
 STRICT_EXACT_100 = False   # True => exact-normalized dupes only
 THRESHOLD = 100             # fuzzy threshold when STRICT_EXACT_100 is False
@@ -103,7 +103,7 @@ def find_cat(text: str) -> str | None:
 
 # ----------------------------- MAIN -----------------------------------
 if __name__ == "__main__":
-    df = pd.read_excel('../../Material/july31/materialMaster.xlsx', sheet_name='POTEXT')
+    df = pd.read_excel('../../Material/july31/ersa.xlsx', sheet_name='POTEXT')
 
     # 1) merged_desc
     df["merged_desc"] = build_merged_desc(df)

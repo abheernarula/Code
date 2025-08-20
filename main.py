@@ -78,7 +78,7 @@ for sheet in sheets:
 
     if sheet == 'lfb1':
         # columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date',
-        columns = ['Supplier',
+        columns = ['Supplier', 'Country',
                    'Company Code', 'Terms of Payment', 'Reconciliation acct', 'Posting block for company code',
                    'Deletion Flag for Company Code', 'Planning group', 'Tolerance group', 'Payment methods', 
                    'Created on', 'Created by', 'MSME Status']
@@ -86,7 +86,7 @@ for sheet in sheets:
         
     if sheet == 'lfm1':
         # columns = ['Supplier', 'Last PO Date', 'Last BFN Date', 'Invoice Open?', 'Last Invoice Posting Date', 'City',
-        columns = ['Supplier', 'City',
+        columns = ['Supplier', 'City', 'Country',
                    'Purch. block for purchasing organization', 'Purch. Organization', 'Purchasing Group', 
                    'Order currency', 'Confirmation Control', 'Incoterms', 'Incoterms (Part 2)', 'MSME Status', 
                    'MSME Number', 'MSME Issue Date', 'ABAC Status', 'ABAC Reason', 'GR-Based Inv. Verif.', 

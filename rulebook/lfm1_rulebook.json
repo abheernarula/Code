@@ -127,7 +127,22 @@
             "message": "'MSME Issue Date' should be in a standard format",
             "rule_category": "Standardization"
         },
-        
+        {
+            "column": "Country",
+            "ref": "Purch. Organization",
+            "domestic_exp": "^1[0-9]{6}$",
+            "import_exp": "^3[0-9]{6}$",
+            "rule": "validation-country-co",
+            "message": "'Country' should be valid as per Purch. Organization",
+            "rule_category": "Validation"
+        },
+        {
+            "column": "Supplier",
+            "ref": "Purch. Organization",
+            "rule": "validation-supplier-co-m1",
+            "message": "'Supplier' should be valid as per Purch. Organization",
+            "rule_category": "Validation"
+        },
         {
             "column": "Terms of Payment",
             "rule": "not_null",

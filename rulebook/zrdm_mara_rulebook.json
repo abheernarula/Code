@@ -72,6 +72,7 @@
         {
             "column": "Gen. item cat. grp",
             "rule": "validation-account-assignment",
+            "matType":"ZRDM",
             "message": "'Gen. item cat. grp' should be valid",
             "rule_category": "Advanced"
         },
@@ -127,12 +128,14 @@
         {
             "column": "Purchasing value key",
             "rule": "validation-purch-val-key-mat",
+            "matType":"ZRDM",
             "message": "'Purchasing value key' should be valid",
             "rule_category": "Advanced"
         },
         {
             "column": "Mfr Part Profile",
             "rule": "validation-mfr-part-profile",
+            "matType":"ZRDM",
             "message": "'Manufacturer part profile' should be valid",
             "rule_category": "Advanced"
         }

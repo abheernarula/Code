@@ -125,19 +125,19 @@ def preprocessMaterialData(vendorMaster):
     mbew['Inactive'] = mbew.progress_apply(lambda row: classifyInactive(mbew, row, inactiveVendors), axis=1)
     mlan['Inactive'] = mlan.progress_apply(lambda row: classifyInactive(mlan, row, inactiveVendors), axis=1)
     mvke['Inactive'] = mvke.progress_apply(lambda row: classifyInactive(mvke, row, inactiveVendors), axis=1)
-    potext['Inactive'] = potext.progress_apply(lambda row: classifyInactive(potext, row, inactiveVendors), axis=1)
+    # potext['Inactive'] = potext.progress_apply(lambda row: classifyInactive(potext, row, inactiveVendors), axis=1)
     
     mara_active = mara[mara['Inactive']==False]
     marc_active = marc[marc['Inactive']==False]
     mbew_active = mbew[mbew['Inactive']==False]
     mlan_active = mlan[mlan['Inactive']==False]
     mvke_active = mvke[mvke['Inactive']==False]
-    potext_active = potext[potext['Inactive']==False]
+    # potext_active = potext[potext['Inactive']==False]
     
     output_dir = "/".join(vendorMaster.split('/')[:-1])
     output_path = os.path.join(output_dir, 'materialMaster.xlsx')
-    tables = [mara_active, marc_active, mbew_active, mlan_active, mvke_active, potext_active]
-    sheets = ['MARA', 'MARC', 'MBEW', 'MLAN', 'MVKE', 'POTEXT']
+    tables = [mara_active, marc_active, mbew_active, mlan_active, mvke_active]#, potext_active]
+    sheets = ['MARA', 'MARC', 'MBEW', 'MLAN', 'MVKE']#, 'POTEXT']
     
     with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
         for idx, table in enumerate(tables):

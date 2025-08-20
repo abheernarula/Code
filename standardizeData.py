@@ -89,7 +89,7 @@ def standardizeStreet(df, col):
     pattern = r"[^A-Za-z0-9\s\.\-/',&#]"
     res = (
         df2[col]
-        .str.replace('&', 'and')
+        # .str.replace('&', 'and')
         .str.replace(pattern, '', regex=True)
         .str.replace(r'\s+', ' ', regex=True)
         .str.replace(r'^[^A-Za-z0-9]+|[^A-Za-z0-9]+$', '', regex=True)
@@ -97,8 +97,8 @@ def standardizeStreet(df, col):
     )
     return res
 
-def standardizeCity(val, threshold=80):
-    val = val.strip().title()
+def standardizeCity(val: str, threshold=80):
+    val = str(val).strip().title()
     if val in all_cities or val in all_cities2:
         return val.upper()
     return ''
@@ -203,7 +203,7 @@ def standardizeCol(df, rules):
                 df[f'{col}_std'] = df.progress_apply(lambda row: standardizeKTOKD(str(row[col])),
                                                      axis=1)
             
-            elif action == 'validate-ktokd-cust':
+            elif action == 'validate-spart-cust':
                 df[f'{col}_std'] = df.progress_apply(lambda row: standardizeSPART(str(row[col]), str(row[refcol])),
                                                      axis=1)
 
@@ -256,7 +256,9 @@ if args.isVendor:
 
 for sheet in sheets:
     print(f'WORKING ON SHEET: {sheet}')
-    df = pd.read_excel(args.data, sheet_name=sheet, dtype=str, keep_default_na=False)
+    df = pd.read_excel(args.data, sheet_name=sheet, keep_default_na=False)
+    # df = df.replace('_x000D_', '', regex=True)
+    df = df.applymap(lambda x: re.sub(r'_x[0-9A-Fa-f]{4}_', '', x) if isinstance(x, str) else x)
     if args.isVendor:
         df = pd.merge(df, countryCode, 'left', left_on='Account Number of Supplier', right_on='Supplier')
         df = pd.merge(df, companyCode, 'left', left_on='Account Number of Supplier', right_on='Supplier')

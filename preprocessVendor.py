@@ -151,7 +151,7 @@ def preprocessVendorData(vendorMaster):
     # except:
     #     pass 
     
-    city = lfa1[['Supplier', 'City']]
+    city = lfa1[['Supplier', 'City', 'Country']]
     lfm1 = pd.merge(lfm1, city, 'left', 'Supplier')
     
     isMSME = lfm1[['Supplier', 'MSME Status']]

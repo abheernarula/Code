@@ -170,9 +170,10 @@ def preprocessVendorData(vendorMaster):
                                                 'Purch. block for purchasing organization', 
                                                 'Delete flag for purchasing organization'), axis=1)
     
-    lfa1.progress_apply(lambda row: checkInactive(lfm1, row, inactiveVendors, visited,
+    lfa1.progress_apply(lambda row: checkInactive(lfa1, row, inactiveVendors, visited,
                                                 'Block function', 'Payment block', 'Central del.block',
                                                 'Central posting block', 'Central purchasing block'), axis=1)
+    
     lfa1['Inactive'] = lfa1.progress_apply(lambda row: classifyInactive(lfa1, row, inactiveVendors), axis=1)
     lfb1['Inactive'] = lfb1.progress_apply(lambda row: classifyInactive(lfb1, row, inactiveVendors), axis=1)
     lfm1['Inactive'] = lfm1.progress_apply(lambda row: classifyInactive(lfm1, row, inactiveVendors), axis=1)

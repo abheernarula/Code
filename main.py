@@ -43,7 +43,7 @@ print('\n[READING INPUT FILES]...')
 # print(flagPreprocess)
 
 if args.isVendor:
-    # args.data = preprocessVendorData(args.data)
+    args.data = preprocessVendorData(args.data)
     sheets = ['lfa1', 'lfb1', 'lfm1', 'lfbk', 'adrc', 'v_adr6', 'j_1imovend']
 elif args.isCustomer:
     # args.data = preprocessCustomerData(args.data)

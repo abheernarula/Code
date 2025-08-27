@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
-from main_merge import run_pipeline
+from DMO import run_pipeline
 
 def browse_folder(entry):
     folder_selected = filedialog.askdirectory()

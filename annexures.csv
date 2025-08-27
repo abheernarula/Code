@@ -1,0 +1,21 @@
+,SNo,Particulars,TotalRecords,Domain,System,TableName,MaterialType,Dimension,TotalRows,CreateDate
+0,1,'Account Group' should be accurate as per vendor series,3022,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+1,2,'City' should be capitalized,1369,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+2,3,'City' should be valid,1559,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+3,4,'City' should not be null,94,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+4,5,'Country' should be valid as per Account group,39,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+5,6,'Name 1' should be in a standard format,448,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+6,7,'Name 1' should be unique,173,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+7,8,'Name 2' should be in a standard format,129,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+8,9,'Name 3' should be in a standard format,1,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+9,10,'Tax Number 3' should be unique,184,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+10,11,'Tax Number 3' should not be null,9,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+11,12,'Telephone 1' should be in a standard format,2540,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+12,13,'Telephone 1' should be unique,75,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+13,14,'Telephone 1' should not be null,403,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+14,15,'Telephone 2' should be in a standard format,1719,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+15,16,'Telephone 2' should be unique,73,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+16,17,'Telephone 2' should not be null,1229,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+17,18,'Title' should be alphabetic,2,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+18,19,'Title' should be valid,2027,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252
+19,20,'Title' should not be null,993,Vendor,SAP,LFA1,,Data Quality,3022,2025-08-20 15:44:42.990252

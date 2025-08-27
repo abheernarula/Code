@@ -1,0 +1,6 @@
+{
+'account_name': 'syngenesynapsesa',
+'account_key': 'diS7SgFW0Xh6h7DE836hfdpn9DgKlTocJ9sje6sIXTIEVb6jYlu5qBM3giVnzzS6pVixd1wuJPmp+AStZfuhkg==',
+'container_name': 'prod-centralindia',  # Container for bulk loading
+'connection_string': 'DefaultEndpointsProtocol=https;AccountName=syngenesynapsesa;AccountKey=diS7SgFW0Xh6h7DE836hfdpn9DgKlTocJ9sje6sIXTIEVb6jYlu5qBM3giVnzzS6pVixd1wuJPmp+AStZfuhkg==;EndpointSuffix=core.windows.net'
+}
